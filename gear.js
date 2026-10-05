@@ -1,6 +1,7 @@
 // Manual / automatic chooser inside the "Auto (B)" panel (homepage).
+// Choose with the two buttons, or by clicking the H gate (Schakel) or the P-R-N-D lever (Automaat).
 // Schakel: the knob moves from neutral into 1st gear. Automaat: the lever slides from P to D.
-// With prefers-reduced-motion the end position is shown straight away.
+// The one that was not chosen eases back to rest. With prefers-reduced-motion everything jumps to its end position.
 (function () {
   var gear = document.getElementById('gear');
   if (!gear) return;
@@ -15,51 +16,47 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var t = function (s) { return window.I18N ? window.I18N.t(s) : s; };
 
-  var KNOB_NEUTRAL = [535, 247], KNOB_FIRST = [495, 227];
-  var LEVER_P = [535, 228], LEVER_D = [535, 294];
-  var DURATION = 600;
+  var KNOB_NEUTRAL = [262, 184], KNOB_FIRST = [232, 164];
+  var LEVER_P = [355, 156], LEVER_D = [355, 220];
+  var DURATION = 600, BACK = 280;
 
-  var choice = null, gate = 'manual', running = [], timer = 0;
+  var choice = null, running = [];
+  var at = { knob: KNOB_NEUTRAL, lever: LEVER_P };
 
-  function pos(el, p) { el.style.transform = 'translate(' + p[0] + 'px,' + p[1] + 'px)'; }
   function tr(p) { return 'translate(' + p[0] + 'px,' + p[1] + 'px)'; }
+  function pos(el, p) { el.style.transform = tr(p); }
   function mark(id, on) { document.getElementById(id).classList.toggle('is-on', on); }
 
+  // move el from its current spot to `to`; `via` makes the knob follow the gate (sideways, then up/down)
+  function glide(name, el, to, ms, via, done) {
+    var from = at[name];
+    at[name] = to;
+    if (reduce || !el.animate) { pos(el, to); if (done) done(); return; }
+    var frames = [{ transform: tr(from) }];
+    if (via) frames.push({ transform: tr(via), offset: 0.5 });
+    frames.push({ transform: tr(to) });
+    var a = el.animate(frames, { duration: ms, easing: 'ease-in-out', fill: 'forwards' });
+    running.push(a);
+    a.onfinish = function () { pos(el, to); a.cancel(); if (done) done(); };
+  }
+
   function stopAll() {
-    clearTimeout(timer);
     running.forEach(function (a) { a.cancel(); });
     running = [];
+    pos(knob, at.knob);
+    pos(lever, at.lever);
   }
 
-  // knob: neutral -> sideways along the gate -> forward into 1st; lever: straight slide P -> D
-  function move(el, frames, finalPos, done) {
-    if (reduce || !el.animate) { pos(el, finalPos); done(); return; }
-    var a = el.animate(frames, { duration: DURATION, easing: 'ease-in-out', fill: 'forwards' });
-    running.push(a);
-    a.onfinish = function () { pos(el, finalPos); a.cancel(); done(); };
-  }
-
-  function play(kind, delay) {
+  function play(kind) {
     stopAll();
     ['gs-l-1', 'gs-l-p', 'gs-l-d'].forEach(function (id) { mark(id, false); });
     if (kind === 'schakel') {
-      pos(knob, KNOB_NEUTRAL);
-      timer = setTimeout(function () {
-        move(knob, [
-          { transform: tr(KNOB_NEUTRAL) },
-          { transform: tr([KNOB_FIRST[0], KNOB_NEUTRAL[1]]), offset: 0.45 },
-          { transform: tr(KNOB_FIRST) }
-        ], KNOB_FIRST, function () { mark('gs-l-1', true); });
-      }, delay);
+      glide('lever', lever, LEVER_P, BACK, null, function () { mark('gs-l-p', true); });
+      glide('knob', knob, KNOB_FIRST, DURATION, [KNOB_FIRST[0], KNOB_NEUTRAL[1]], function () { mark('gs-l-1', true); });
     } else {
-      pos(lever, LEVER_P);
+      glide('knob', knob, KNOB_NEUTRAL, BACK, [KNOB_FIRST[0], KNOB_NEUTRAL[1]], null);
       mark('gs-l-p', true);
-      timer = setTimeout(function () {
-        move(lever, [{ transform: tr(LEVER_P) }, { transform: tr(LEVER_D) }], LEVER_D, function () {
-          mark('gs-l-p', false);
-          mark('gs-l-d', true);
-        });
-      }, delay);
+      glide('lever', lever, LEVER_D, DURATION, null, function () { mark('gs-l-p', false); mark('gs-l-d', true); });
     }
   }
 
@@ -69,11 +66,8 @@
   }
 
   function choose(kind) {
-    var newGate = kind === 'schakel' ? 'manual' : 'auto';
-    var changed = newGate !== gate;
     choice = kind;
-    gate = newGate;
-    scene.setAttribute('data-gate', gate);
+    scene.setAttribute('data-choice', kind);
     Array.prototype.forEach.call(buttons, function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-gear') === kind ? 'true' : 'false');
     });
@@ -82,11 +76,16 @@
     source.hidden = false;
     cta.setAttribute('href', 'contact.html?dienst=' + encodeURIComponent('Auto (B), ' + kind));
     label();
-    play(kind, changed && !reduce ? 180 : 0);
+    play(kind);
   }
 
   Array.prototype.forEach.call(buttons, function (b) {
     b.addEventListener('click', function () { choose(b.getAttribute('data-gear')); });
+  });
+  // the drawing is clickable too (the buttons stay the keyboard route, so the drawing is not focusable)
+  scene.addEventListener('click', function (e) {
+    var g = e.target.closest ? e.target.closest('[data-gear]') : null;
+    if (g) choose(g.getAttribute('data-gear'));
   });
   document.addEventListener('langchange', label);
 
@@ -94,10 +93,4 @@
   pos(knob, KNOB_NEUTRAL);
   pos(lever, LEVER_P);
   mark('gs-l-p', true);
-
-  // on phones show the part of the scene that matters (wheel edge + console) bigger
-  var small = window.matchMedia('(max-width: 720px)');
-  function fit() { scene.setAttribute('viewBox', small.matches ? '180 0 530 320' : '0 0 720 320'); }
-  if (small.addEventListener) small.addEventListener('change', fit);
-  fit();
 })();
