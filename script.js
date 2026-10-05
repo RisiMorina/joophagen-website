@@ -29,6 +29,28 @@ document.addEventListener('DOMContentLoaded', function () {
     revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  // Fleet photo: the image drifts slowly against the scroll direction
+  // while its section passes through the viewport (light parallax).
+  var fleetImg = document.querySelector('.fleet-frame img');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (fleetImg && !reduceMotion) {
+    var fleetTicking = false;
+    var moveFleet = function () {
+      var rect = fleetImg.parentNode.getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < vh) {
+        // -1 when the photo enters at the bottom, 1 when it leaves at the top
+        var progress = 1 - (rect.top + rect.height) / (vh + rect.height) * 2;
+        fleetImg.style.transform = 'translate3d(0,' + (progress * 5).toFixed(2) + '%,0)';
+      }
+      fleetTicking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!fleetTicking) { fleetTicking = true; requestAnimationFrame(moveFleet); }
+    }, { passive: true });
+    moveFleet();
+  }
+
   // Diensten page: clicking a service card opens a popup with the full
   // description and pricing (where known) for that service, plus a
   // "plan intake" link. Arriving via an anchor (e.g. from the homepage
