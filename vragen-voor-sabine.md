@@ -19,6 +19,12 @@ Open punten voor de website van Verkeersschool Joop Hagen. Alles wat hier staat,
 **Vrachtwagen (C/CE): praktijkexamen**
 - Vanaf welke leeftijd mag je het praktijkexamen doen? De CBR-pagina hierover was niet bereikbaar (zie "Bronnen" hieronder), dus dit staat bewust niet op de site.
 
+## 1b. Schakel of automaat (rijbewijs B)
+
+- Een autorijles van 60 minuten kost op diensten.html € 67,50, voor schakel én automaat. Klopt dat nog?
+- Bieden jullie alle lessen en pakketten op schakel én automaat aan? De pakketprijzen op diensten.html maken geen onderscheid.
+- Welke auto's hebben jullie als automaat en als schakel? (We noemen die nu niet.)
+
 ## 2. Teksten die klinken als een belofte
 
 We hebben deze zinnen overgenomen van de oude site. Kloppen ze, en kunnen jullie het onderbouwen?
@@ -74,5 +80,6 @@ Op de homepage en diensten.html staat bij rijbewijs B dat je "zodra je 18 bent e
 | Vrachtwagen C/CE | Theorie-examen vanaf 17 jaar. Rijbewijs aanvragen vanaf 18 jaar met code 95 en vanaf 21 jaar zonder code 95 | https://www.cbr.nl/nl/veelgestelde-vragen/vanaf-welke-leeftijd-mag-ik-mijn-theorie-examen-doen-voor-een-groot-rijbewijs |
 | Bus D | Aanvragen vanaf 18 jaar met code 95 en vanaf 24 jaar zonder code 95 | https://www.cbr.nl/nl/rijbewijs-halen/bus/busrijbewijs-halen/leeftijdsverlaging-d-de-rijbewijs |
 | Taxipas | Theorie-examen vanaf 17 jaar, praktijkexamen vanaf 18 jaar, rijbewijs B nodig | https://www.cbr.nl/nl/veelgestelde-vragen/wat-moet-ik-doen-om-taxichauffeur-te-worden |
+| Auto B: schakel of automaat | Met code 78 mag je alleen automaat rijden. Je krijgt die code als je het praktijkexamen in een automaat doet. Overstappen kan met een nieuw praktijkexamen in een schakelauto, zonder nieuw theorie-examen. Een B-rijbewijs zonder automaatbeperking haal je met een praktijkexamen in een auto met koppelingspedaal | https://www.cbr.nl/nl/veelgestelde-vragen/wat-betekent-code-78 en https://www.cbr.nl/nl/voor-rijscholen/8.3-categorie-b |
 
 Niet gecontroleerd, omdat de CBR-pagina niet te openen was (404): de leeftijd voor het praktijkexamen C/CE en voor het D-examen, en de leeftijd waarop je met rijlessen mag beginnen voor motor, vrachtwagen en bus.

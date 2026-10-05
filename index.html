@@ -266,9 +266,78 @@
         </dl>
       </div>
       <div role="tabpanel" class="lic-panel" id="panel-b" aria-labelledby="tab-b" tabindex="0">
+        <div class="gear" id="gear">
+          <h4 class="gear-title" id="gear-title">Schakel of automaat?</h4>
+          <svg class="gear-scene" id="gear-scene" viewBox="0 0 720 320" data-gate="manual" aria-hidden="true" focusable="false">
+            <path class="gs-stroke gs-dim" d="M0 190Q360 140 720 190V330H0Z"/>
+            <path class="gs-stroke gs-white" d="M70 18Q360 -10 650 18L678 170Q360 150 42 170Z"/>
+            <g clip-path="url(#gs-wind)">
+              <path class="gs-stroke" d="M0 96H720"/>
+              <path class="gs-stroke" d="M360 96L190 190M360 96L530 190"/>
+              <path class="gs-stroke gs-orange" d="M360 104V110M360 120V132M360 144V160" style="stroke-width:4"/>
+              <path class="gs-stroke" d="M150 96V74M588 96V70M142 74H158M580 70H596" style="stroke-width:2.5"/>
+            </g>
+            <path class="gs-stroke" d="M42 170L10 262M678 170L710 262"/>
+            <rect class="gs-stroke gs-white" x="330" y="24" width="60" height="18" rx="6"/>
+            <path class="gs-stroke" d="M360 16V24"/>
+            <rect class="gs-stroke gs-white" x="176" y="170" width="168" height="50" rx="16"/>
+            <circle class="gs-stroke gs-white" cx="216" cy="196" r="18"/>
+            <circle class="gs-stroke gs-white" cx="304" cy="196" r="18"/>
+            <path class="gs-stroke gs-orange" d="M216 196L227 187M304 196L294 186"/>
+            <circle class="gs-stroke gs-white" cx="260" cy="345" r="113" style="stroke-width:14"/>
+            <path class="gs-stroke gs-orange" d="M247 231H273" style="stroke-width:9"/>
+            <path class="gs-stroke" d="M224 338L152 324M296 338L368 324" style="stroke-width:6"/>
+            <circle class="gs-stroke gs-white" cx="260" cy="345" r="40"/>
+            <rect class="gs-stroke gs-white" x="440" y="184" width="200" height="140" rx="18"/>
+            <g class="gs-gate gs-gate--manual">
+              <path class="gs-stroke" d="M495 218V276M535 218V276M575 218V276M495 247H575"/>
+              <text class="gs-label" id="gs-l-1" x="495" y="200">1</text>
+              <text class="gs-label" x="535" y="200">3</text>
+              <text class="gs-label" x="575" y="200">5</text>
+              <text class="gs-label" x="495" y="310">2</text>
+              <text class="gs-label" x="535" y="310">4</text>
+              <text class="gs-label" x="575" y="310">R</text>
+              <g class="gs-knob" id="gs-knob"><circle r="15" class="gs-stroke gs-white gs-orange"/><circle r="5" class="gs-dot"/></g>
+            </g>
+            <g class="gs-gate gs-gate--auto">
+              <rect class="gs-stroke" x="525" y="212" width="20" height="98" rx="10"/>
+              <text class="gs-label gs-label--r is-on" id="gs-l-p" x="562" y="234">P</text>
+              <text class="gs-label gs-label--r" x="562" y="256">R</text>
+              <text class="gs-label gs-label--r" x="562" y="278">N</text>
+              <text class="gs-label gs-label--r" id="gs-l-d" x="562" y="300">D</text>
+              <g class="gs-lever" id="gs-lever"><rect x="-14" y="-10" width="28" height="20" rx="7" class="gs-stroke gs-white gs-orange"/><path d="M-6 0H6" class="gs-stroke gs-orange"/></g>
+            </g>
+            <defs><clipPath id="gs-wind"><path d="M70 18Q360 -10 650 18L678 170Q360 150 42 170Z"/></clipPath></defs>
+          </svg>
+          <div class="gear-choices" role="group" aria-labelledby="gear-title">
+            <button type="button" class="gear-choice" data-gear="schakel" aria-pressed="false">
+              <span class="gear-choice-name">Schakel</span>
+              <span class="gear-choice-sub">1 · 2 · 3 · 4 · 5 · R</span>
+            </button>
+            <button type="button" class="gear-choice" data-gear="automaat" aria-pressed="false">
+              <span class="gear-choice-name">Automaat</span>
+              <span class="gear-choice-sub">P · R · N · D</span>
+            </button>
+          </div>
+          <div class="gear-notes" aria-live="polite">
+            <p class="gear-hint" id="gear-hint">Kies schakel of automaat. Dan zie je wat het betekent.</p>
+            <ul class="gear-points" data-for="schakel" hidden>
+              <li>Je leert schakelen met een koppelingspedaal en een versnellingspook.</li>
+              <li>Je doet het praktijkexamen in een schakelauto. Je rijbewijs heeft geen automaatbeperking.</li>
+              <li>Een autorijles van 60 minuten kost € 67,50 (prijspeil 1 juli 2026).</li>
+            </ul>
+            <ul class="gear-points" data-for="automaat" hidden>
+              <li>Je leert en doet je praktijkexamen in een auto met automatische schakeling.</li>
+              <li>Op je rijbewijs komt code 78. Je mag dan alleen automaat rijden.</li>
+              <li>Later overstappen op schakel? Dan doe je opnieuw praktijkexamen in een schakelauto. Het theorie-examen hoef je niet opnieuw te doen.</li>
+              <li>Een automaatrijles van 60 minuten kost € 67,50 (prijspeil 1 juli 2026).</li>
+            </ul>
+            <a class="gear-source" href="https://www.cbr.nl/nl/veelgestelde-vragen/wat-betekent-code-78" target="_blank" rel="noopener" hidden>Meer op cbr.nl</a>
+          </div>
+        </div>
         <div class="lic-intro">
           <h3>Rijbewijs B</h3>
-          <a class="btn btn-primary" href="contact.html?dienst=Auto%20%28B%29">Plan een intake voor rijbewijs B</a>
+          <a class="btn btn-primary" id="btn-b" href="contact.html?dienst=Auto%20%28B%29">Plan een intake voor rijbewijs B</a>
         <a class="lic-more" href="diensten.html#auto">Prijzen en details</a>
         </div>
         <dl class="lic-spec">
@@ -517,6 +586,7 @@
 <script src="drive.js"></script>
 <script src="intro.js"></script>
 <script src="chooser.js"></script>
+<script src="gear.js"></script>
 <script src="reviews.js"></script>
 </body>
 </html>
