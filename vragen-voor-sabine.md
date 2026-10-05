@@ -49,6 +49,11 @@ We hebben deze zinnen overgenomen van de oude site. Kloppen ze, en kunnen jullie
 - Mogen de foto's van de lesauto's en vrachtwagens op de site? Mogen er mensen op de foto's staan?
 - Is er een privacyverklaring? We hebben er een nodig, omdat het formulier gegevens verzamelt.
 
+## 4b. Stap-voor-stap formulier
+
+- Het contactformulier vraagt nu eerst wat iemand wil leren rijden, dan (bij auto, motor en vrachtwagen) schakel/automaat of de categorie, en of iemand al eerder les heeft gehad. De antwoorden komen in de mail. Zijn dit de goede vragen, of mist er iets?
+- Er staat nu ook een keuze "Bus (D)" in het formulier. Bieden jullie dat aan? Zo niet, dan halen we die weg.
+
 ## 5. Talen en social media
 
 **Talen**

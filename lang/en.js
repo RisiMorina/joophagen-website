@@ -351,5 +351,25 @@ window.I18N_LANGS.en = {
   "Je vraagt een intake aan voor:": "You are asking for an intake for:",
   "Er ging iets mis bij het verzenden. Probeer het opnieuw of bel ons direct.": "Something went wrong while sending. Please try again or call us directly.",
   "Het formulier is nog niet gekoppeld aan een e-mailadres (zie instructies in dit bestand).": "The form is not linked to an email address yet (see the instructions in this file).",
-  "Het formulier is nog niet gekoppeld aan een verzendservice (zie instructies in contact.html).": "The form is not linked to a sending service yet (see the instructions in contact.html)."
+  "Het formulier is nog niet gekoppeld aan een verzendservice (zie instructies in contact.html).": "The form is not linked to a sending service yet (see the instructions in contact.html).",
+
+  /* step-by-step contact form */
+  "Wat wil je leren rijden?": "What do you want to learn to drive?",
+  "Welk motorrijbewijs?": "Which motorcycle licence?",
+  "Welk vrachtwagenrijbewijs?": "Which truck licence?",
+  "Lichte motor": "Light motorcycle",
+  "Middelzware motor": "Medium-weight motorcycle",
+  "Zware motor": "Heavy motorcycle",
+  "Weet ik nog niet": "Not sure yet",
+  "Heb je al eerder les gehad?": "Have you had lessons before?",
+  "Nee": "No",
+  "Ja, een paar lessen": "Yes, a few lessons",
+  "Ja, ik heb al examen gedaan": "Yes, I have already taken the exam",
+  "Waar kunnen we je bereiken?": "How can we reach you?",
+  "Terug": "Back",
+  "Stap": "Step",
+  "Rijbewijs": "Licence",
+  "nog geen les": "no lessons yet",
+  "een paar lessen gehad": "a few lessons so far",
+  "al examen gedaan": "already took the exam"
 };

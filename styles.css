@@ -1402,3 +1402,106 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
 @media (prefers-reduced-motion: reduce) {
   .gear-choice, .gs-plate, .gs-gatelines, .gs-label { transition: none; }
 }
+
+/* ---------- Step-by-step contact form (contact.html, needs JavaScript; the plain form works without) ---------- */
+.wiz[hidden], .wiz-step[hidden], .wiz-variant[hidden], .wiz-nav[hidden], .wiz-final[hidden], .wiz-h[hidden], .wiz-summary[hidden] { display: none; }
+
+/* the global "section" padding must not apply to the steps */
+.wiz-step { padding: 0; }
+
+.wiz-progress { margin-bottom: 26px; }
+.wiz-count { margin: 0 0 8px; font-size: 0.86rem; font-weight: 600; color: var(--text-soft); }
+.wiz-bar { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.wiz-bar span { display: block; height: 100%; width: 25%; background: var(--route); transition: width 0.3s ease; }
+
+.wiz-h { font-size: clamp(1.3rem, 2.2vw, 1.6rem); margin: 0 0 18px; outline: none; }
+
+.wiz-vehicles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.wiz-choice {
+  appearance: none;
+  font: inherit;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.wiz-choice:hover { border-color: var(--route); }
+.wiz-choice:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; }
+.wiz-choice[aria-pressed="true"] { border-color: var(--route); background: rgba(232,118,15,0.06); }
+.wiz-vehicle { padding: 14px 6px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.wiz-vehicle svg { width: min(100%, 104px); height: auto; color: var(--route); }
+.wiz-name { display: block; font-family: var(--font-display); font-weight: 700; font-size: 0.98rem; line-height: 1.2; color: var(--ink); }
+.wiz-code { display: block; font-size: 0.8rem; color: var(--text-soft); }
+.wiz-code:empty { display: none; }
+
+.wiz-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.wiz-options--stack { grid-template-columns: minmax(0, 1fr); }
+.wiz-option { padding: 16px 16px 14px; text-align: left; }
+.wiz-option .wiz-name { font-size: 1.1rem; }
+
+.wiz-skip {
+  appearance: none;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  padding: 4px 0;
+  margin-top: 16px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--line);
+}
+.wiz-skip:hover { color: var(--route); border-color: var(--route); }
+.wiz-skip:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; }
+
+/* zoom from the side view of the car into the driver's seat */
+.wiz-stage { position: relative; width: 100%; max-width: 420px; aspect-ratio: 420 / 250; margin-bottom: 14px; overflow: hidden; }
+.wiz-layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+.wiz-side { color: var(--route); transform-origin: 46% 42%; }
+.wiz-side g { stroke-width: 1; }
+.wiz-seat { transform-origin: 50% 50%; }
+.wiz-seat .gear-scene { height: 100%; max-width: none; }
+.wiz-variant .gear-choices { max-width: 420px; }
+
+.wiz-summary {
+  margin: 0 0 20px;
+  padding: 10px 14px;
+  background: rgba(232,118,15,0.07);
+  border-left: 3px solid var(--route);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: none;
+}
+.wiz-on .form-row-cat { display: none; }
+
+.wiz-nav { margin-top: 20px; }
+.wiz-back {
+  appearance: none;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 6px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.wiz-back::before { content: ''; width: 8px; height: 8px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); }
+.wiz-back:hover { color: var(--route); }
+.wiz-back:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; border-radius: 4px; }
+
+@media (max-width: 720px) {
+  .wiz-vehicles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wiz-options { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wiz-bar span, .wiz-choice { transition: none; }
+}
