@@ -986,3 +986,73 @@ section { padding: 88px 0; }
   .service-tile { border-right: none !important; }
   .service-tile:last-child { border-bottom: none; }
 }
+
+/* ---------- Scroll road (homepage) ----------
+   The one memorable moment: a lesauto drives down the page as you scroll.
+   Wide screens: a winding road in the left margin, ending at "Rijbewijs!"
+   just above the call-to-action. Narrower screens: the car drives along
+   the bottom edge of the header instead. Built in script.js. */
+.road-wrap { position: relative; }
+.road {
+  display: none;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: visible;
+}
+.road-asphalt { fill: none; stroke: rgba(86,97,108,0.16); stroke-width: 18; stroke-linecap: round; }
+.road-lane { fill: none; stroke: rgba(86,97,108,0.45); stroke-width: 1.5; stroke-dasharray: 10 12; }
+.road-trail { fill: none; stroke: var(--route); stroke-width: 3; stroke-linecap: round; }
+.road-car { filter: drop-shadow(0 4px 6px rgba(8,27,48,0.25)); }
+.road-finish circle { fill: var(--white); stroke: var(--ink); stroke-width: 2.5; transition: fill 0.4s ease; }
+.road-finish path { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.road-finish text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  fill: var(--ink);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.road-finish g { transform: scale(0.8); transition: transform 0.5s cubic-bezier(.3,1.6,.5,1); transform-box: fill-box; transform-origin: center; }
+.road-finish.reached circle { fill: var(--lane); }
+.road-finish.reached g { transform: scale(1.15); }
+.road-finish.reached text { opacity: 1; }
+
+.road-strip {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 0;
+  pointer-events: none;
+}
+.road-strip-trail {
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--route);
+}
+.road-strip-car {
+  position: absolute;
+  left: 0; bottom: 1px;
+  width: 33px; height: 22px;
+  color: var(--route-light);
+  will-change: transform;
+}
+.road-strip-finish {
+  position: absolute;
+  right: 10px; bottom: -4px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--lane);
+  box-shadow: 0 0 0 2px var(--ink-black);
+}
+
+@media (min-width: 1360px) {
+  .road { display: block; }
+  .road-strip { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .road, .road-strip { display: none !important; }
+}

@@ -51,6 +51,123 @@ document.addEventListener('DOMContentLoaded', function () {
     moveFleet();
   }
 
+  // Scroll road (homepage): a lesauto with an L plate drives down the page.
+  var roadWrap = document.querySelector('.road-wrap');
+  var roadStrip = document.querySelector('.road-strip');
+  var roadReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (roadWrap && !roadReduce) {
+    var SVGNS = 'http://www.w3.org/2000/svg';
+    var road = roadWrap.querySelector('.road');
+    var roadPath, roadTrail, roadCar, roadFinish, roadLen = 0;
+    var stripTrail = roadStrip && roadStrip.querySelector('.road-strip-trail');
+    var stripCar = roadStrip && roadStrip.querySelector('.road-strip-car');
+
+    var el = function (name, attrs) {
+      var node = document.createElementNS(SVGNS, name);
+      for (var k in attrs) node.setAttribute(k, attrs[k]);
+      return node;
+    };
+
+    var buildRoad = function () {
+      roadLen = 0;
+      while (road.firstChild) road.removeChild(road.firstChild);
+      if (getComputedStyle(road).display === 'none') return;
+      var w = roadWrap.offsetWidth;
+      var h = roadWrap.offsetHeight;
+      var gutter = (w - 1160) / 2;
+      var x = gutter / 2;
+      var amp = Math.min(34, gutter / 4);
+      var end = h - 70;
+      var step = 560;
+      var n = Math.max(2, Math.round(end / step));
+      var seg = end / n;
+      var d = 'M' + x + ',0';
+      for (var i = 0; i < n; i++) {
+        var y0 = i * seg, y1 = (i + 1) * seg;
+        var side = i % 2 === 0 ? 1 : -1;
+        d += ' C' + (x + amp * side) + ',' + (y0 + seg * 0.35) + ' ' + (x + amp * side) + ',' + (y0 + seg * 0.65) + ' ' + x + ',' + y1;
+      }
+      road.setAttribute('width', w);
+      road.setAttribute('height', h);
+      road.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      road.appendChild(el('path', { d: d, 'class': 'road-asphalt' }));
+      road.appendChild(el('path', { d: d, 'class': 'road-lane' }));
+      roadTrail = el('path', { d: d, 'class': 'road-trail' });
+      road.appendChild(roadTrail);
+      roadPath = roadTrail;
+      roadLen = roadPath.getTotalLength();
+      roadTrail.style.strokeDasharray = roadLen;
+
+      roadFinish = el('g', { 'class': 'road-finish', transform: 'translate(' + x + ',' + end + ')' });
+      var fg = el('g', {});
+      fg.appendChild(el('circle', { r: 22 }));
+      fg.appendChild(el('path', { d: 'M-8,0 L-2,6 L9,-6' }));
+      roadFinish.appendChild(fg);
+      var label = el('text', { x: 0, y: 44, 'text-anchor': 'middle' });
+      label.textContent = 'Rijbewijs!';
+      roadFinish.appendChild(label);
+      road.appendChild(roadFinish);
+
+      // Top-down lesauto, nose pointing down the road, blue L plate on the roof
+      roadCar = el('g', { 'class': 'road-car' });
+      var body = el('g', { transform: 'scale(1.3)' });
+      body.appendChild(el('rect', { x: -11, y: -20, width: 22, height: 40, rx: 7, fill: '#FFFFFF', stroke: '#081B30', 'stroke-width': 2 }));
+      body.appendChild(el('rect', { x: -8, y: 4, width: 16, height: 8, rx: 2.5, fill: '#14304C' }));
+      body.appendChild(el('rect', { x: -8, y: -16, width: 16, height: 5, rx: 2, fill: '#14304C', opacity: 0.75 }));
+      body.appendChild(el('rect', { x: -6, y: -8, width: 12, height: 10, rx: 2, fill: '#1F5FBF' }));
+      var l = el('path', { d: 'M-2,-6 V0 H3', fill: 'none', stroke: '#FFFFFF', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+      body.appendChild(l);
+      body.appendChild(el('circle', { cx: -6, cy: 18, r: 1.8, fill: '#F4B400' }));
+      body.appendChild(el('circle', { cx: 6, cy: 18, r: 1.8, fill: '#F4B400' }));
+      body.appendChild(el('rect', { x: -9, y: -21, width: 6, height: 2, rx: 1, fill: '#E8760F' }));
+      body.appendChild(el('rect', { x: 3, y: -21, width: 6, height: 2, rx: 1, fill: '#E8760F' }));
+      roadCar.appendChild(body);
+      road.appendChild(roadCar);
+    };
+
+    var updateRoad = function () {
+      if (roadLen) {
+        var rect = roadWrap.getBoundingClientRect();
+        var p = (window.innerHeight * 0.6 - rect.top) / (rect.height - 70);
+        p = Math.max(0, Math.min(1, p));
+        var at = p * roadLen;
+        var pt = roadPath.getPointAtLength(at);
+        var ahead = roadPath.getPointAtLength(Math.min(roadLen, at + 2));
+        var behind = roadPath.getPointAtLength(Math.max(0, at - 2));
+        var angle = Math.atan2(ahead.y - behind.y, ahead.x - behind.x) * 180 / Math.PI - 90;
+        roadCar.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ',' + pt.y.toFixed(1) + ') rotate(' + angle.toFixed(1) + ')');
+        roadTrail.style.strokeDashoffset = (roadLen - at).toFixed(1);
+        roadFinish.classList.toggle('reached', p > 0.985);
+      }
+      if (stripCar && getComputedStyle(roadStrip).display !== 'none') {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var q = max > 0 ? Math.max(0, Math.min(1, window.scrollY / max)) : 0;
+        var travel = roadStrip.offsetWidth - 33 - 24;
+        stripCar.style.transform = 'translateX(' + (q * travel).toFixed(1) + 'px)';
+        stripTrail.style.width = (q * travel + 14).toFixed(1) + 'px';
+      }
+    };
+
+    var roadTicking = false;
+    var onRoadScroll = function () {
+      if (!roadTicking) {
+        roadTicking = true;
+        requestAnimationFrame(function () { updateRoad(); roadTicking = false; });
+      }
+    };
+    var rebuildTimer;
+    var rebuild = function () {
+      clearTimeout(rebuildTimer);
+      rebuildTimer = setTimeout(function () { buildRoad(); updateRoad(); }, 120);
+    };
+    window.addEventListener('scroll', onRoadScroll, { passive: true });
+    window.addEventListener('resize', rebuild);
+    window.addEventListener('load', rebuild);
+    if ('ResizeObserver' in window) new ResizeObserver(rebuild).observe(roadWrap);
+    buildRoad();
+    updateRoad();
+  }
+
   // Diensten page: clicking a service card opens a popup with the full
   // description and pricing (where known) for that service, plus a
   // "plan intake" link. Arriving via an anchor (e.g. from the homepage
