@@ -418,29 +418,6 @@ section { padding: 88px 0; }
 .section-dark h2, .section-dark h3 { color: var(--white); }
 .section-dark p { color: rgba(255,255,255,0.74); }
 
-/* ---------- Services grid (home preview) ---------- */
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 0;
-  border-top: 1px solid var(--line);
-}
-.service-tile {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 30px 22px;
-  border-bottom: 1px solid var(--line);
-  border-right: 1px solid var(--line);
-  text-decoration: none;
-  color: var(--text);
-  transition: background 0.2s ease;
-}
-.service-grid a.service-tile:hover { background: var(--paper-dim); }
-.service-tile:nth-child(3n) { border-right: none; }
-.service-tile strong { font-family: var(--font-display); font-size: 1rem; color: var(--ink); display: block; }
-.service-tile span.desc { font-size: 0.85rem; color: var(--text-soft); }
-
 /* ---------- Why us list ---------- */
 .reasons {
   display: grid;
@@ -457,7 +434,6 @@ section { padding: 88px 0; }
 /* ---------- Icon badges (shared premium treatment) ---------- */
 .dienst-card .icon,
 .reason .icon,
-.service-tile .icon,
 .price-card-head .icon,
 .quote-card .icon,
 .dienst-modal-head .icon {
@@ -468,7 +444,7 @@ section { padding: 88px 0; }
   padding: 11px;
   color: var(--route);
 }
-.reason .icon, .service-tile .icon { width: 34px; height: 34px; flex-shrink: 0; }
+.reason .icon { width: 34px; height: 34px; flex-shrink: 0; }
 .dienst-card .icon { width: 34px; height: 34px; flex-shrink: 0; }
 .price-card-head .icon, .quote-card .icon { width: 28px; height: 28px; flex-shrink: 0; }
 .dienst-modal-head .icon { width: 32px; height: 32px; flex-shrink: 0; }
@@ -960,9 +936,6 @@ section { padding: 88px 0; }
   .hero-graphic { order: -1; max-width: 340px; margin: 0 auto; }
   .reasons { grid-template-columns: minmax(0,1fr); }
   .testimonials { grid-template-columns: minmax(0,1fr); }
-  .service-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .service-tile:nth-child(3n) { border-right: 1px solid var(--line); }
-  .service-tile:nth-child(2n) { border-right: none; }
   .diensten-grid { grid-template-columns: minmax(0,1fr); }
   .contact-layout { grid-template-columns: minmax(0,1fr); }
   .footer-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
@@ -982,7 +955,241 @@ section { padding: 88px 0; }
   .form-grid-2 { grid-template-columns: minmax(0,1fr); }
   .footer-grid { grid-template-columns: minmax(0,1fr); }
   .footer-bottom { flex-direction: column; }
-  .service-grid { grid-template-columns: minmax(0,1fr); }
-  .service-tile { border-right: none !important; }
-  .service-tile:last-child { border-bottom: none; }
+}
+
+/* ---------- Lesauto: scroll indicator (homepage only) ----------
+   Below 1500px a small car drives along the bottom edge of the header as you scroll.
+   Hidden on wide screens and with prefers-reduced-motion. */
+body { position: relative; }
+
+.drive-bar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 0;
+  pointer-events: none;
+}
+.drive-bar-trail {
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 100%; height: 3px;
+  background: var(--route);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+.drive-bar-car {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 24px; height: 42px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@media (min-width: 1500px) {
+  .drive-bar { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drive-bar { display: none !important; }
+}
+
+/* ---------- Intro: lesauto pulls a curtain open over the hero (homepage only) ----------
+   Only active when <html class="intro-on"> is set by the inline script in index.html
+   (first visit in this tab, no reduced motion). Pure CSS timing, ~1.5s in total.
+   The failsafe at the end of .intro hides it even if intro.js never runs. */
+.intro { display: none; }
+
+html.intro-on {
+  --car-w: clamp(190px, 24vw, 340px);
+}
+html.intro-on .intro {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow: hidden;
+  cursor: pointer;
+  animation: intro-gone 0s linear 1.4s forwards;
+}
+.intro-panel {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: calc(100% + var(--car-w));
+  background: var(--ink-black);
+  box-shadow: -2px 0 0 rgba(232,118,15,0.55);
+  animation: intro-pull 1.15s cubic-bezier(.5,.05,.3,1) 0.1s both;
+  will-change: transform;
+}
+.intro-road {
+  position: absolute;
+  left: 0; right: 0;
+  top: 64%;
+  height: 1px;
+  background: rgba(255,255,255,0.14);
+}
+.intro-car {
+  position: absolute;
+  left: 0;
+  top: 64%;
+  width: var(--car-w);
+  height: auto;
+  transform: translate(-50%, calc(-0.309 * var(--car-w)));  /* tyres touch the road line */
+}
+.intro-wheel { transform-box: fill-box; transform-origin: center; animation: intro-spin 0.5s linear infinite; }
+
+@keyframes intro-pull {
+  from { transform: translateX(calc(var(--car-w) / -2)); }
+  to   { transform: translateX(calc(100vw + var(--car-w) / 2)); }
+}
+@keyframes intro-spin { to { transform: rotate(360deg); } }
+@keyframes intro-gone { to { visibility: hidden; } }
+
+html.intro-on .hero h1 { animation: intro-heading 0.5s cubic-bezier(.2,.8,.2,1) 1.05s both; }
+@keyframes intro-heading {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* click, tap, scroll or key press: skip straight to the finished page */
+html.intro-skip .intro { display: none; }
+html.intro-skip .hero h1 { animation: none; }
+
+/* ---------- Licence chooser (homepage) ----------
+   Desktop: seven tabs in a row. Phone: swipeable scroll-snap carousel.
+   The chosen tab lifts and gets an orange underline; its panel fades in. */
+.chooser-tabs {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.lic-tab {
+  appearance: none;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  padding: 22px 6px 18px;
+  scroll-snap-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.lic-tab::after {
+  content: '';
+  position: absolute;
+  left: 14%; right: 14%; bottom: -1px;
+  height: 3px;
+  background: var(--route);
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+}
+.lic-tab[aria-selected="true"]::after { transform: scaleX(1); }
+.lic-tab:focus-visible { outline: 2px solid var(--route); outline-offset: -2px; border-radius: var(--radius-sm); }
+
+.lic-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+}
+.lic-tab:hover .lic-inner { transform: translateY(-3px); }
+.lic-tab[aria-selected="true"] .lic-inner { transform: translateY(-7px); }
+
+.lic-art {
+  width: min(100%, 128px);
+  height: auto;
+  color: var(--route);
+  opacity: 0.72;
+  transition: opacity 0.25s ease;
+}
+.lic-tab:hover .lic-art,
+.lic-tab[aria-selected="true"] .lic-art { opacity: 1; }
+
+.lic-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--text-soft);
+  transition: color 0.2s ease;
+}
+.lic-tab:hover .lic-name,
+.lic-tab[aria-selected="true"] .lic-name { color: var(--ink); }
+.lic-code {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+.lic-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr);
+  gap: 28px 64px;
+  padding: 44px 0 8px;
+}
+.lic-panel[hidden] { display: none; }
+.lic-panel.is-in { animation: lic-in 0.4s cubic-bezier(.2,.8,.2,1) both; }
+.lic-panel:focus-visible { outline: 2px solid var(--route); outline-offset: 6px; border-radius: 4px; }
+@keyframes lic-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+.lic-intro h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-bottom: 0.9em; }
+.lic-intro .btn { margin-bottom: 1.1em; }
+.lic-more {
+  display: block;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.lic-more:hover { color: var(--route); border-color: var(--route); }
+
+.lic-spec { margin: 0; }
+.lic-spec > div { padding: 16px 0; border-top: 1px solid var(--line); }
+.lic-spec > div:last-child { border-bottom: 1px solid var(--line); }
+.lic-spec dt { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--ink); }
+.lic-spec dd { margin: 0.3em 0 0; color: var(--text-soft); max-width: 62ch; }
+
+/* Clearly marked gaps: content that is not on diensten.html yet */
+.todo {
+  display: inline-block;
+  padding: 1px 8px;
+  border: 1.5px dashed var(--route);
+  border-radius: 4px;
+  background: rgba(232,118,15,0.08);
+  color: var(--route-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .chooser-tabs {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 24px;
+    margin: 0 -24px;
+    padding: 0 24px;
+    gap: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  .chooser-tabs::-webkit-scrollbar { display: none; }
+  .lic-tab { flex: 0 0 44%; max-width: 190px; }
+  .lic-panel { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lic-inner, .lic-tab::after, .lic-art, .lic-name { transition: none; }
+  .lic-panel.is-in { animation: none; }
 }
