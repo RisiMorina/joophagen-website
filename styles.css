@@ -333,43 +333,41 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* ---------- Fleet photo (homepage) ---------- */
+/* The source photo is only 1024x183, so it is shown close to its own size
+   (max 1200px wide, low height) instead of stretched full-bleed: that is
+   what made it blurry. Swap in a larger original when the school has one. */
 .fleet-photo {
+  max-width: calc(var(--container) + 48px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.fleet-frame {
   position: relative;
   overflow: hidden;
-  line-height: 0;
+  height: clamp(190px, 21vw, 250px);
+  border-radius: var(--radius);
 }
-.fleet-photo img {
+.fleet-frame img {
+  position: absolute;
+  left: 0;
+  top: -6%;
   width: 100%;
-  height: clamp(260px, 46vw, 520px);
+  height: 112%;
   object-fit: cover;
+  object-position: center 60%;
   display: block;
-  filter: saturate(1.05) contrast(1.03);
+  will-change: transform;
 }
 .fleet-caption {
-  position: absolute;
-  top: 24px; right: 24px;
-  max-width: min(320px, calc(100% - 48px));
-  margin: 0;
-  padding: 20px 24px;
-  background: rgba(5,13,24,0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  color: var(--white);
+  margin: 14px 0 0;
+  color: var(--text-soft);
   font-size: 0.95rem;
   line-height: 1.5;
 }
-.fleet-caption::before {
-  content: 'Onze vloot';
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--route-light);
-  margin-bottom: 8px;
+@media (max-width: 600px) {
+  .fleet-photo { padding: 0; }
+  .fleet-frame { border-radius: 0; height: 200px; }
+  .fleet-caption { padding: 0 20px; }
 }
 
 /* ---------- Stats strip ---------- */
