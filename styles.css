@@ -1311,22 +1311,61 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
 .gear { grid-column: 1 / -1; max-width: 780px; }
 .gear-title { font-size: 1.15rem; margin: 0 0 14px; }
 
-.gear-scene { display: block; width: 100%; height: auto; color: var(--ink); overflow: hidden; border-radius: var(--radius); }
-.gs-stroke { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.gs-white { fill: var(--white); }
-.gs-dim { fill: var(--paper-dim); }
-.gs-orange { stroke: var(--route); }
-.gs-dot { fill: var(--route); stroke: none; }
+.gear-scene {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+.gs-cabin { fill: var(--ink-black); }
+.gs-sunball { fill: var(--lane); }
+.gs-hills { fill: var(--ink-soft); opacity: 0.55; }
+.gs-trees { fill: var(--ink); opacity: 0.55; }
+.gs-glow { fill: var(--route); opacity: 0.22; }
+.gs-edge { fill: none; stroke: rgba(255,255,255,0.6); stroke-width: 2.5; stroke-linecap: round; }
+.gs-roaddash { fill: var(--lane); }
+.gs-glass { fill: #fff; opacity: 0.07; }
+.gs-frame { fill: none; stroke: rgba(255,255,255,0.14); stroke-width: 3; }
+.gs-mirror { fill: var(--ink-soft); stroke: rgba(255,255,255,0.2); stroke-width: 2; }
+.gs-mirror-shine { stroke: rgba(255,255,255,0.35); stroke-width: 2; stroke-linecap: round; }
+.gs-stem { stroke: var(--ink-soft); stroke-width: 5; stroke-linecap: round; }
+.gs-dashtop { fill: url(#gs-dash); }
+.gs-dashline { fill: none; stroke: rgba(255,255,255,0.22); stroke-width: 2; }
+.gs-hood { fill: var(--ink-black); stroke: rgba(255,255,255,0.1); stroke-width: 2; }
+.gs-dial { fill: url(#gs-dial); stroke: rgba(255,255,255,0.45); stroke-width: 2; }
+.gs-ticks { fill: none; stroke: rgba(255,255,255,0.55); stroke-width: 3; stroke-dasharray: 1.4 4.6; }
+.gs-needle { stroke: var(--route-light); stroke-width: 3; stroke-linecap: round; }
+.gs-pin { fill: var(--route-light); }
+.gs-led { fill: var(--lane); opacity: 0.9; }
+.gs-led--b { fill: var(--route); }
+.gs-wheel { fill: none; stroke: var(--ink-black); stroke-width: 20; }
+.gs-wheel-edge { fill: none; stroke: rgba(255,255,255,0.16); stroke-width: 2; }
+.gs-stitch { fill: none; stroke: var(--route); stroke-width: 2; stroke-dasharray: 3 7; opacity: 0.85; }
+.gs-mark { fill: var(--route); }
+.gs-spoke { stroke: var(--ink-black); stroke-width: 14; stroke-linecap: round; fill: none; }
+.gs-hub { fill: var(--ink-soft); stroke: var(--ink-black); stroke-width: 4; }
+.gs-hub-ring { fill: none; stroke: var(--route); stroke-width: 3; opacity: 0.9; }
+.gs-console { fill: url(#gs-dash); stroke: rgba(255,255,255,0.16); stroke-width: 2; }
+.gs-plate { fill: url(#gs-plate); stroke: rgba(232,118,15,0.55); stroke-width: 2; }
+.gs-gatelines { fill: none; stroke: rgba(255,255,255,0.78); stroke-width: 3; stroke-linecap: round; }
+.gs-slot { fill: rgba(0,0,0,0.35); stroke: rgba(255,255,255,0.78); stroke-width: 3; }
+.gs-knobball { fill: url(#gs-knobg); stroke: var(--route-dark); stroke-width: 2; }
+.gs-shine { fill: none; stroke: rgba(255,255,255,0.85); stroke-width: 2.5; stroke-linecap: round; }
+.gs-levercap { fill: url(#gs-lever-g); stroke: var(--route-dark); stroke-width: 2; }
+.gs-leverline { stroke: var(--route-dark); stroke-width: 2.5; stroke-linecap: round; }
+.gs-vignette { pointer-events: none; }
 .gs-label {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 19px;
-  fill: currentColor;
+  fill: rgba(255,255,255,0.88);
   text-anchor: middle;
   transition: fill 0.2s ease;
 }
 .gs-label--r { text-anchor: start; }
-.gs-label.is-on { fill: var(--route); }
+.gs-label.is-on { fill: var(--lane); }
 .gs-gate { transition: opacity 0.25s ease; }
 .gear-scene[data-gate="manual"] .gs-gate--auto,
 .gear-scene[data-gate="auto"] .gs-gate--manual { opacity: 0; }
@@ -1336,25 +1375,44 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
   appearance: none;
   font: inherit;
   text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   background: var(--white);
   border: 2px solid var(--line);
   border-radius: var(--radius-sm);
-  padding: 20px 22px 18px;
+  padding: 18px 22px 16px;
   cursor: pointer;
   position: relative;
-  transition: border-color 0.2s ease, transform 0.25s cubic-bezier(.2,.8,.2,1);
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.25s cubic-bezier(.2,.8,.2,1), box-shadow 0.25s ease, background 0.25s ease;
   -webkit-tap-highlight-color: transparent;
 }
 .gear-choice:hover { border-color: var(--ink-soft); }
-.gear-choice[aria-pressed="true"] { border-color: var(--route); transform: translateY(-3px); }
+.gear-choice[aria-pressed="true"] {
+  border-color: var(--route);
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, rgba(244,180,0,0.14), rgba(232,118,15,0.08) 55%, var(--white));
+  box-shadow: 0 14px 30px rgba(232,118,15,0.18);
+}
 .gear-choice[aria-pressed="true"]::after {
   content: '';
   position: absolute;
-  left: 22px; right: 22px; bottom: -2px;
-  height: 3px;
-  background: var(--route);
+  left: 0; right: 0; bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--lane), var(--route));
 }
 .gear-choice:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; }
+.gear-choice-icon {
+  width: 42px; height: 42px; flex-shrink: 0;
+  fill: none; stroke: var(--route); stroke-width: 3; stroke-linecap: round;
+  padding: 7px;
+  box-sizing: content-box;
+  border-radius: 50%;
+  background: rgba(232,118,15,0.1);
+}
+.gear-choice-icon .dot { fill: var(--route); stroke: none; }
+.gear-choice-text { min-width: 0; }
 .gear-choice-name { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; color: var(--ink); }
 .gear-choice-sub { display: block; margin-top: 4px; font-size: 0.88rem; color: var(--text-soft); letter-spacing: 0.04em; }
 
@@ -1378,7 +1436,9 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
 
 @media (max-width: 720px) {
   .gear-choices { gap: 10px; }
-  .gear-choice { padding: 16px 16px 14px; }
+  .gear-choice { padding: 14px 14px 12px; gap: 10px; }
+  .gear-choice-icon { display: none; }
+  .gear-choice-sub { white-space: nowrap; }
   .gear-choice-name { font-size: 1.2rem; }
   .gear-choice-sub { font-size: 0.8rem; letter-spacing: 0; }
 }

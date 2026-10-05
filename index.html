@@ -269,54 +269,132 @@
         <div class="gear" id="gear">
           <h4 class="gear-title" id="gear-title">Schakel of automaat?</h4>
           <svg class="gear-scene" id="gear-scene" viewBox="0 0 720 320" data-gate="manual" aria-hidden="true" focusable="false">
-            <path class="gs-stroke gs-dim" d="M0 190Q360 140 720 190V330H0Z"/>
-            <path class="gs-stroke gs-white" d="M70 18Q360 -10 650 18L678 170Q360 150 42 170Z"/>
+            <defs>
+              <clipPath id="gs-wind"><path d="M70 18Q360 -10 650 18L678 170Q360 150 42 170Z"/></clipPath>
+              <linearGradient id="gs-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" style="stop-color:var(--ink-soft)"/>
+                <stop offset="0.45" style="stop-color:var(--route-dark)"/>
+                <stop offset="0.8" style="stop-color:var(--route)"/>
+                <stop offset="1" style="stop-color:var(--lane)"/>
+              </linearGradient>
+              <radialGradient id="gs-sun" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" style="stop-color:var(--lane);stop-opacity:0.95"/>
+                <stop offset="0.45" style="stop-color:var(--route-light);stop-opacity:0.45"/>
+                <stop offset="1" style="stop-color:var(--route);stop-opacity:0"/>
+              </radialGradient>
+              <linearGradient id="gs-ground" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" style="stop-color:var(--route-dark)"/>
+                <stop offset="0.35" style="stop-color:var(--ink-soft)"/>
+                <stop offset="1" style="stop-color:var(--ink)"/>
+              </linearGradient>
+              <linearGradient id="gs-road" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" style="stop-color:var(--ink-soft)"/>
+                <stop offset="1" style="stop-color:var(--ink-black)"/>
+              </linearGradient>
+              <linearGradient id="gs-dash" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" style="stop-color:var(--ink-soft)"/>
+                <stop offset="0.5" style="stop-color:var(--ink)"/>
+                <stop offset="1" style="stop-color:var(--ink-black)"/>
+              </linearGradient>
+              <linearGradient id="gs-plate" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" style="stop-color:var(--ink-black)"/>
+                <stop offset="1" style="stop-color:var(--ink)"/>
+              </linearGradient>
+              <radialGradient id="gs-dial" cx="0.5" cy="0.4" r="0.7">
+                <stop offset="0" style="stop-color:var(--ink-soft)"/>
+                <stop offset="1" style="stop-color:var(--ink-black)"/>
+              </radialGradient>
+              <radialGradient id="gs-knobg" cx="0.35" cy="0.3" r="0.8">
+                <stop offset="0" style="stop-color:var(--white)"/>
+                <stop offset="0.5" style="stop-color:var(--route-light)"/>
+                <stop offset="1" style="stop-color:var(--route-dark)"/>
+              </radialGradient>
+              <linearGradient id="gs-lever-g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" style="stop-color:var(--white)"/>
+                <stop offset="0.55" style="stop-color:var(--route-light)"/>
+                <stop offset="1" style="stop-color:var(--route-dark)"/>
+              </linearGradient>
+              <radialGradient id="gs-vignette" cx="0.5" cy="0.55" r="0.75">
+                <stop offset="0.6" style="stop-color:#000;stop-opacity:0"/>
+                <stop offset="1" style="stop-color:#000;stop-opacity:0.38"/>
+              </radialGradient>
+            </defs>
+
+            <rect class="gs-cabin" width="720" height="320"/>
+
             <g clip-path="url(#gs-wind)">
-              <path class="gs-stroke" d="M0 96H720"/>
-              <path class="gs-stroke" d="M360 96L190 190M360 96L530 190"/>
-              <path class="gs-stroke gs-orange" d="M360 104V110M360 120V132M360 144V160" style="stroke-width:4"/>
-              <path class="gs-stroke" d="M150 96V74M588 96V70M142 74H158M580 70H596" style="stroke-width:2.5"/>
+              <rect width="720" height="104" fill="url(#gs-sky)"/>
+              <circle cx="470" cy="104" r="78" fill="url(#gs-sun)"/>
+              <circle cx="470" cy="104" r="26" class="gs-sunball"/>
+              <path class="gs-hills" d="M0 104Q70 66 150 94T300 90T450 96T600 84T720 100V112H0Z"/>
+              <g class="gs-trees"><circle cx="108" cy="86" r="7"/><rect x="106.5" y="86" width="3" height="16"/><circle cx="134" cy="90" r="5"/><rect x="132.8" y="90" width="2.4" height="12"/><circle cx="598" cy="84" r="8"/><rect x="596.5" y="84" width="3" height="18"/><circle cx="628" cy="89" r="6"/><rect x="626.7" y="89" width="2.6" height="13"/></g>
+              <rect y="100" width="720" height="110" fill="url(#gs-ground)"/>
+              <rect y="100" width="720" height="26" class="gs-glow"/>
+              <path d="M360 100L108 206H612Z" fill="url(#gs-road)"/>
+              <path class="gs-edge" d="M360 100L108 206M360 100L612 206"/>
+              <g class="gs-roaddash"><path d="M359 104h2l.5 5h-3z"/><path d="M358.5 115h3l1 9h-5z"/><path d="M357.5 134h5l2 16h-9z"/><path d="M356 162h8l4 28h-16z"/></g>
+              <path class="gs-glass" d="M60 18L250 8L160 172L40 172Z"/>
             </g>
-            <path class="gs-stroke" d="M42 170L10 262M678 170L710 262"/>
-            <rect class="gs-stroke gs-white" x="330" y="24" width="60" height="18" rx="6"/>
-            <path class="gs-stroke" d="M360 16V24"/>
-            <rect class="gs-stroke gs-white" x="176" y="170" width="168" height="50" rx="16"/>
-            <circle class="gs-stroke gs-white" cx="216" cy="196" r="18"/>
-            <circle class="gs-stroke gs-white" cx="304" cy="196" r="18"/>
-            <path class="gs-stroke gs-orange" d="M216 196L227 187M304 196L294 186"/>
-            <circle class="gs-stroke gs-white" cx="260" cy="345" r="113" style="stroke-width:14"/>
-            <path class="gs-stroke gs-orange" d="M247 231H273" style="stroke-width:9"/>
-            <path class="gs-stroke" d="M224 338L152 324M296 338L368 324" style="stroke-width:6"/>
-            <circle class="gs-stroke gs-white" cx="260" cy="345" r="40"/>
-            <rect class="gs-stroke gs-white" x="440" y="184" width="200" height="140" rx="18"/>
+
+            <path class="gs-frame" d="M70 18Q360 -10 650 18L678 170Q360 150 42 170Z"/>
+            <rect class="gs-mirror" x="326" y="26" width="68" height="20" rx="8"/>
+            <path class="gs-mirror-shine" d="M336 31H372"/>
+            <path class="gs-stem" d="M360 14V26"/>
+
+            <path class="gs-dashtop" d="M0 188Q360 126 720 188V330H0Z"/>
+            <path class="gs-dashline" d="M0 188Q360 126 720 188"/>
+
+            <rect class="gs-hood" x="172" y="168" width="176" height="58" rx="18"/>
+            <g class="gs-dials">
+              <circle class="gs-dial" cx="214" cy="198" r="21"/><circle class="gs-ticks" cx="214" cy="198" r="16"/>
+              <path class="gs-needle" d="M214 198L226 188"/><circle class="gs-pin" cx="214" cy="198" r="2.6"/>
+              <circle class="gs-dial" cx="306" cy="198" r="21"/><circle class="gs-ticks" cx="306" cy="198" r="16"/>
+              <path class="gs-needle" d="M306 198L295 186"/><circle class="gs-pin" cx="306" cy="198" r="2.6"/>
+              <rect class="gs-led" x="248" y="190" width="6" height="6" rx="3"/><rect class="gs-led gs-led--b" x="266" y="190" width="6" height="6" rx="3"/>
+            </g>
+
+            <circle class="gs-wheel" cx="260" cy="345" r="113"/>
+            <circle class="gs-wheel-edge" cx="260" cy="345" r="121"/>
+            <circle class="gs-stitch" cx="260" cy="345" r="113"/>
+            <rect class="gs-mark" x="246" y="228" width="28" height="9" rx="4.5"/>
+            <path class="gs-spoke" d="M222 336L150 322M298 336L370 322"/>
+            <circle class="gs-hub" cx="260" cy="345" r="42"/>
+            <circle class="gs-hub-ring" cx="260" cy="345" r="30"/>
+
+            <rect class="gs-console" x="436" y="174" width="198" height="156" rx="22"/>
+            <rect class="gs-plate" x="458" y="184" width="154" height="140" rx="16"/>
+
             <g class="gs-gate gs-gate--manual">
-              <path class="gs-stroke" d="M495 218V276M535 218V276M575 218V276M495 247H575"/>
-              <text class="gs-label" id="gs-l-1" x="495" y="200">1</text>
-              <text class="gs-label" x="535" y="200">3</text>
-              <text class="gs-label" x="575" y="200">5</text>
-              <text class="gs-label" x="495" y="310">2</text>
-              <text class="gs-label" x="535" y="310">4</text>
-              <text class="gs-label" x="575" y="310">R</text>
-              <g class="gs-knob" id="gs-knob"><circle r="15" class="gs-stroke gs-white gs-orange"/><circle r="5" class="gs-dot"/></g>
+              <path class="gs-gatelines" d="M495 218V276M535 218V276M575 218V276M495 247H575"/>
+              <text class="gs-label" id="gs-l-1" x="495" y="203">1</text>
+              <text class="gs-label" x="535" y="203">3</text>
+              <text class="gs-label" x="575" y="203">5</text>
+              <text class="gs-label" x="495" y="308">2</text>
+              <text class="gs-label" x="535" y="308">4</text>
+              <text class="gs-label" x="575" y="308">R</text>
+              <g class="gs-knob" id="gs-knob"><circle r="17" class="gs-knobball"/><path class="gs-shine" d="M-8 -6Q-4 -12 4 -11"/></g>
             </g>
             <g class="gs-gate gs-gate--auto">
-              <rect class="gs-stroke" x="525" y="212" width="20" height="98" rx="10"/>
+              <rect class="gs-slot" x="525" y="212" width="20" height="98" rx="10"/>
               <text class="gs-label gs-label--r is-on" id="gs-l-p" x="562" y="234">P</text>
               <text class="gs-label gs-label--r" x="562" y="256">R</text>
               <text class="gs-label gs-label--r" x="562" y="278">N</text>
               <text class="gs-label gs-label--r" id="gs-l-d" x="562" y="300">D</text>
-              <g class="gs-lever" id="gs-lever"><rect x="-14" y="-10" width="28" height="20" rx="7" class="gs-stroke gs-white gs-orange"/><path d="M-6 0H6" class="gs-stroke gs-orange"/></g>
+              <g class="gs-lever" id="gs-lever"><rect x="-15" y="-11" width="30" height="22" rx="8" class="gs-levercap"/><path d="M-6 0H6" class="gs-leverline"/></g>
             </g>
-            <defs><clipPath id="gs-wind"><path d="M70 18Q360 -10 650 18L678 170Q360 150 42 170Z"/></clipPath></defs>
+
+            <rect class="gs-vignette" width="720" height="320" fill="url(#gs-vignette)"/>
           </svg>
           <div class="gear-choices" role="group" aria-labelledby="gear-title">
             <button type="button" class="gear-choice" data-gear="schakel" aria-pressed="false">
-              <span class="gear-choice-name">Schakel</span>
-              <span class="gear-choice-sub">1 · 2 · 3 · 4 · 5 · R</span>
+              <svg class="gear-choice-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M9 7V33M20 7V33M31 7V33M9 20H31"/><circle cx="20" cy="20" r="4.5" class="dot"/></svg>
+              <span class="gear-choice-text"><span class="gear-choice-name">Schakel</span>
+              <span class="gear-choice-sub">1 · 2 · 3 · 4 · 5 · R</span></span>
             </button>
             <button type="button" class="gear-choice" data-gear="automaat" aria-pressed="false">
-              <span class="gear-choice-name">Automaat</span>
-              <span class="gear-choice-sub">P · R · N · D</span>
+              <svg class="gear-choice-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="14.5" y="5" width="11" height="30" rx="5.5"/><circle cx="20" cy="29" r="4" class="dot"/></svg>
+              <span class="gear-choice-text"><span class="gear-choice-name">Automaat</span>
+              <span class="gear-choice-sub">P · R · N · D</span></span>
             </button>
           </div>
           <div class="gear-notes" aria-live="polite">
