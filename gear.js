@@ -1,12 +1,13 @@
 // Manual / automatic chooser inside the "Auto (B)" panel (homepage).
-// Choose with the two buttons, or by clicking the H gate (Schakel) or the P-R-N-D lever (Automaat).
+// One control: the H-gate drawing is the Schakel button, the P-R-N-D lever drawing is the Automaat button
+// (drawing + label = one real button, with aria-pressed and keyboard focus).
 // The drawing's animation lives in gear-scene.js (shared with the contact wizard).
 (function () {
   var gear = document.getElementById('gear');
   if (!gear || !window.GearScene) return;
-  var scene = document.getElementById('gear-scene');
-  var gs = window.GearScene.create(scene);
-  var buttons = gear.querySelectorAll('.gear-choice');
+  var stage = document.getElementById('gear-stage');
+  var gs = window.GearScene.create(stage);
+  var buttons = gear.querySelectorAll('.gear-pick');
   var hint = document.getElementById('gear-hint');
   var lists = gear.querySelectorAll('.gear-points');
   var source = gear.querySelector('.gear-source');
@@ -21,7 +22,6 @@
 
   function choose(kind) {
     choice = kind;
-    scene.setAttribute('data-choice', kind);
     Array.prototype.forEach.call(buttons, function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-gear') === kind ? 'true' : 'false');
     });
@@ -35,11 +35,6 @@
 
   Array.prototype.forEach.call(buttons, function (b) {
     b.addEventListener('click', function () { choose(b.getAttribute('data-gear')); });
-  });
-  // the drawing is clickable too (the buttons stay the keyboard route, so the drawing is not focusable)
-  scene.addEventListener('click', function (e) {
-    var g = e.target.closest ? e.target.closest('[data-gear]') : null;
-    if (g) choose(g.getAttribute('data-gear'));
   });
   document.addEventListener('langchange', label);
 })();
