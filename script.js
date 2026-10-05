@@ -1,3 +1,6 @@
+// Dutch text -> current language (see i18n.js). Falls back to the Dutch text.
+function t(nl) { return window.I18N ? window.I18N.t(nl) : nl; }
+
 // Mobile nav toggle
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
@@ -63,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function priceRows(rows) {
       return rows.map(function (r) {
-        if (r.group) return '<tr class="price-group"><td colspan="2">' + r.group + '</td></tr>';
-        return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td></tr>';
+        if (r.group) return '<tr class="price-group"><td colspan="2">' + t(r.group) + '</td></tr>';
+        return '<tr><td>' + t(r[0]) + '</td><td>' + r[1] + '</td></tr>';
       }).join('');
     }
 
@@ -208,28 +211,36 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
 
-    function openModal(key) {
+    var openKey = null;
+
+    function renderModal(key) {
       var d = data[key];
-      if (!d) return;
+      if (!d) return false;
       var html = ''
         + '<div class="dienst-modal-head">'
         +   '<svg class="icon" viewBox="' + d.iconViewBox + '"><use href="#' + d.icon + '"/></svg>'
-        +   '<h3 id="dienst-modal-title" style="margin:0;">' + d.title + '</h3>'
+        +   '<h3 id="dienst-modal-title" style="margin:0;">' + t(d.title) + '</h3>'
         + '</div>'
-        + '<span class="dienst-modal-meta">' + d.meta + '</span>'
-        + '<p>' + d.desc + '</p>';
+        + '<span class="dienst-modal-meta">' + t(d.meta) + '</span>'
+        + '<p>' + t(d.desc) + '</p>';
 
       if (d.quote) {
-        html += '<div class="quote-prompt">We stellen voor deze opleiding graag een passende prijsopgave voor je op, afgestemd op je situatie.</div>';
+        html += '<div class="quote-prompt">' + t('We stellen voor deze opleiding graag een passende prijsopgave voor je op, afgestemd op je situatie.') + '</div>';
       } else {
-        html += '<h4>Prijzen — ' + d.priceDate + '</h4>'
+        html += '<h4>' + t('Prijzen —') + ' ' + t(d.priceDate) + '</h4>'
               + '<table class="price-table">' + priceRows(d.rows) + '</table>'
-              + '<p class="price-note">' + (d.note || 'Prijswijzigingen voorbehouden — vraag naar de actuele prijzen bij het maken van een afspraak.') + '</p>';
+              + '<p class="price-note">' + t(d.note || 'Prijswijzigingen voorbehouden — vraag naar de actuele prijzen bij het maken van een afspraak.') + '</p>';
       }
 
-      html += '<a href="contact.html?dienst=' + encodeURIComponent(d.dienstParam) + '" class="btn btn-primary">Plan een intake voor dit rijbewijs</a>';
+      html += '<a href="contact.html?dienst=' + encodeURIComponent(d.dienstParam) + '" class="btn btn-primary">' + t('Plan een intake voor dit rijbewijs') + '</a>';
 
       modalBody.innerHTML = html;
+      return true;
+    }
+
+    function openModal(key) {
+      if (!renderModal(key)) return;
+      openKey = key;
       dienstModal.classList.add('open');
       dienstModal.setAttribute('aria-hidden', 'false');
       // Robust scroll-lock: plain overflow:hidden on body doesn't reliably
@@ -245,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function closeModal() {
+      openKey = null;
       dienstModal.classList.remove('open');
       dienstModal.setAttribute('aria-hidden', 'true');
       var scrollY = parseInt(dienstModal.dataset.scrollY || '0', 10);
@@ -255,6 +267,10 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.style.overflow = '';
       window.scrollTo(0, scrollY);
     }
+
+    document.addEventListener('langchange', function () {
+      if (openKey) renderModal(openKey);
+    });
 
     dienstCards.forEach(function (card) {
       card.addEventListener('click', function () {
@@ -284,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (dienstParam) {
       var matched = false;
       Array.prototype.forEach.call(categorieSelect.options, function (opt) {
-        if (opt.textContent.trim() === dienstParam.trim()) {
+        if (opt.value.trim() === dienstParam.trim()) {
           opt.selected = true;
           matched = true;
         }
@@ -292,7 +308,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (matched) {
         var noteEl = document.getElementById('dienst-note');
         if (noteEl) {
-          noteEl.textContent = 'Je vraagt een intake aan voor: ' + dienstParam;
+          function writeNote() { noteEl.textContent = t('Je vraagt een intake aan voor:') + ' ' + t(dienstParam); }
+          writeNote();
+          document.addEventListener('langchange', writeNote);
           noteEl.classList.add('show');
         }
       }
@@ -325,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
       errorBox.textContent = message;
       errorBox.classList.add('show');
     }
-    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Versturen'; }
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = t('Versturen'); }
   }
 
   function showSuccess() {
@@ -339,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var params = new URLSearchParams(window.location.search);
     if (params.get('verzonden') === '1') showSuccess();
     if (params.get('fout') === '1') {
-      showError('Er ging iets mis bij het verzenden. Probeer het opnieuw of bel ons direct.', null);
+      showError(t('Er ging iets mis bij het verzenden. Probeer het opnieuw of bel ons direct.'), null);
     }
   }
 
@@ -358,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         if (actionAttr.indexOf('CHANGE_THIS_EMAIL') !== -1) {
           e.preventDefault();
-          showError('Het formulier is nog niet gekoppeld aan een e-mailadres (zie instructies in dit bestand).', null);
+          showError(t('Het formulier is nog niet gekoppeld aan een e-mailadres (zie instructies in dit bestand).'), null);
           return;
         }
         // FormSubmit's "_next" (and the self-hosted PHP script's redirect)
@@ -380,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       var submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Versturen...'; }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = t('Versturen...'); }
 
       if (form.hasAttribute('data-netlify')) {
         // Netlify Forms: submit as a normal urlencoded POST to the page
@@ -394,13 +412,13 @@ document.addEventListener('DOMContentLoaded', function () {
           if (response.ok) { showSuccess(); }
           else { throw new Error('Verzenden mislukt'); }
         }).catch(function () {
-          showError('Er ging iets mis bij het verzenden. Probeer het opnieuw of bel ons direct.', submitBtn);
+          showError(t('Er ging iets mis bij het verzenden. Probeer het opnieuw of bel ons direct.'), submitBtn);
         });
         return;
       }
 
       if (!form.action || form.action.indexOf('YOUR_FORM_ID') !== -1) {
-        showError('Het formulier is nog niet gekoppeld aan een verzendservice (zie instructies in contact.html).', submitBtn);
+        showError(t('Het formulier is nog niet gekoppeld aan een verzendservice (zie instructies in contact.html).'), submitBtn);
         return;
       }
 
@@ -412,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (response.ok) { showSuccess(); }
         else { throw new Error('Verzenden mislukt'); }
       }).catch(function () {
-        showError('Er ging iets mis bij het verzenden. Probeer het opnieuw of bel ons direct.', submitBtn);
+        showError(t('Er ging iets mis bij het verzenden. Probeer het opnieuw of bel ons direct.'), submitBtn);
       });
     });
   }

@@ -450,11 +450,6 @@ section { padding: 88px 0; }
 .dienst-modal-head .icon { width: 32px; height: 32px; flex-shrink: 0; }
 
 /* ---------- Testimonials ---------- */
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 26px;
-}
 .testimonial {
   background: var(--white);
   border: 1px solid var(--line);
@@ -935,7 +930,6 @@ section { padding: 88px 0; }
   .stat:last-child { border-bottom: none; padding-bottom: 0; }
   .hero-graphic { order: -1; max-width: 340px; margin: 0 auto; }
   .reasons { grid-template-columns: minmax(0,1fr); }
-  .testimonials { grid-template-columns: minmax(0,1fr); }
   .diensten-grid { grid-template-columns: minmax(0,1fr); }
   .contact-layout { grid-template-columns: minmax(0,1fr); }
   .footer-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
@@ -1192,4 +1186,123 @@ html.intro-skip .hero h1 { animation: none; }
 @media (prefers-reduced-motion: reduce) {
   .lic-inner, .lic-tab::after, .lic-art, .lic-name { transition: none; }
   .lic-panel.is-in { animation: none; }
+}
+
+/* ---------- Language switch (NL | EN) ----------
+   One in the nav (desktop: right of the links; phone: inside the menu panel)
+   and a compact one in the phone header bar next to the menu button. */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.82rem;
+}
+.lang-switch button {
+  appearance: none;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.62);
+  padding: 8px 7px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.lang-switch button:hover { color: var(--white); }
+.lang-switch button.is-active { color: var(--white); border-color: var(--route); }
+.lang-switch button:focus-visible { outline: 2px solid var(--route); outline-offset: 2px; border-radius: 4px; }
+.lang-switch--bar { display: none; }
+
+@media (max-width: 720px) {
+  .lang-switch--bar { display: flex; margin-left: auto; margin-right: 4px; }
+  .main-nav.open ~ .lang-switch--bar { visibility: hidden; }   /* the menu has its own */
+  .lang-switch--menu { font-size: 1rem; }
+  .lang-switch--menu { margin-left: -10px; }
+  .lang-switch--menu button { padding: 10px 10px; }
+}
+
+/* hide the page for a moment when a saved language is being applied (avoids a flash of Dutch) */
+html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forwards; }
+@keyframes i18n-show { to { opacity: 1; } }
+
+/* ---------- Reviews carousel (homepage) ---------- */
+.reviews-track {
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  padding: 8px 2px 22px;
+  margin: 0 -2px;
+}
+.reviews-track::-webkit-scrollbar { display: none; }
+.reviews-track:focus-visible { outline: 2px solid var(--route); outline-offset: 4px; border-radius: var(--radius); }
+.reviews-track .testimonial {
+  flex: 0 0 calc((100% - 52px) / 3);
+  scroll-snap-align: start;
+  margin: 0;
+}
+.reviews-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+.reviews-controls[hidden] { display: none; }
+.reviews-arrow {
+  appearance: none;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white);
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.reviews-arrow svg { width: 22px; height: 22px; }
+.reviews-arrow:hover { background: var(--ink); color: var(--white); }
+.reviews-arrow:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; }
+.reviews-arrow.is-disabled { opacity: 0.35; cursor: default; }
+.reviews-arrow.is-disabled:hover { background: var(--white); color: var(--ink); }
+.reviews-more { display: flex; justify-content: center; margin-top: 2em; }
+
+@media (max-width: 900px) {
+  .reviews-track .testimonial { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reviews-arrow { transition: none; }
+}
+
+/* ---------- Social band (above the footer, every page) ---------- */
+.social-band {
+  background: var(--paper-dim);
+  padding: 52px 0;
+  border-top: 1px solid var(--line);
+}
+.social-band .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+  flex-wrap: wrap;
+}
+.social-band h2 { margin: 0; font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+.social-band-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.btn svg { width: 1.25em; height: 1.25em; flex-shrink: 0; }
+.btn-dark { background: var(--ink); color: var(--white); }
+.btn-dark:hover { background: var(--ink-soft); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.btn-lg { font-size: 1.12rem; padding: 1em 2em; gap: 0.7em; }
+.btn-lg svg { width: 1.45em; height: 1.45em; }
+
+@media (max-width: 720px) {
+  .social-band { padding: 44px 0; }
+  .social-band .container { flex-direction: column; align-items: flex-start; }
+  .social-band-actions { width: 100%; flex-direction: column; align-items: stretch; }
+  .social-band-actions .btn { justify-content: center; }
 }

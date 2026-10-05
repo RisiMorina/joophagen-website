@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="favicon.png">
+<script>try{var l=localStorage.getItem('lang');if(l&&l!=='nl'){document.documentElement.lang=l;document.documentElement.classList.add('i18n-pending')}}catch(e){}</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -55,7 +56,9 @@
         <li><a href="vacatures.html" aria-current="page">Vacatures</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <div class="lang-switch lang-switch--menu" role="group" aria-label="Taal / Language"><button type="button" data-lang="nl" lang="nl" aria-pressed="true">NL</button><span aria-hidden="true">|</span><button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button></div>
     </nav>
+    <div class="lang-switch lang-switch--bar" role="group" aria-label="Taal / Language"><button type="button" data-lang="nl" lang="nl" aria-pressed="true">NL</button><span aria-hidden="true">|</span><button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button></div>
     <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
       <svg><use href="#i-menu"/></svg>
     </button>
@@ -122,6 +125,16 @@
   </div>
 </section>
 
+<section class="social-band">
+  <div class="container">
+    <h2>Volg ons op Instagram</h2>
+    <div class="social-band-actions">
+      <a class="btn btn-dark btn-lg" href="https://www.instagram.com/rijschooljoophagen/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"/></svg>@rijschooljoophagen</a>
+      <a class="btn btn-outline btn-small" href="https://nl-nl.facebook.com/RijschoolJoopHagen" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-facebook"/></svg>Facebook</a>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -161,6 +174,8 @@
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="lang/en.js"></script>
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

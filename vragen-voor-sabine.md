@@ -43,12 +43,26 @@ We hebben deze zinnen overgenomen van de oude site. Kloppen ze, en kunnen jullie
 - Mogen de foto's van de lesauto's en vrachtwagens op de site? Mogen er mensen op de foto's staan?
 - Is er een privacyverklaring? We hebben er een nodig, omdat het formulier gegevens verzamelt.
 
-## 5. Pagina's
+## 5. Talen en social media
+
+**Talen**
+- Welke talen spreken jullie leerlingen? Nu staat de site in het Nederlands en het Engels. Zijn er andere talen die veel leerlingen nodig hebben (bijvoorbeeld Pools, Turks, Arabisch, Duits)? Nieuwe talen zijn makkelijk toe te voegen.
+- Kan iemand die goed Engels spreekt de Engelse teksten nakijken? Ze zijn met de hand vertaald, maar jullie kennen de vaktermen het best (bijvoorbeeld "zorgeloos pakket", "Try the Bike", "taxipas").
+- De reviews blijven in de Engelse versie in het Nederlands staan, want het zijn echte citaten van leerlingen. Is dat goed?
+
+**Social media**
+- Hebben jullie ook TikTok? Zo ja: wat is de link? Dan zetten we die in de blok "Volg ons" naast Instagram en Facebook.
+- Zijn de Instagram- (@rijschooljoophagen) en Facebookpagina nog actief? Wie zet er berichten op?
+
+**Reviews**
+- Er staan nu drie echte reviews op de site. Als jullie meer echte reviews hebben (met toestemming voor de naam), voegen we ze toe in de carrousel. De pijltjes verschijnen vanzelf zodra er meer zijn dan er op het scherm passen.
+
+## 6. Pagina's
 
 - Blijft de pagina Webshop? Die linkt alleen door naar theorie-leren.nl. We stellen voor om dat als link onder Diensten > Theorie te zetten en de pagina te schrappen.
 - Is de vacature Rijinstructeur nog open?
 
-## 6. Controleer deze zin
+## 7. Controleer deze zin
 
 Op de homepage en diensten.html staat bij rijbewijs B dat je "zodra je 18 bent en geslaagd" zelf mag rijden, met 2toDrive vanaf 17. Het CBR schrijft op de pagina over leeftijd dat je op 17 jaar al praktijkexamen kunt doen en dan een rijbewijs krijgt. Klopt onze formulering zo met hoe jullie het uitleggen?
 
