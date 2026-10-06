@@ -1,12 +1,14 @@
 // Manual / automatic chooser inside the "Auto (B)" panel (homepage).
-// One control: the H-gate drawing is the Schakel button, the P-R-N-D lever drawing is the Automaat button
-// (drawing + label = one real button, with aria-pressed and keyboard focus).
-// The drawing's animation lives in gear-scene.js (shared with the contact wizard).
+// The buttons themselves (H-gate drawing = Schakel, P-R-N-D lever drawing = Automaat) come from
+// the shared component in gear-scene.js, which the contact wizard uses as well.
 (function () {
   var gear = document.getElementById('gear');
   if (!gear || !window.GearScene) return;
   var stage = document.getElementById('gear-stage');
-  var gs = window.GearScene.create(stage);
+  stage.insertAdjacentHTML('afterbegin', window.GearScene.dashboard(290));
+  var gs = window.GearScene.mountPicks(stage);
+  gear.hidden = false;   // hidden in the HTML so that nothing half-working shows without JavaScript
+
   var buttons = gear.querySelectorAll('.gear-pick');
   var hint = document.getElementById('gear-hint');
   var lists = gear.querySelectorAll('.gear-points');

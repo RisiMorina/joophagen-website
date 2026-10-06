@@ -210,54 +210,14 @@
 
             <section class="wiz-step" id="step-2" hidden>
               <div class="wiz-variant" data-for="auto" hidden>
-                <h2 class="wiz-h" tabindex="-1">Schakel of automaat?</h2>
+                <h2 class="wiz-h" id="h-2-auto" tabindex="-1">Schakel of automaat?</h2>
                 <div class="wiz-stage" id="wiz-stage">
                   <svg class="wiz-side wiz-layer" viewBox="0 0 120 64" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="46" r="10"/><circle cx="30" cy="46" r="1.8" fill="currentColor" stroke="none"/><circle cx="90" cy="46" r="10"/><circle cx="90" cy="46" r="1.8" fill="currentColor" stroke="none"/>
 <path d="M20 46H8V38Q8 34 13 33L28 29L40 16Q42 14 46 14H74Q80 14 84 20L96 31L106 33Q112 35 112 41V46H100"/>
 <path d="M40 46H80"/><path d="M36 29L44 18H58V29Z"/><path d="M64 29V18H73Q76 18 78 21L85 29Z"/><path d="M106 37H110"/></g></svg>
-                  <div class="wiz-layer wiz-seat"><svg class="gear-scene" id="gear-scene" viewBox="0 0 420 250" data-choice="" aria-hidden="true" focusable="false">
-            <g class="gs-line">
-              <path d="M44 14Q210 -6 376 14L396 104Q210 88 24 104Z"/>
-              <circle cx="110" cy="252" r="80"/>
-              <circle cx="110" cy="252" r="66"/>
-              <circle cx="110" cy="252" r="24"/>
-              <path d="M90 242L46 230M130 242L174 230"/>
-              <path d="M100 173H120" class="gs-mark"/>
-            </g>
-
-            <g class="gs-pick" data-gear="schakel">
-              <rect class="gs-plate" x="200" y="124" width="122" height="120" rx="16"/>
-              <path class="gs-gatelines" d="M232 158V210M262 158V210M292 158V210M232 184H292"/>
-              <text class="gs-label" id="gs-l-1" x="232" y="146">1</text>
-              <text class="gs-label" x="262" y="146">3</text>
-              <text class="gs-label" x="292" y="146">5</text>
-              <text class="gs-label" x="232" y="232">2</text>
-              <text class="gs-label" x="262" y="232">4</text>
-              <text class="gs-label" x="292" y="232">R</text>
-              <g class="gs-knob" id="gs-knob"><circle r="11" class="gs-knobball"/><circle r="3.2" class="gs-dot"/></g>
-            </g>
-
-            <g class="gs-pick" data-gear="automaat">
-              <rect class="gs-plate" x="336" y="124" width="76" height="120" rx="16"/>
-              <rect class="gs-gatelines gs-slot" x="346" y="140" width="18" height="96" rx="9"/>
-              <text class="gs-label gs-label--r" id="gs-l-p" x="374" y="160">P</text>
-              <text class="gs-label gs-label--r" x="374" y="184">R</text>
-              <text class="gs-label gs-label--r" x="374" y="208">N</text>
-              <text class="gs-label gs-label--r" id="gs-l-d" x="374" y="232">D</text>
-              <g class="gs-lever" id="gs-lever"><rect x="-12" y="-8" width="24" height="16" rx="6" class="gs-levercap"/></g>
-            </g>
-          </svg></div>
+                  <div class="wiz-layer wiz-seat" id="wiz-seat"></div>
                 </div>
-                <div class="gear-choices">
-                  <button type="button" class="gear-choice" data-gear="schakel" aria-pressed="false">
-                    <span class="gear-choice-name">Schakel</span>
-                    <span class="gear-choice-sub">1 · 2 · 3 · 4 · 5 · R</span>
-                  </button>
-                  <button type="button" class="gear-choice" data-gear="automaat" aria-pressed="false">
-                    <span class="gear-choice-name">Automaat</span>
-                    <span class="gear-choice-sub">P · R · N · D</span>
-                  </button>
-                </div>
+                <div class="gear-picks" id="wiz-picks" role="group" aria-labelledby="h-2-auto"></div>
               <button type="button" class="wiz-skip" data-value="weet ik nog niet">Weet ik nog niet</button>
               </div>
 

@@ -1318,19 +1318,10 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
   gap: 20px 48px;
   align-items: start;
 }
-.gear-scene { display: block; width: 100%; max-width: 420px; height: auto; overflow: hidden; }   /* the wheel is cut off at the bottom, like seen from the seat */
+/* drawing parts shared by the dashboard and the gear buttons (homepage panel + contact wizard) */
 .gs-line { fill: none; stroke: var(--route); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
 .gs-mark { stroke-width: 7; }
-
-.gs-pick { cursor: pointer; }
-.gs-plate { fill: transparent; stroke: var(--line); stroke-width: 2; pointer-events: all; transition: stroke 0.2s ease; }
-.gs-pick:hover .gs-plate { stroke: var(--route); }
-.gs-gatelines { fill: none; stroke: var(--route); stroke-width: 3.5; stroke-linecap: round; opacity: 0.55; transition: opacity 0.2s ease; }
-.gs-pick:hover .gs-gatelines { opacity: 1; }
-.gear-scene[data-choice="schakel"] .gs-pick[data-gear="schakel"] .gs-plate,
-.gear-scene[data-choice="automaat"] .gs-pick[data-gear="automaat"] .gs-plate { stroke: var(--route); stroke-width: 3; }
-.gear-scene[data-choice="schakel"] .gs-pick[data-gear="schakel"] .gs-gatelines,
-.gear-scene[data-choice="automaat"] .gs-pick[data-gear="automaat"] .gs-gatelines { opacity: 1; }
+.gs-gatelines { fill: none; stroke: var(--route); stroke-width: 3.5; stroke-linecap: round; }
 .gs-knobball, .gs-levercap { fill: var(--paper); stroke: var(--route); stroke-width: 3.5; }
 .gs-dot { fill: var(--route); stroke: none; }
 .gs-label {
@@ -1346,33 +1337,6 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
 .gs-label.is-on { fill: var(--ink); }
 
 .gear-title { font-size: 1.1rem; margin: 0 0 12px; }
-.gear-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.gear-choice {
-  appearance: none;
-  font: inherit;
-  text-align: left;
-  background: var(--paper);
-  border: 2px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: 14px 16px 13px;
-  cursor: pointer;
-  position: relative;
-  transition: border-color 0.2s ease, background 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-.gear-choice:hover { border-color: var(--ink-soft); }
-.gear-choice[aria-pressed="true"] { border-color: var(--route); background: rgba(232,118,15,0.06); }
-.gear-choice[aria-pressed="true"]::after {
-  content: '';
-  position: absolute;
-  left: 14px; right: 14px; bottom: -2px;
-  height: 3px;
-  background: var(--route);
-}
-.gear-choice:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; }
-.gear-choice-name { display: block; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink); }
-.gear-choice-sub { display: block; margin-top: 3px; font-size: 0.82rem; color: var(--text-soft); letter-spacing: 0.03em; white-space: nowrap; }
-
 .gear-notes { margin-top: 16px; min-height: 3.2em; }
 .gear-hint { margin: 0; color: var(--text-soft); }
 .gear-points { margin: 0; padding: 0; list-style: none; }
@@ -1393,14 +1357,8 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
 @media (max-width: 900px) {
   .gear { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 }
-@media (max-width: 480px) {
-  .gear-choices { gap: 10px; }
-  .gear-choice { padding: 12px 12px 11px; }
-  .gear-choice-name { font-size: 1.05rem; }
-  .gear-choice-sub { font-size: 0.74rem; letter-spacing: 0; }
-}
 @media (prefers-reduced-motion: reduce) {
-  .gear-choice, .gs-plate, .gs-gatelines, .gs-label { transition: none; }
+  .gs-gatelines, .gs-label { transition: none; }
 }
 
 /* ---------- Step-by-step contact form (contact.html, needs JavaScript; the plain form works without) ---------- */
@@ -1459,13 +1417,12 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
 .wiz-skip:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; }
 
 /* zoom from the side view of the car into the driver's seat */
-.wiz-stage { position: relative; width: 100%; max-width: 420px; aspect-ratio: 420 / 250; margin-bottom: 14px; overflow: hidden; }
+.wiz-stage { position: relative; width: 100%; max-width: 430px; aspect-ratio: 430 / 250; margin-bottom: 14px; overflow: hidden; }
 .wiz-layer { position: absolute; inset: 0; width: 100%; height: 100%; }
 .wiz-side { color: var(--route); transform-origin: 46% 42%; }
 .wiz-side g { stroke-width: 1; }
 .wiz-seat { transform-origin: 50% 50%; }
-.wiz-seat .gear-scene { height: 100%; max-width: none; }
-.wiz-variant .gear-choices { max-width: 420px; }
+.wiz-seat .gear-bg { position: absolute; inset: 0; height: 100%; }
 
 .wiz-summary {
   margin: 0 0 20px;
@@ -1510,11 +1467,11 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
    H gate = Schakel, P-R-N-D lever = Automaat; each drawing plus its label is one real button. */
 .gear-main { min-width: 0; }
 .gear-stage { position: relative; width: 100%; max-width: 430px; aspect-ratio: 430 / 290; }
-.gear-bg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+.gear-bg { display: block; width: 100%; overflow: hidden; }
+.gear-stage .gear-bg { position: absolute; inset: 0; height: 100%; }
 .gear-pick {
   appearance: none;
-  position: absolute;
-  top: 42.76%;
+  position: relative;
   font: inherit;
   background: transparent;
   border: 2px solid var(--line);
@@ -1528,9 +1485,16 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
   transition: border-color 0.2s ease, background 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.gear-pick { height: 49.7%; justify-content: center; }
-.gear-pick--h { left: 46.51%; width: 28.37%; }
-.gear-pick--a { left: 77.67%; width: 22.33%; }
+/* homepage: the buttons sit on the dashboard drawing, at the place where the sticks would be */
+.gear-stage .gear-pick { position: absolute; top: 42.76%; height: 49.7%; justify-content: center; }
+.gear-stage .gear-pick--h { left: 46.51%; width: 28.37%; }
+.gear-stage .gear-pick--a { left: 77.67%; width: 22.33%; }
+/* contact wizard: side by side under the dashboard, a bit bigger (same drawing scale for both) */
+.gear-picks { display: flex; gap: 12px; max-width: 360px; margin-top: 14px; }
+.gear-picks .gear-pick { min-width: 0; padding: 6px 6px 10px; }
+.gear-picks .gear-pick--h { flex: 122 1 0; }
+.gear-picks .gear-pick--a { flex: 96 1 0; }
+.gear-picks .gear-pick-label { font-size: 1.1rem; }
 .gear-pick svg { display: block; width: 100%; height: auto; overflow: visible; }
 .gear-pick-label { font-family: var(--font-display); font-weight: 700; font-size: 0.98rem; line-height: 1.2; color: var(--ink); }
 .gear-pick .gs-gatelines { opacity: 0.55; transition: opacity 0.2s ease; }
@@ -1547,8 +1511,9 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
 }
 .gear-pick:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; }
 @media (max-width: 480px) {
-  .gear-pick-label { font-size: 0.78rem; }
-  .gear-pick { padding: 3px 2px 5px; border-radius: 12px; }
+  .gear-stage .gear-pick-label { font-size: 0.78rem; }
+  .gear-stage .gear-pick { padding: 3px 2px 5px; border-radius: 12px; }
+  .gear-picks .gear-pick-label { font-size: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .gear-pick, .gear-pick .gs-gatelines { transition: none; }

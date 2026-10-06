@@ -73,8 +73,13 @@
   var nav = document.getElementById('wiz-nav');
   var backBtn = document.getElementById('wiz-back');
   var select = document.getElementById('categorie');
-  var seat = wiz.querySelector('.wiz-seat svg');
-  var gs = window.GearScene && seat ? window.GearScene.create(seat) : null;
+  var seatBox = wiz.querySelector('.wiz-seat');
+  var picksBox = document.getElementById('wiz-picks');
+  var gs = null;   // the dashboard drawing and the two gear buttons come from the shared component (gear-scene.js)
+  if (window.GearScene && seatBox && picksBox) {
+    seatBox.insertAdjacentHTML('afterbegin', window.GearScene.dashboard(250));
+    gs = window.GearScene.mountPicks(picksBox);
+  }
   var current = 0, busy = false;
 
   // hidden fields that carry the answers into the e-mail
@@ -136,7 +141,6 @@
     Array.prototype.forEach.call(wiz.querySelectorAll('[data-gear]'), function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-gear') === state.variant ? 'true' : 'false');
     });
-    if (seat) seat.setAttribute('data-choice', state.variant === 'schakel' || state.variant === 'automaat' ? state.variant : '');
   }
 
   function updateProgress() {
@@ -191,14 +195,17 @@
     };
   }
 
-  // from the side view of the car, zoom into the driver's seat
+  // from the side view of the car, zoom into the driver's seat; the gear buttons appear as the zoom ends
   function enterSeat(dir) {
-    var side = wiz.querySelector('.wiz-side'), seatBox = wiz.querySelector('.wiz-seat');
+    var side = wiz.querySelector('.wiz-side');
     if (!gs) return;
     var chosen = state.variant === 'schakel' || state.variant === 'automaat' ? state.variant : null;
     gs.set(chosen);
-    if (reduce || !side.animate) { side.style.opacity = '0'; seatBox.style.opacity = '1'; return; }
-    side.style.opacity = ''; seatBox.style.opacity = '';
+    if (reduce || !side.animate) {
+      side.style.opacity = '0'; seatBox.style.opacity = '1'; picksBox.style.opacity = '1';
+      return;
+    }
+    side.style.opacity = ''; seatBox.style.opacity = ''; picksBox.style.opacity = '';
     var opts = { duration: 1000, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' };
     side.animate([
       { transform: 'scale(1)', opacity: 1 },
@@ -209,6 +216,11 @@
       { transform: 'scale(0.6)', opacity: 0 },
       { transform: 'scale(0.75)', opacity: 0, offset: 0.4 },
       { transform: 'scale(1)', opacity: 1 }
+    ], opts);
+    picksBox.animate([
+      { opacity: 0, transform: 'translateY(10px)' },
+      { opacity: 0, transform: 'translateY(10px)', offset: 0.6 },
+      { opacity: 1, transform: 'translateY(0)' }
     ], opts);
   }
 
