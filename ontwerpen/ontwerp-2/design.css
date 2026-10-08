@@ -1,0 +1,79 @@
+/* Design 2: App-style. The chooser is the hero: full-width tabs, one big card, sticky action bar on phones. */
+:root { --hh: 64px; }
+.a-hero { padding: 34px 0 0; }
+.a-hero .container { max-width: 1360px; }
+.a-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 24px; margin-bottom: 22px; }
+.a-head h1 { color: var(--white); font-size: clamp(1.9rem, 3.4vw, 2.9rem); margin: 0; }
+.a-head p { margin: 0; color: rgba(255,255,255,0.72); font-size: 1.05rem; }
+
+/* tabs sit on the navy and fold into the white card */
+.a-hero .chooser-tabs { border-bottom: 0; gap: 6px; align-items: end; }
+.a-hero .lic-tab { padding: 20px 6px 16px; background: rgba(255,255,255,0.07); border-radius: 16px 16px 0 0; transition: background 0.2s ease; }
+.a-hero .lic-tab:hover { background: rgba(255,255,255,0.14); }
+.a-hero .lic-tab[aria-selected="true"] { background: var(--white); }
+.a-hero .lic-tab::after { top: 0; bottom: auto; left: 0; right: 0; height: 4px; border-radius: 16px 16px 0 0; }
+.a-hero .lic-inner, .a-hero .lic-tab:hover .lic-inner, .a-hero .lic-tab[aria-selected="true"] .lic-inner { transform: none; }
+.a-hero .lic-art { width: min(100%, 104px); color: var(--route-light); opacity: 0.95; }
+.a-hero .lic-tab[aria-selected="true"] .lic-art { color: var(--route); }
+.a-hero .lic-name { color: var(--white); }
+.a-hero .lic-code { color: rgba(255,255,255,0.62); }
+.a-hero .lic-tab[aria-selected="true"] .lic-name { color: var(--ink); }
+.a-hero .lic-tab[aria-selected="true"] .lic-code { color: var(--text-soft); }
+.a-hero .lic-tab:focus-visible { outline-color: var(--lane); }
+
+.a-hero .chooser-panels { background: var(--white); border-radius: 0 0 22px 22px; padding: 34px 40px 38px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+.a-hero .lic-panel { padding: 0; }
+.a-hero .chooser-panels { color: var(--text); }
+.a-hero .chooser-panels h3, .a-hero .chooser-panels h4 { color: var(--ink); }
+.a-hero .chooser-panels p { color: var(--text-soft); }
+.a-hero-pad { padding-bottom: 44px; }
+
+/* reviews */
+.a-reviews { padding: 44px 0 52px; }
+.a-reviews .container { max-width: 1360px; }
+.a-reviews-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.a-reviews-head h2 { font-size: 1.3rem; margin: 0; }
+.a-quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.a-quotes .quote { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+
+/* header phone (desktop) */
+@media (min-width: 721px) {
+  .hdr-phone { display: inline-flex; align-items: center; gap: 8px; margin-left: 1.4rem; padding: 9px 16px; border-radius: 10px; background: var(--route); color: var(--white); font-weight: 700; font-size: 0.92rem; text-decoration: none; white-space: nowrap; }
+  .hdr-phone svg { width: 18px; height: 18px; }
+  .hdr-phone:hover { background: var(--route-dark); }
+  .site-header .container { gap: 12px; }
+  .site-header .main-nav { margin-left: auto; }
+}
+
+/* sticky bar on phones */
+.a-bar { display: none; }
+@media (max-width: 900px) {
+  .a-hero .chooser-panels { padding: 26px 20px 28px; }
+}
+@media (max-width: 720px) {
+  .a-hero { padding-top: 22px; }
+  .a-hero .container { padding: 0 16px; }
+  .a-hero .chooser-tabs { margin: 0 -16px; padding: 0 16px; scroll-padding: 0 16px; }
+  .a-hero .lic-tab { flex-basis: 34%; max-width: 150px; padding: 14px 4px 12px; }
+  .a-hero .lic-art { width: min(100%, 84px); }
+  .a-hero .lic-name { font-size: 0.92rem; }
+  .a-hero .chooser-panels { padding: 22px 16px 24px; border-radius: 0 0 18px 18px; }
+  .a-hero-pad { padding-bottom: 28px; }
+  .a-quotes { grid-template-columns: minmax(0, 1fr); }
+  .a-reviews { padding: 32px 0 36px; }
+  .a-reviews .container { padding: 0 16px; }
+  .a-bar {
+    display: grid; grid-template-columns: 1fr 1.25fr 1.4fr; gap: 8px;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(5,13,24,0.96);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .a-bar a { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.3); color: var(--white); font-weight: 700; font-size: 0.92rem; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+  .a-bar svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .a-bar .a-bar-main { background: var(--route); border-color: var(--route); }
+  .a-bar a:focus-visible { outline: 2px solid var(--lane); outline-offset: 2px; }
+  .site-footer { padding-bottom: 96px; }
+}
+@media (prefers-reduced-motion: reduce) { .a-hero .lic-tab { transition: none; } }

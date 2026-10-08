@@ -1,0 +1,45 @@
+/* Shared by the three homepage designs (loaded after ../styles.css).
+   Header height comes from --hh, set per design. */
+.site-header .container { height: var(--hh, 64px); max-width: 1360px; }
+.site-header .logo-img { height: calc(var(--hh, 64px) - 18px); }
+.hdr-phone { display: none; }
+
+/* The closed phone menu waits off-screen to the right; do not let it count as sideways scroll */
+html { overflow-x: clip; }
+
+/* Auto B panel: drawing on the left, intro + facts on the right (saves a lot of height) */
+@media (min-width: 901px) {
+  #panel-b { grid-template-columns: minmax(0, 430px) minmax(0, 1fr); grid-template-areas: "title title" "gear intro" "gear spec"; align-content: start; }
+  #panel-b .lic-title { grid-area: title; }
+  #panel-b .gear { grid-area: gear; grid-template-columns: minmax(0, 1fr); }
+  #panel-b .lic-intro { grid-area: intro; }
+  #panel-b .lic-spec { grid-area: spec; }
+}
+
+/* Quotes (real Google reviews, kept in Dutch) */
+.quote { margin: 0; }
+.quote blockquote { margin: 0 0 0.6em; font-size: 0.95rem; line-height: 1.5; color: var(--text); }
+.quote figcaption { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 0.85rem; color: var(--ink); }
+.quote .stars { color: var(--lane); letter-spacing: 2px; font-weight: 400; }
+.google-badge.small { padding: 8px 14px; gap: 8px; text-decoration: none; font-size: 0.9rem; }
+
+/* Short footer */
+.mini-footer { padding: 40px 0 20px; }
+.mf-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); gap: 28px; margin-bottom: 24px; }
+.mini-footer .footer-logo-img { height: 44px; margin-bottom: 14px; }
+.mini-footer h4 { font-size: 0.85rem; margin-bottom: 0.7em; }
+.mini-footer p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin: 0 0 0.5em; }
+.mf-hours { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; margin: 0; font-size: 0.9rem; }
+.mf-hours dt { color: rgba(255,255,255,0.7); }
+.mf-hours dd { white-space: nowrap; margin: 0; color: var(--white); }
+.mf-route { color: var(--route-light); font-weight: 600; font-size: 0.9rem; text-decoration: none; border-bottom: 1px solid rgba(255,162,74,0.4); }
+.mini-footer .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 16px; }
+
+@media (max-width: 900px) { .mf-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+@media (max-width: 720px) {
+  .site-header .container { padding: 0 16px; }
+  .site-header .logo-img { height: 34px; }
+  .main-nav { top: var(--hh, 64px); height: calc(100vh - var(--hh, 64px)); }
+  .mf-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .mini-footer { padding-top: 32px; }
+}

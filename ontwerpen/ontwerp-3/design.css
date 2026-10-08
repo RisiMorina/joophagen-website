@@ -1,0 +1,45 @@
+/* Design 3: Classic. Photo hero with the fleet, chooser row right below, three reasons. */
+:root { --hh: 76px; }
+.k-hero { padding: 0; text-align: center; background: linear-gradient(180deg, var(--ink-black), var(--ink)); overflow: hidden; }
+.k-hero-text { padding: 44px 24px 26px; }
+.k-hero h1 { color: var(--white); max-width: 20ch; margin: 0 auto 0.4em; font-size: clamp(2.4rem, 4.6vw, 3.9rem); }
+.k-hero p { color: rgba(255,255,255,0.8); margin: 0 auto 1.5em; font-size: 1.1rem; max-width: 44ch; }
+.k-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.k-photo { display: block; width: 100%; height: auto; aspect-ratio: 1024 / 183; object-fit: cover; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 42%); mask-image: linear-gradient(to bottom, transparent 0, #000 42%); }
+.k-hero-end { height: 4px; background: repeating-linear-gradient(90deg, var(--lane) 0 28px, var(--ink-black) 28px 46px); }
+
+.k-chooser { padding: 44px 0 24px; }
+.k-chooser .section-head { margin-bottom: 1.4em; }
+.k-chooser .container { max-width: 1160px; }
+.k-chooser .lic-panel { padding-top: 34px; }
+
+.k-reasons { padding: 40px 0 44px; background: var(--paper-dim); }
+.k-reasons .section-head { margin-bottom: 1.8em; }
+.k-reasons-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.k-reasons .reason p { max-width: 36ch; }
+.k-more { margin: 2em 0 0; max-width: none; text-align: center; font-size: 0.95rem; }
+.k-more a { font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+.k-more a:hover { color: var(--route); border-color: var(--route); }
+
+.k-reviews { padding: 40px 0 46px; }
+.k-reviews .section-head { margin-bottom: 1.2em; }
+.k-reviews-badge { display: flex; justify-content: center; margin-bottom: 28px; }
+.k-quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; }
+.k-quotes .quote { text-align: center; }
+.k-quotes .quote blockquote { font-size: 1.02rem; }
+.k-quotes .quote figcaption { justify-content: center; }
+.k-quotes .quote::before { content: '\201C'; display: block; font-family: var(--font-display); font-weight: 800; font-size: 3.2rem; line-height: 0.7; color: var(--route); margin-bottom: 10px; }
+
+@media (max-width: 900px) {
+  .k-reasons-grid, .k-quotes { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .k-chooser { padding-top: 40px; }
+}
+@media (max-width: 720px) {
+  :root { --hh: 64px; }
+  .k-hero-text { padding: 36px 16px 22px; }
+  .k-actions .btn { flex: 1 1 auto; justify-content: center; }
+  .k-photo { aspect-ratio: auto; height: 176px; object-position: 64% center; }
+  .k-chooser .container, .k-reasons .container, .k-reviews .container { padding: 0 16px; }
+  .k-chooser .chooser-tabs { margin: 0 -16px; padding: 0 16px; scroll-padding: 0 16px; }
+  .k-reasons, .k-reviews { padding: 38px 0; }
+}
