@@ -25,5 +25,15 @@ Object.assign(window.I18N_LANGS.en = window.I18N_LANGS.en || {}, {
   "Bovengemiddeld veel leerlingen slagen in één keer.": "More learners than average pass first time.",
   "Dezelfde instructeur tijdens je hele opleiding.": "The same instructor throughout your whole course.",
   "Actuele modellen met de laatste veiligheidsvoorzieningen.": "Current models with the latest safety features.",
-  "Weet je al wat je wilt halen? Kies hieronder.": "Already know what you want to get? Choose below."
+  "Weet je al wat je wilt halen? Kies hieronder.": "Already know what you want to get? Choose below.",
+  "Beginnen met lessen kan vanaf 16,5 jaar.": "You can start lessons from 16.5 years old.",
+  "Vanaf 17 jaar oefen je met een begeleider (2toDrive). Losse rijlessen van 60 minuten, of een pakket inclusief praktijkexamen.": "From 17 you practise with a supervisor (2toDrive). Single 60-minute lessons, or a package including the practical test.",
+  "Rijlessen op de scooter en voorbereiding op het praktijkexamen. Of haal je rijbewijs in één dag met de eendaagse cursus.": "Lessons on the scooter and preparation for the practical test. Or get your licence in one day with the one-day course.",
+  "A1: lichte motoren. A2: middelzware motoren. A: zware motoren.": "A1: light motorcycles. A2: medium-weight motorcycles. A: heavy motorcycles.",
+  "Praktijkexamen vanaf 18 jaar voor A1, vanaf 20 jaar voor A2 en vanaf 21 jaar voor A. Nog nooit op een motor gezeten? Maak een afspraak voor een “Try the Bike”.": "Practical test from 18 years old for A1, from 20 for A2 and from 21 for A. Never been on a motorcycle? Book a “Try the Bike”.",
+  "Je hebt rijbewijs B en je bent 18 jaar of ouder. Desgewenst in één dag, of verspreid over meerdere lessen.": "You have licence B and you are 18 or older. In one day if you like, or spread over several lessons.",
+  "Met code 95 kun je het rijbewijs vanaf 18 jaar aanvragen, zonder code 95 vanaf 21 jaar. Bij CE hoort uitgebreide manoeuvreertraining.": "With code 95 you can apply for the licence from 18 years old, without code 95 from 21. CE includes extensive manoeuvring training.",
+  "Bus rijden met rijbewijs D.": "Driving a bus with licence D.",
+  "Lesauto's van Verkeersschool Joop Hagen voor het kantoor": "Lesson cars of Verkeersschool Joop Hagen outside the office",
+  "Vrachtwagen van Verkeersschool Joop Hagen": "Truck of Verkeersschool Joop Hagen"
 });

@@ -94,16 +94,16 @@
   <section class="k-hero">
     <div class="k-hero-inner">
       <h1>Elke weg begint met een eerste les.</h1>
-      <div class="k-hero-side">
-        <p>Rijschool in Deventer voor bijna elk rijbewijs, met een vaste instructeur.</p>
-        <div class="k-actions">
-          <a href="contact.html" class="btn btn-primary">Plan een intake</a>
-          <a href="tel:+31570635036" class="btn btn-outline-light">Bel ons</a>
-        </div>
+      <p>Rijschool in Deventer voor bijna elk rijbewijs, met een vaste instructeur.</p>
+      <div class="k-actions">
+        <a href="contact.html" class="pill pill--solid pill--lg">Plan een intake</a>
+        <a href="tel:+31570635036" class="pill pill--lg">Bel ons</a>
       </div>
     </div>
-    <img class="k-photo" src="../../images/vloot.jpg" width="1024" height="183" alt="Onze lesauto's, motoren en vrachtwagen voor het gebouw aan de Hunneperkade">
-    <div class="k-hero-end" aria-hidden="true"></div>
+    <div class="container k-hero-media">
+      <img class="k-photo" src="../../images/vloot.jpg" width="1024" height="183" alt="Onze lesauto's, motoren en vrachtwagen voor het gebouw aan de Hunneperkade">
+      <div class="k-hero-end" aria-hidden="true"></div>
+    </div>
   </section>
 
   <section class="k-intro">
@@ -178,120 +178,120 @@
       </button>
       </div>
       <div class="chooser-panels">
-      <div role="tabpanel" class="lic-panel" id="panel-am" aria-labelledby="tab-am" tabindex="0" hidden>
-        <div class="lic-intro">
-          <h3>Rijbewijs AM</h3>
-          <a class="btn btn-primary" href="contact.html?rijbewijs=AM">Plan een intake voor rijbewijs AM</a>
-        <a class="lic-more" href="diensten.html#scooter">Prijzen en details</a>
-        </div>
-        <dl class="lic-spec">
-          <div><dt>Wat mag je besturen?</dt><dd>Bromfiets en scooter.</dd></div>
-          <div><dt>Minimumleeftijd</dt><dd>Je kunt het al vanaf je 16e halen.</dd></div>
-          <div><dt>Theorie</dt><dd>Theoriecursus inclusief theorie-examen. In het zorgeloos pakket online of klassikaal.</dd></div>
-          <div><dt>De opleiding</dt><dd>Rijlessen op de scooter en voorbereiding op het praktijkexamen. Het zorgeloos pakket is 5,5 rijlessen van 60 minuten plus praktijkexamen. Of haal je rijbewijs in één dag met de eendaagse cursus.</dd></div>
-        </dl>
-      </div>
-      <div role="tabpanel" class="lic-panel" id="panel-b" aria-labelledby="tab-b" tabindex="0">
-        <h3 class="lic-title">Rijbewijs B</h3>
-        <div class="gear" id="gear" hidden>
-          <div class="gear-main">
-            <h4 class="gear-title" id="gear-title">Schakel of automaat?</h4>
-            <div class="gear-stage" id="gear-stage" role="group" aria-labelledby="gear-title"></div>
-          </div>
-
-          <div class="gear-side">
-            <div class="gear-notes" aria-live="polite">
-              <p class="gear-hint" id="gear-hint">Kies schakel of automaat. Dan zie je wat het betekent.</p>
-              <ul class="gear-points" data-for="schakel" hidden>
-                <li>Je leert schakelen met een koppelingspedaal en een versnellingspook.</li>
-                <li>Je doet het praktijkexamen in een schakelauto. Je rijbewijs heeft geen automaatbeperking.</li>
-                <li>Een autorijles van 60 minuten kost € 67,50 (prijspeil 1 juli 2026).</li>
-              </ul>
-              <ul class="gear-points" data-for="automaat" hidden>
-                <li>Je leert en doet je praktijkexamen in een auto met automatische schakeling.</li>
-                <li>Op je rijbewijs komt code 78. Je mag dan alleen automaat rijden.</li>
-                <li>Later overstappen op schakel? Dan doe je opnieuw praktijkexamen in een schakelauto. Het theorie-examen hoef je niet opnieuw te doen.</li>
-                <li>Een automaatrijles van 60 minuten kost € 67,50 (prijspeil 1 juli 2026).</li>
-              </ul>
-              <a class="gear-source" href="https://www.cbr.nl/nl/veelgestelde-vragen/wat-betekent-code-78" target="_blank" rel="noopener" hidden>Meer op cbr.nl</a>
-            </div>
+      <div role="tabpanel" class="lic-panel lic-card" id="panel-am" aria-labelledby="tab-am" tabindex="0" hidden>
+        <!-- TODO: foto van Sabine nodig: Rijbewijs AM, scooter -->
+        <div class="lic-media lic-media--ph" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-scooter"/></svg></div>
+        <div class="lic-body">
+          <div class="lic-head"><span class="lic-tile" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-scooter"/></svg></span><h3 class="lic-name-h">Rijbewijs AM</h3></div>
+          <p class="lic-headline">Je kunt het al vanaf je 16e halen.</p>
+          <p class="lic-text">Rijlessen op de scooter en voorbereiding op het praktijkexamen. Of haal je rijbewijs in één dag met de eendaagse cursus.</p>
+          <div class="lic-pills">
+          <a class="pill" href="contact.html?rijbewijs=AM">Plan een intake</a>
+          <a class="pill" href="tel:+31570635036">Bel ons</a>
+          <a class="pill" href="diensten.html#scooter">Prijzen en details</a>
           </div>
         </div>
-        <div class="lic-intro">
-          <a class="btn btn-primary" id="btn-b" href="contact.html?rijbewijs=B">Plan een intake voor rijbewijs B</a>
-        <a class="lic-more" href="diensten.html#auto">Prijzen en details</a>
-        </div>
-        <dl class="lic-spec">
-          <div><dt>Wat mag je besturen?</dt><dd>Een auto.</dd></div>
-          <div><dt>Minimumleeftijd</dt><dd>Beginnen met lessen kan vanaf 16,5 jaar. Vanaf 17 jaar oefen je met een begeleider (2toDrive). Zelf rijden mag zodra je 18 bent en geslaagd.</dd></div>
-          <div><dt>Theorie</dt><dd>Theoriecursus inclusief theorie-examen.</dd></div>
-          <div><dt>De opleiding</dt><dd>Losse rijlessen van 60 minuten (ook automaat), of een pakket: de eerste 10 lessen, of 20 tot 40 lessen inclusief praktijkexamen.</dd></div>
-        </dl>
       </div>
-      <div role="tabpanel" class="lic-panel" id="panel-a" aria-labelledby="tab-a" tabindex="0" hidden>
-        <div class="lic-intro">
-          <h3>Rijbewijs A1, A2 en A</h3>
-          <a class="btn btn-primary" href="contact.html?rijbewijs=motor">Plan een intake voor rijbewijs A</a>
-        <a class="lic-more" href="diensten.html#motor">Prijzen en details</a>
+      <div role="tabpanel" class="lic-panel lic-card" id="panel-b" aria-labelledby="tab-b" tabindex="0">
+        <div class="lic-media"><img src="../../images/les-auto.webp" width="700" height="366" alt="Lesauto's van Verkeersschool Joop Hagen voor het kantoor" loading="lazy" style="object-position:22% center"></div>
+        <div class="lic-body">
+          <div class="lic-head"><span class="lic-tile" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-auto"/></svg></span><h3 class="lic-name-h">Rijbewijs B</h3></div>
+          <p class="lic-headline">Beginnen met lessen kan vanaf 16,5 jaar.</p>
+          <p class="lic-text">Vanaf 17 jaar oefen je met een begeleider (2toDrive). Losse rijlessen van 60 minuten, of een pakket inclusief praktijkexamen.</p>
+          <div class="lic-pills">
+          <a class="pill" id="btn-b" href="contact.html?rijbewijs=B">Plan een intake</a>
+          <a class="pill" href="tel:+31570635036">Bel ons</a>
+          <a class="pill" href="diensten.html#auto">Prijzen en details</a>
+          <span class="lic-gear" role="group" aria-label="Schakel of automaat?"><button type="button" class="pill" data-gear="schakel" aria-pressed="false">Schakel</button><button type="button" class="pill" data-gear="automaat" aria-pressed="false">Automaat</button></span>
+          </div>
+        <div class="gear-notes" aria-live="polite">
+          <p class="gear-hint" id="gear-hint">Kies schakel of automaat. Dan zie je wat het betekent.</p>
+          <ul class="gear-points" data-for="schakel" hidden>
+            <li>Je leert schakelen met een koppelingspedaal en een versnellingspook.</li>
+            <li>Je doet het praktijkexamen in een schakelauto. Je rijbewijs heeft geen automaatbeperking.</li>
+            <li>Een autorijles van 60 minuten kost € 67,50 (prijspeil 1 juli 2026).</li>
+          </ul>
+          <ul class="gear-points" data-for="automaat" hidden>
+            <li>Je leert en doet je praktijkexamen in een auto met automatische schakeling.</li>
+            <li>Op je rijbewijs komt code 78. Je mag dan alleen automaat rijden.</li>
+            <li>Later overstappen op schakel? Dan doe je opnieuw praktijkexamen in een schakelauto. Het theorie-examen hoef je niet opnieuw te doen.</li>
+            <li>Een automaatrijles van 60 minuten kost € 67,50 (prijspeil 1 juli 2026).</li>
+          </ul>
+          <a class="gear-source" href="https://www.cbr.nl/nl/veelgestelde-vragen/wat-betekent-code-78" target="_blank" rel="noopener" hidden>Meer op cbr.nl</a>
         </div>
-        <dl class="lic-spec">
-          <div><dt>Wat mag je besturen?</dt><dd>A1: lichte motoren. A2: middelzware motoren. A: zware motoren. Onze instructeurs adviseren je over de juiste categorie.</dd></div>
-          <div><dt>Minimumleeftijd</dt><dd>Praktijkexamen vanaf 18 jaar voor A1, vanaf 20 jaar voor A2 en vanaf 21 jaar voor A.</dd></div>
-          <!-- TODO (verborgen): Theorie: theorie voor motor bevestigen; diensten.html noemt alleen theoriecursussen voor bijna elke categorie -->
-          <div><dt>De opleiding</dt><dd>Losse motorrijles van 90 minuten, of een pakket van 16, 24 of 32 lessen inclusief de praktijkexamens (voertuigbeheersing en verkeersdeelneming). Nog nooit op een motor gezeten? Maak een afspraak voor een “Try the Bike”.</dd></div>
-        </dl>
+        </div>
       </div>
-      <div role="tabpanel" class="lic-panel" id="panel-be" aria-labelledby="tab-be" tabindex="0" hidden>
-        <div class="lic-intro">
-          <h3>Rijbewijs BE</h3>
-          <a class="btn btn-primary" href="contact.html?rijbewijs=BE">Plan een intake voor rijbewijs BE</a>
-        <a class="lic-more" href="diensten.html#auto-aanhanger">Prijzen en details</a>
+      <div role="tabpanel" class="lic-panel lic-card" id="panel-a" aria-labelledby="tab-a" tabindex="0" hidden>
+        <!-- TODO: foto van Sabine nodig: Rijbewijs A1, A2 en A, motor -->
+        <div class="lic-media lic-media--ph" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-motor"/></svg></div>
+        <div class="lic-body">
+          <div class="lic-head"><span class="lic-tile" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-motor"/></svg></span><h3 class="lic-name-h">Rijbewijs A1, A2 en A</h3></div>
+          <p class="lic-headline">A1: lichte motoren. A2: middelzware motoren. A: zware motoren.</p>
+          <p class="lic-text">Praktijkexamen vanaf 18 jaar voor A1, vanaf 20 jaar voor A2 en vanaf 21 jaar voor A. Nog nooit op een motor gezeten? Maak een afspraak voor een “Try the Bike”.</p>
+          <div class="lic-pills">
+          <a class="pill" href="contact.html?rijbewijs=motor">Plan een intake</a>
+          <a class="pill" href="tel:+31570635036">Bel ons</a>
+          <a class="pill" href="diensten.html#motor">Prijzen en details</a>
+          </div>
         </div>
-        <dl class="lic-spec">
-          <div><dt>Wat mag je besturen?</dt><dd>Een auto met aanhanger.</dd></div>
-          <div><dt>Minimumleeftijd</dt><dd>Je hebt rijbewijs B en je bent 18 jaar of ouder.</dd></div>
-          <!-- TODO (verborgen): Theorie: theorie voor BE invullen; staat niet op diensten.html -->
-          <div><dt>De opleiding</dt><dd>Desgewenst in één dag, of verspreid over meerdere lessen. Een pakket van 4, 6 of 8 rijlessen (45 minuten) inclusief praktijkexamen. Losse lessen kunnen ook, met een intake van 90 minuten.</dd></div>
-        </dl>
       </div>
-      <div role="tabpanel" class="lic-panel" id="panel-c" aria-labelledby="tab-c" tabindex="0" hidden>
-        <div class="lic-intro">
-          <h3>Rijbewijs C en CE</h3>
-          <a class="btn btn-primary" href="contact.html?rijbewijs=vrachtwagen">Plan een intake voor rijbewijs C of CE</a>
-        <a class="lic-more" href="diensten.html#vrachtwagen">Prijzen en details</a>
+      <!-- TODO (verborgen): motor, theorie: bevestigen; diensten.html noemt alleen theoriecursussen voor bijna elke categorie -->
+      <div role="tabpanel" class="lic-panel lic-card" id="panel-be" aria-labelledby="tab-be" tabindex="0" hidden>
+        <!-- TODO: foto van Sabine nodig: Rijbewijs BE, auto met aanhanger -->
+        <div class="lic-media lic-media--ph" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-be"/></svg></div>
+        <div class="lic-body">
+          <div class="lic-head"><span class="lic-tile" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-be"/></svg></span><h3 class="lic-name-h">Rijbewijs BE</h3></div>
+          <p class="lic-headline">Een auto met aanhanger.</p>
+          <p class="lic-text">Je hebt rijbewijs B en je bent 18 jaar of ouder. Desgewenst in één dag, of verspreid over meerdere lessen.</p>
+          <div class="lic-pills">
+          <a class="pill" href="contact.html?rijbewijs=BE">Plan een intake</a>
+          <a class="pill" href="tel:+31570635036">Bel ons</a>
+          <a class="pill" href="diensten.html#auto-aanhanger">Prijzen en details</a>
+          </div>
         </div>
-        <dl class="lic-spec">
-          <div><dt>Wat mag je besturen?</dt><dd>C: een vrachtwagen. CE: een vrachtwagen met aanhanger.</dd></div>
-          <div><dt>Minimumleeftijd</dt><dd>Met code 95 kun je het rijbewijs vanaf 18 jaar aanvragen, zonder code 95 vanaf 21 jaar. Het theorie-examen mag vanaf 17 jaar.</dd></div>
-          <div><dt>Theorie</dt><dd>Theorie voor de vakbekwaamheid: RVM1-C, VM2-C en VM3-C, met lessen, boeken en examen. Ook als zelfstudiepakket.</dd></div>
-          <div><dt>De opleiding</dt><dd>Praktijkles C en CE van 60 minuten, het praktijkexamen en de vakbekwaamheidstoetsen (VPTC en VPBC, code 95). Bij CE hoort uitgebreide manoeuvreertraining.</dd></div>
-        </dl>
+      </div>
+      <!-- TODO (verborgen): BE, theorie invullen; staat niet op diensten.html -->
+      <div role="tabpanel" class="lic-panel lic-card" id="panel-c" aria-labelledby="tab-c" tabindex="0" hidden>
+        <div class="lic-media"><img src="../../images/les-vrachtwagen.webp" width="920" height="366" alt="Vrachtwagen van Verkeersschool Joop Hagen" loading="lazy" style="object-position:50% center"></div>
+        <div class="lic-body">
+          <div class="lic-head"><span class="lic-tile" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-truck"/></svg></span><h3 class="lic-name-h">Rijbewijs C en CE</h3></div>
+          <p class="lic-headline">C: een vrachtwagen. CE: een vrachtwagen met aanhanger.</p>
+          <p class="lic-text">Met code 95 kun je het rijbewijs vanaf 18 jaar aanvragen, zonder code 95 vanaf 21 jaar. Bij CE hoort uitgebreide manoeuvreertraining.</p>
+          <div class="lic-pills">
+          <a class="pill" href="contact.html?rijbewijs=vrachtwagen">Plan een intake</a>
+          <a class="pill" href="tel:+31570635036">Bel ons</a>
+          <a class="pill" href="diensten.html#vrachtwagen">Prijzen en details</a>
+          </div>
+        </div>
       </div>
       <!-- TODO: bus (D) is not on diensten.html. Fill in or remove this licence. The contact form has no bus option either. -->
-      <div role="tabpanel" class="lic-panel" id="panel-d" aria-labelledby="tab-d" tabindex="0" hidden>
-        <div class="lic-intro">
-          <h3>Rijbewijs D</h3>
-          <a class="btn btn-primary" href="contact.html?rijbewijs=D">Plan een intake voor rijbewijs D</a>
+      <div role="tabpanel" class="lic-panel lic-card" id="panel-d" aria-labelledby="tab-d" tabindex="0" hidden>
+        <!-- TODO: foto van Sabine nodig: Rijbewijs D, bus -->
+        <div class="lic-media lic-media--ph" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-bus"/></svg></div>
+        <div class="lic-body">
+          <div class="lic-head"><span class="lic-tile" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-bus"/></svg></span><h3 class="lic-name-h">Rijbewijs D</h3></div>
+          <p class="lic-headline">Bus rijden met rijbewijs D.</p>
+          <p class="lic-text">Met code 95 kun je rijbewijs D vanaf 18 jaar aanvragen, zonder code 95 vanaf 24 jaar.</p>
+          <div class="lic-pills">
+          <a class="pill" href="contact.html?rijbewijs=D">Plan een intake</a>
+          <a class="pill" href="tel:+31570635036">Bel ons</a>
+          </div>
         </div>
-        <dl class="lic-spec">
-          <!-- TODO (verborgen): Wat mag je besturen?: bus (D) staat nog niet op diensten.html; invullen na overleg met de eigenaar -->
-          <div><dt>Minimumleeftijd</dt><dd>Met code 95 kun je rijbewijs D vanaf 18 jaar aanvragen, zonder code 95 vanaf 24 jaar.</dd></div>
-          <!-- TODO (verborgen): Theorie: invullen -->
-          <!-- TODO (verborgen): De opleiding: invullen of dit rijbewijs weghalen als Joop Hagen het niet aanbiedt -->
-        </dl>
       </div>
-      <div role="tabpanel" class="lic-panel" id="panel-taxi" aria-labelledby="tab-taxi" tabindex="0" hidden>
-        <div class="lic-intro">
-          <h3>Taxipas</h3>
-          <a class="btn btn-primary" href="contact.html?rijbewijs=taxi">Plan een intake voor de taxipas</a>
-        <a class="lic-more" href="diensten.html#taxi">Prijzen en details</a>
+      <!-- TODO (verborgen): D, wat mag je besturen / theorie / opleiding: invullen of dit rijbewijs weghalen als Joop Hagen het niet aanbiedt -->
+      <div role="tabpanel" class="lic-panel lic-card" id="panel-taxi" aria-labelledby="tab-taxi" tabindex="0" hidden>
+        <!-- TODO: foto van Sabine nodig: Taxipas -->
+        <div class="lic-media lic-media--ph" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-taxi"/></svg></div>
+        <div class="lic-body">
+          <div class="lic-head"><span class="lic-tile" aria-hidden="true"><svg viewBox="0 0 120 64" focusable="false"><use href="#ch-taxi"/></svg></span><h3 class="lic-name-h">Taxipas</h3></div>
+          <p class="lic-headline">Als taxichauffeur aan de slag, met de taxipas.</p>
+          <p class="lic-text">Theorie-examen vanaf 17 jaar, praktijkexamen vanaf 18 jaar. Voor het praktijkexamen heb je rijbewijs B nodig.</p>
+          <div class="lic-pills">
+          <a class="pill" href="contact.html?rijbewijs=taxi">Plan een intake</a>
+          <a class="pill" href="tel:+31570635036">Bel ons</a>
+          <a class="pill" href="diensten.html#taxi">Prijzen en details</a>
+          </div>
         </div>
-        <dl class="lic-spec">
-          <div><dt>Wat mag je doen?</dt><dd>Als taxichauffeur aan de slag, met de taxipas.</dd></div>
-          <div><dt>Minimumleeftijd</dt><dd>Theorie-examen vanaf 17 jaar, praktijkexamen vanaf 18 jaar. Voor het praktijkexamen heb je rijbewijs B nodig.</dd></div>
-          <div><dt>Theorie</dt><dd>Lesboek en examentraining, en het theorie-examen.</dd></div>
-          <div><dt>De opleiding</dt><dd>Voorbereiding op de rij- en ondernemersvaardigheden voor de taxipas. Praktijkles van 60 minuten en praktijkexamen, of een pakket van 3 lessen (90 minuten) inclusief praktijkexamen.</dd></div>
-        </dl>
       </div>
       </div>
     </div>
@@ -369,7 +369,6 @@
 <script src="../../i18n.js"></script>
 <script src="../../script.js"></script>
 <script src="../../chooser.js"></script>
-<script src="../../gear-scene.js"></script>
-<script src="../chooser-gear.js"></script>
+<script src="panels.js"></script>
 </body>
 </html>

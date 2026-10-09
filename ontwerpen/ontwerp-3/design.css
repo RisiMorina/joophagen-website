@@ -1,25 +1,95 @@
-/* Design 3: Classic. Photo hero with the fleet, chooser row right below, three reasons. */
+/* Design 3: Classic. Light hero with the fleet photo, licence chooser with split cards, three reasons. */
 :root { --hh: 76px; }
-.k-hero { position: relative; padding: 0; background: var(--ink); overflow: hidden; }
-.k-hero-inner { max-width: 1160px; margin: 0 auto; padding: 56px 24px 8px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; text-align: left; }
-.k-hero h1 { color: var(--white); margin: 0; font-size: clamp(2.2rem, 4vw, 3.4rem); text-wrap: balance; }
-.k-hero p { color: rgba(255,255,255,0.85); margin: 0 0 1.4em; font-size: 1.1rem; max-width: 44ch; }
-.k-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.k-photo { display: block; width: 100%; height: auto; aspect-ratio: 1024 / 183; object-fit: contain; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%); mask-image: linear-gradient(to bottom, transparent 0, #000 30%); }
-.k-hero .btn-primary { background: var(--route); box-shadow: none; }
-.k-hero .btn-primary:hover { background: var(--route-dark); box-shadow: none; transform: none; }
-.k-hero .btn-outline-light { border-color: var(--white); }
-.k-hero .btn-outline-light:hover { transform: none; }
-.k-hero-end { height: 4px; background: repeating-linear-gradient(90deg, var(--lane) 0 28px, var(--ink-black) 28px 46px); }
+
+/* ---- Header: light ---- */
+.site-header { background: rgba(250,249,246,0.92); box-shadow: 0 1px 0 var(--line); }
+.site-header::after { display: none; }
+.main-nav a { color: var(--ink); }
+.nav-toggle { color: var(--ink); }
+.lang-switch { color: rgba(8,27,48,0.35); }
+.lang-switch button { color: var(--text-soft); }
+.lang-switch button:hover, .lang-switch button.is-active { color: var(--ink); }
+@media (max-width: 720px) {
+  .main-nav a { color: var(--white); }
+  .lang-switch--menu { color: rgba(255,255,255,0.4); }
+  .lang-switch--menu button { color: rgba(255,255,255,0.62); }
+  .lang-switch--menu button:hover, .lang-switch--menu button.is-active { color: var(--white); }
+}
+
+/* ---- Pills: hero buttons and card links share one style ---- */
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+  min-height: 40px; padding: 0 18px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: transparent; color: var(--ink);
+  font: 600 0.95rem/1.2 var(--font-body); letter-spacing: 0;
+  text-decoration: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.pill:hover { border-color: var(--route); background: rgba(232,118,15,0.07); }
+.pill:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; }
+.pill--lg { min-height: 52px; padding: 0 30px; font-size: 1rem; border-color: var(--ink); }
+.pill--solid { background: var(--route); border-color: var(--route); color: var(--ink); }
+.pill--solid:hover { background: var(--route-light); border-color: var(--route-light); }
+.pill[aria-pressed="true"] { border-color: var(--route); background: rgba(232,118,15,0.12); }
+a.pill:not(.pill--lg)::after {
+  content: ''; width: 0.95em; height: 0.95em; flex-shrink: 0; background: var(--route);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8h10M9 4l4 4-4 4' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8h10M9 4l4 4-4 4' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ---- Hero: light, centred, then the fleet photo ---- */
+.k-hero { background: var(--paper); padding: 0 0 36px; }
+.k-hero-inner { max-width: 860px; margin: 0 auto; padding: 72px 24px 0; text-align: center; }
+.k-hero h1 { color: var(--ink); margin: 0 auto 20px; max-width: 18ch; font-weight: 400; font-size: clamp(2.6rem, 5vw, 4.4rem); line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; }
+.k-hero p { color: var(--text-soft); margin: 0 auto 32px; font-size: 1.15rem; max-width: 46ch; }
+.k-actions { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
+.k-hero-media { max-width: 1160px; }
+.k-photo { display: block; width: 100%; height: auto; border-radius: 20px; }
+.k-hero-end { margin-top: 22px; height: 4px; background: repeating-linear-gradient(90deg, var(--lane) 0 28px, transparent 28px 46px); }
 @media (prefers-reduced-motion: no-preference) {
-  .k-hero-end { animation: road-paint 1.2s cubic-bezier(.2,.7,.2,1) both; }
+  .k-hero-end { animation: road-paint 1.2s cubic-bezier(0,0,.2,1) both; }
 }
 @keyframes road-paint { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+/* ---- Licence panels: one split card per licence ---- */
+.k-chooser .chooser-panels { padding-top: 32px; }
+.lic-panel.lic-card:not([hidden]) {
+  display: grid; grid-template-columns: 45% minmax(0, 1fr); gap: 16px 40px; align-items: center;
+  padding: 16px; margin: 0; background: var(--white);
+  border: 1px solid var(--line); border-radius: 24px;
+}
+#panel-b.lic-card { grid-template-areas: none; align-content: normal; }
+.lic-panel.lic-card.is-in { animation: lic-fade 0.2s ease both; }
+@keyframes lic-fade { from { opacity: 0; } to { opacity: 1; } }
+.lic-media { align-self: start; height: 100%; max-height: 520px; min-height: 380px; border-radius: 16px; overflow: hidden; background: var(--paper-dim); }
+.lic-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lic-media--ph { display: grid; place-items: center; color: var(--route-dark); }
+.lic-media--ph svg { width: 56%; max-width: 260px; height: auto; opacity: 0.5; }
+.lic-body { padding: 24px 32px 24px 0; min-width: 0; }
+.lic-head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.lic-tile { flex: none; width: 56px; height: 56px; border-radius: 14px; background: rgba(232,118,15,0.1); color: var(--route-dark); display: grid; place-items: center; }
+.lic-tile svg { width: 38px; height: auto; }
+.lic-name-h { margin: 0; font-size: 1.05rem; font-weight: 700; }
+.lic-headline { margin: 0 0 16px; max-width: none; font-family: var(--font-display); font-weight: 600; font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1.1; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
+.lic-text { margin: 0 0 26px; max-width: 48ch; color: var(--text-soft); }
+.lic-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.lic-gear { display: contents; }
+.lic-body .gear-notes { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); min-height: 0; font-size: 0.95rem; }
+.lic-body .gear-hint { margin: 0; }
+.lic-body .gear-points li { padding-bottom: 6px; }
+@media (max-width: 720px) {
+  .lic-panel.lic-card:not([hidden]) { grid-template-columns: minmax(0, 1fr); gap: 0; border-radius: 20px; }
+  .lic-media { min-height: 0; max-height: none; height: auto; aspect-ratio: 4 / 3; }
+  .lic-pills .pill { padding: 0 15px; font-size: 0.9rem; }
+  .lic-body { padding: 22px 8px 12px; }
+  .lic-headline { font-size: 1.9rem; }
+}
+@media (prefers-reduced-motion: reduce) { .lic-panel.lic-card.is-in { animation: none; } }
 
 .k-chooser { padding: 44px 0 24px; }
 .k-chooser .section-head { margin-bottom: 1.4em; }
 .k-chooser .container { max-width: 1160px; }
-.k-chooser .lic-panel { padding-top: 34px; }
 
 .k-intro { padding: 44px 0 36px; background: var(--paper-dim); }
 .k-intro .container { max-width: 1060px; text-align: center; }
@@ -52,11 +122,14 @@
 }
 @media (max-width: 720px) {
   :root { --hh: 64px; }
-  .k-hero-inner { grid-template-columns: minmax(0, 1fr); padding: 36px 16px 4px; gap: 16px; }
-  .k-hero p { margin-bottom: 1.2em; }
-  .k-actions { flex-wrap: nowrap; }
-  .k-actions .btn { flex: 1 1 0; justify-content: center; padding-left: 0.6em; padding-right: 0.6em; }
-  .k-photo { aspect-ratio: auto; height: 200px; object-fit: cover; object-position: 88% center; }
+  .k-hero-inner { padding: 44px 16px 0; }
+  .k-hero h1 { font-size: 2.3rem; }
+  .k-hero p { margin-bottom: 26px; font-size: 1.05rem; }
+  .k-actions { margin-bottom: 32px; }
+  .k-actions .pill { flex: 1 1 0; padding: 0 12px; }
+  .k-hero-media { padding: 0 16px; }
+  .k-photo { height: 180px; object-fit: cover; object-position: 70% center; border-radius: 14px; }
+  .k-hero { padding-bottom: 28px; }
   .k-intro .container, .k-chooser .container, .k-reviews .container { padding: 0 16px; }
   .k-chooser .chooser-tabs { margin: 0 -16px; padding: 0 16px; scroll-padding: 0 16px; }
   .k-intro { padding: 36px 0 30px; }
