@@ -24,17 +24,21 @@
 .k-facts p { margin: 0; font-size: 0.92rem; }
 .k-lead { margin: 0.5em auto 0; color: var(--text-soft); }
 
-.k-reviews { padding: 40px 0 46px; }
-.k-reviews .section-head { margin-bottom: 1.2em; }
-.k-reviews-badge { display: flex; justify-content: center; margin-bottom: 28px; }
-.k-quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; }
-.k-quotes .quote { text-align: center; }
-.k-quotes .quote blockquote { font-size: 1.02rem; }
-.k-quotes .quote figcaption { justify-content: center; }
-.k-quotes .quote::before { content: '\201C'; display: block; font-family: var(--font-display); font-weight: 800; font-size: 3.2rem; line-height: 0.7; color: var(--route); margin-bottom: 10px; }
+.k-reviews { padding: 96px 0; }
+.k-reviews .section-head { margin-bottom: 20px; }
+.k-reviews-badge { display: flex; justify-content: center; margin-bottom: 56px; }
+.k-quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px; }
+.k-quotes .quote { display: flex; flex-direction: column; max-width: 34ch; text-align: left; }
+.k-quotes .quote + .quote { position: relative; }
+.k-quotes .quote + .quote::after { content: ''; position: absolute; top: 0; bottom: 0; left: -32px; width: 1px; background: var(--line); }
+.k-quotes .quote blockquote { font-size: 1.02rem; line-height: 1.65; margin: 0 0 18px; }
+.k-quotes .quote figcaption { justify-content: flex-start; margin-top: auto; }
+.k-quotes .quote::before { content: '\201C'; display: block; font-family: var(--font-display); font-weight: 800; font-size: 3.2rem; line-height: 0.7; color: var(--route); margin-bottom: 16px; }
 
 @media (max-width: 900px) {
-  .k-quotes { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .k-quotes { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .k-quotes .quote { max-width: none; }
+  .k-quotes .quote + .quote::after { display: none; }
   .k-facts { grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .k-chooser { padding-top: 40px; }
 }
@@ -46,7 +50,7 @@
   .k-intro .container, .k-chooser .container, .k-reviews .container { padding: 0 16px; }
   .k-chooser .chooser-tabs { margin: 0 -16px; padding: 0 16px; scroll-padding: 0 16px; }
   .k-intro { padding: 36px 0 30px; }
-  .k-reviews { padding: 38px 0; }
+  .k-reviews { padding: 56px 0; }
 }
 
 /* ---- Inner pages (diensten, contact, vacatures, webshop): classic, centred hero ---- */
@@ -64,17 +68,19 @@
 .social-band .container { align-items: center; }
 .social-band-actions { align-items: stretch; }
 .social-band-actions .btn { height: 64px; padding-top: 0; padding-bottom: 0; justify-content: center; }
-.mini-footer { padding: 72px 0 32px; }
-.mf-grid { gap: 48px; margin-bottom: 56px; }
-.mini-footer .footer-logo-img { margin-bottom: 24px; }
-.mini-footer p { line-height: 1.7; margin-bottom: 0.2em; }
-.mini-footer .mf-route { display: inline-block; margin-top: 10px; }
-.mf-hours { line-height: 1.7; gap: 6px 20px; }
-.mini-footer .footer-bottom { padding-top: 24px; }
-@media (max-width: 900px) { .mf-grid { gap: 40px 48px; } }
+.mini-footer { padding: 80px 0 36px; }
+.mf-grid { grid-template-columns: minmax(0,1.4fr) minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr); gap: 56px; margin-bottom: 56px; }
+.mini-footer .footer-logo-img { height: 44px; margin: 0 0 24px; }
+.mini-footer h4 { margin: 0 0 16px; line-height: 1.3; }
+.mini-footer p { line-height: 1.8; margin: 0; }
+.mini-footer .mf-route { display: inline-block; margin-top: 12px; }
+.mf-hours { gap: 0 32px; line-height: 1.8; }
+.mf-hours dt { white-space: nowrap; }
+.mini-footer .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; }
+@media (max-width: 900px) { .mf-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; } }
 @media (max-width: 720px) {
   .social-band { padding: 44px 0; }
   .social-band .container { align-items: stretch; }
-  .mini-footer { padding: 48px 0 28px; }
-  .mf-grid { gap: 32px; margin-bottom: 40px; }
+  .mini-footer { padding: 56px 0 32px; }
 }
+@media (max-width: 520px) { .mf-grid { grid-template-columns: minmax(0, 1fr); } }
