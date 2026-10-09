@@ -1,12 +1,22 @@
 /* Design 3: Classic. Photo hero with the fleet, chooser row right below, three reasons. */
 :root { --hh: 76px; }
-.k-hero { padding: 0; text-align: center; background: linear-gradient(180deg, var(--ink-black), var(--ink)); overflow: hidden; }
-.k-hero-text { padding: 44px 24px 26px; }
-.k-hero h1 { color: var(--white); max-width: 20ch; margin: 0 auto 0.4em; font-size: clamp(2.4rem, 4.6vw, 3.9rem); }
-.k-hero p { color: rgba(255,255,255,0.8); margin: 0 auto 1.5em; font-size: 1.1rem; max-width: 44ch; }
-.k-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-.k-photo { display: block; width: 100%; height: auto; aspect-ratio: 1024 / 183; object-fit: cover; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 42%); mask-image: linear-gradient(to bottom, transparent 0, #000 42%); }
-.k-hero-end { height: 4px; background: repeating-linear-gradient(90deg, var(--lane) 0 28px, var(--ink-black) 28px 46px); }
+.k-hero { position: relative; display: flex; align-items: flex-end; height: min(calc(100svh - var(--hh)), 820px); min-height: 460px; overflow: hidden; background: var(--ink-black); }
+.k-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 90% center; }
+.k-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top right, color-mix(in srgb, var(--ink) 85%, transparent) 0%, color-mix(in srgb, var(--ink) 55%, transparent) 38%, transparent 68%); }
+.k-hero-inner { position: relative; width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px 64px; }
+.k-hero-text { max-width: 560px; text-align: left; }
+.k-hero h1 { color: var(--white); margin: 0 0 0.4em; font-size: clamp(2.2rem, 4vw, 3.4rem); text-wrap: balance; }
+.k-hero p { color: rgba(255,255,255,0.85); margin: 0 0 1.5em; font-size: 1.1rem; max-width: 44ch; }
+.k-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.k-hero .btn-primary { background: var(--route); box-shadow: none; }
+.k-hero .btn-primary:hover { background: var(--route-dark); box-shadow: none; transform: none; }
+.k-hero .btn-outline-light { border-color: var(--white); }
+.k-hero .btn-outline-light:hover { transform: none; }
+.k-hero-end { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: repeating-linear-gradient(90deg, var(--lane) 0 28px, var(--ink-black) 28px 46px); }
+@media (prefers-reduced-motion: no-preference) {
+  .k-hero-end { animation: road-paint 1.2s cubic-bezier(.2,.7,.2,1) both; }
+}
+@keyframes road-paint { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 
 .k-chooser { padding: 44px 0 24px; }
 .k-chooser .section-head { margin-bottom: 1.4em; }
@@ -44,9 +54,12 @@
 }
 @media (max-width: 720px) {
   :root { --hh: 64px; }
-  .k-hero-text { padding: 36px 16px 22px; }
-  .k-actions .btn { flex: 1 1 auto; justify-content: center; }
-  .k-photo { aspect-ratio: auto; height: 176px; object-position: 64% center; }
+  .k-hero { height: 70svh; min-height: 440px; }
+  .k-hero-inner { padding: 0 16px 44px; }
+  .k-hero p { margin-bottom: 1.2em; }
+  .k-actions { flex-wrap: nowrap; }
+  .k-actions .btn { flex: 1 1 0; justify-content: center; padding-left: 0.6em; padding-right: 0.6em; }
+  .k-photo { object-position: 92% center; }
   .k-intro .container, .k-chooser .container, .k-reviews .container { padding: 0 16px; }
   .k-chooser .chooser-tabs { margin: 0 -16px; padding: 0 16px; scroll-padding: 0 16px; }
   .k-intro { padding: 36px 0 30px; }
