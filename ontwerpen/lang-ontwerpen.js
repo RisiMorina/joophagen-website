@@ -19,5 +19,11 @@ Object.assign(window.I18N_LANGS.en = window.I18N_LANGS.en || {}, {
   "Intake": "Intake",
   "Bel": "Call",
   "Alle diensten": "All services",
-  "Onze lesauto's, motoren en vrachtwagen voor het gebouw aan de Hunneperkade": "Our lesson cars, motorcycles and truck outside the building on the Hunneperkade"
+  "Onze lesauto's, motoren en vrachtwagen voor het gebouw aan de Hunneperkade": "Our lesson cars, motorcycles and truck outside the building on the Hunneperkade",
+  "Rijschool aan de Hunneperkade": "Driving school on the Hunneperkade",
+  "Verkeersschool Joop Hagen zit aan de Hunneperkade in Deventer. Je haalt bij ons bijna elk rijbewijs: auto (ook automaat), motor, scooter, aanhanger, vrachtwagen en taxipas. Je hele opleiding heb je dezelfde vaste instructeur.": "Verkeersschool Joop Hagen is on the Hunneperkade in Deventer. You can get almost any licence with us: car (automatic too), motorcycle, scooter, trailer, truck and taxi pass. You have the same regular instructor for your whole course.",
+  "Bovengemiddeld veel leerlingen slagen in één keer.": "More learners than average pass first time.",
+  "Dezelfde instructeur tijdens je hele opleiding.": "The same instructor throughout your whole course.",
+  "Actuele modellen met de laatste veiligheidsvoorzieningen.": "Current models with the latest safety features.",
+  "Weet je al wat je wilt halen? Kies hieronder.": "Already know what you want to get? Choose below."
 });

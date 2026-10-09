@@ -13,13 +13,16 @@
 .k-chooser .container { max-width: 1160px; }
 .k-chooser .lic-panel { padding-top: 34px; }
 
-.k-reasons { padding: 40px 0 44px; background: var(--paper-dim); }
-.k-reasons .section-head { margin-bottom: 1.8em; }
-.k-reasons-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
-.k-reasons .reason p { max-width: 36ch; }
-.k-more { margin: 2em 0 0; max-width: none; text-align: center; font-size: 0.95rem; }
-.k-more a { font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
-.k-more a:hover { color: var(--route); border-color: var(--route); }
+.k-intro { padding: 44px 0 36px; background: var(--paper-dim); }
+.k-intro .container { max-width: 1060px; text-align: center; }
+.k-intro h2 { margin-bottom: 0.4em; }
+.k-intro > .container > p { max-width: 58ch; margin: 0 auto 1.8em; font-size: 1.05rem; }
+.k-facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; text-align: left; }
+.k-facts li { display: flex; gap: 14px; align-items: flex-start; }
+.k-facts .icon { width: 30px; height: 30px; flex-shrink: 0; color: var(--route); }
+.k-facts h3 { font-size: 1rem; margin: 0 0 0.2em; }
+.k-facts p { margin: 0; font-size: 0.92rem; }
+.k-lead { margin: 0.5em auto 0; color: var(--text-soft); }
 
 .k-reviews { padding: 40px 0 46px; }
 .k-reviews .section-head { margin-bottom: 1.2em; }
@@ -31,7 +34,8 @@
 .k-quotes .quote::before { content: '\201C'; display: block; font-family: var(--font-display); font-weight: 800; font-size: 3.2rem; line-height: 0.7; color: var(--route); margin-bottom: 10px; }
 
 @media (max-width: 900px) {
-  .k-reasons-grid, .k-quotes { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .k-quotes { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .k-facts { grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .k-chooser { padding-top: 40px; }
 }
 @media (max-width: 720px) {
@@ -39,7 +43,38 @@
   .k-hero-text { padding: 36px 16px 22px; }
   .k-actions .btn { flex: 1 1 auto; justify-content: center; }
   .k-photo { aspect-ratio: auto; height: 176px; object-position: 64% center; }
-  .k-chooser .container, .k-reasons .container, .k-reviews .container { padding: 0 16px; }
+  .k-intro .container, .k-chooser .container, .k-reviews .container { padding: 0 16px; }
   .k-chooser .chooser-tabs { margin: 0 -16px; padding: 0 16px; scroll-padding: 0 16px; }
-  .k-reasons, .k-reviews { padding: 38px 0; }
+  .k-intro { padding: 36px 0 30px; }
+  .k-reviews { padding: 38px 0; }
+}
+
+/* ---- Inner pages (diensten, contact, vacatures, webshop): classic, centred hero ---- */
+.inner .hero { padding: 52px 0 30px !important; text-align: center; }
+.inner .hero .container { text-align: center !important; justify-items: center; }
+.inner .hero h1 { margin-left: auto; margin-right: auto; font-size: clamp(2.2rem, 4vw, 3.3rem); }
+.inner .hero p { margin-left: auto; margin-right: auto; max-width: 52ch; }
+.inner .hero .callout { margin-left: auto; margin-right: auto; text-align: left; }
+.inner .hero .hero-eyebrow { justify-content: center; }
+.inner .hero + .lane-divider { height: 4px; background: repeating-linear-gradient(90deg, var(--lane) 0 28px, var(--ink-black) 28px 46px); }
+@media (max-width: 720px) { .inner .hero { padding: 38px 0 24px !important; } }
+
+/* ---- Social band and footer: more room ---- */
+.social-band { padding: 64px 0; }
+.social-band .container { align-items: center; }
+.social-band-actions { align-items: stretch; }
+.social-band-actions .btn { height: 64px; padding-top: 0; padding-bottom: 0; justify-content: center; }
+.mini-footer { padding: 72px 0 32px; }
+.mf-grid { gap: 48px; margin-bottom: 56px; }
+.mini-footer .footer-logo-img { margin-bottom: 24px; }
+.mini-footer p { line-height: 1.7; margin-bottom: 0.2em; }
+.mini-footer .mf-route { display: inline-block; margin-top: 10px; }
+.mf-hours { line-height: 1.7; gap: 6px 20px; }
+.mini-footer .footer-bottom { padding-top: 24px; }
+@media (max-width: 900px) { .mf-grid { gap: 40px 48px; } }
+@media (max-width: 720px) {
+  .social-band { padding: 44px 0; }
+  .social-band .container { align-items: stretch; }
+  .mini-footer { padding: 48px 0 28px; }
+  .mf-grid { gap: 32px; margin-bottom: 40px; }
 }
