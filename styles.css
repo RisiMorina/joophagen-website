@@ -32,6 +32,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+html { overflow-x: clip; }
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -911,6 +912,8 @@ section { padding: 88px 0; }
 }
 .social-row a:hover { background: var(--route); border-color: var(--route); transform: translateY(-2px); }
 .social-row svg { width: 16px; height: 16px; }
+.footer-social { display: flex; gap: 4px; margin: 4px 0 0 -8px; }
+.footer-social a { display: inline-flex; padding: 8px; }
 .footer-bottom {
   display: flex;
   justify-content: space-between;

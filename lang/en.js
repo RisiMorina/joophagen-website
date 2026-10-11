@@ -132,8 +132,6 @@ window.I18N_LANGS.en = {
   "Lees alle 193 reviews op Google": "Read all 193 reviews on Google",
   "Review": "Review",
   "van": "of",
-  "Klaar om te starten met rijlessen?": "Ready to start driving lessons?",
-  "Neem contact op voor een intake of vrijblijvend advies over de opleiding die bij jou past.": "Get in touch for an intake or no-obligation advice on the course that suits you.",
   "Instagram": "Instagram",
 
   /* ---------- services page ---------- */
