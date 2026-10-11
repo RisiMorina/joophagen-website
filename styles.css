@@ -20,6 +20,7 @@
   --font-display: "Overpass", sans-serif;
   --font-body: "Work Sans", sans-serif;
 
+  --hh: 84px;   /* header height, used for sticky offsets */
   --container: 1160px;
   --radius: 16px;
   --radius-sm: 10px;
@@ -40,7 +41,7 @@ body {
   background: var(--paper);
   line-height: 1.62;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4 {
@@ -431,6 +432,77 @@ section { padding: 88px 0; }
 }
 .reason h3 { margin-bottom: 0.3em; }
 .reason p { margin-bottom: 0; font-size: 0.95rem; }
+
+/* ---------- Why us: stacking scroll cards ---------- */
+.why { background: var(--paper); }
+.why .section-head { margin-bottom: 2em; }
+.why-stack { display: flex; flex-direction: column; gap: 24px; }
+.why-card {
+  position: sticky;
+  top: calc(var(--hh) + 24px + var(--n) * 16px);
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: 16px;
+  min-height: 460px;
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: 0 -12px 24px -14px rgba(8,27,48,0.18);
+  transform-origin: 50% 0;
+}
+.why-card--flip .why-media { order: 2; }
+.why-media { border-radius: 20px; overflow: hidden; min-height: 0; background: var(--paper-dim); }
+.why-media img { width: 100%; height: 100%; object-fit: cover; object-position: 8% 50%; display: block; }
+.why-media--tint {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(232,118,15,0.16), rgba(232,118,15,0.05));
+  color: var(--route);
+}
+.why-media--tint svg { width: 38%; max-width: 150px; aspect-ratio: 1; fill: none; stroke: currentColor; stroke-width: 1; }
+.why-text { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 28px 36px; }
+.why-label { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+.why-tile {
+  width: 56px; height: 56px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 14px; background: rgba(232,118,15,0.12); color: var(--route);
+}
+.why-tile svg { width: 28px; height: 28px; fill: none; stroke: currentColor; }
+.why-text h3 { margin: 22px 0 14px; font-size: clamp(2rem, 3.4vw, 2.8rem); font-weight: 600; line-height: 1.08; color: var(--ink); }
+.why-text p { margin: 0 0 8px; color: #5b6672; max-width: 46ch; }
+.why-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+/* Each card shrinks a little while the next one slides over it. */
+@supports (animation-timeline: view()) and (timeline-scope: --a) {
+  @media (prefers-reduced-motion: no-preference) {
+    .why-stack { timeline-scope: --why2, --why3, --why4; }
+    .why-card:nth-child(2) { view-timeline: --why2 block; }
+    .why-card:nth-child(3) { view-timeline: --why3 block; }
+    .why-card:nth-child(4) { view-timeline: --why4 block; }
+    .why-card:nth-child(-n+3) { animation: why-cover linear both; animation-range: cover 10% cover 40%; }
+    .why-card:nth-child(1) { animation-timeline: --why2; }
+    .why-card:nth-child(2) { animation-timeline: --why3; }
+    .why-card:nth-child(3) { animation-timeline: --why4; }
+    @keyframes why-cover { to { transform: scale(0.96); filter: brightness(0.96); } }
+  }
+}
+
+@media (max-width: 900px) {
+  .why-text { padding: 20px 14px 14px; }
+}
+@media (max-width: 720px) {
+  .why { padding: 56px 0; }
+  .why-card { grid-template-columns: minmax(0, 1fr); min-height: 0; top: calc(var(--hh) + 12px + var(--n) * 12px); border-radius: 24px; }
+  .why-card--flip .why-media { order: 0; }
+  .why-media { aspect-ratio: 16 / 10; }
+  .why-media--tint svg { width: 28%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .why-card { position: static; }
+}
 
 /* ---------- Icon badges (shared premium treatment) ---------- */
 .dienst-card .icon,

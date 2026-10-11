@@ -110,6 +110,17 @@ window.I18N_LANGS.en = {
 
   /* ---------- home: why us, reviews, calls to action ---------- */
   "Waarom leerlingen voor Joop Hagen kiezen": "Why learners choose Joop Hagen",
+  "Goed voorbereid op je examen": "Well prepared for your exam",
+  "Onze leerlingen halen bovengemiddeld vaak in één keer hun rijbewijs.": "Our learners pass more often than average at the first attempt.",
+  "Compacte, praktijkgerichte theoriecursussen die je goed voorbereiden op het CBR-theorie-examen.": "Compact, practical theory courses that prepare you well for the CBR theory exam.",
+  "Eén instructeur, jouw tempo": "One instructor, your pace",
+  "Een lichamelijke beperking, of leer je liever in een ander tempo? We kijken graag met je mee.": "A physical disability, or do you prefer to learn at a different pace? We are happy to think along with you.",
+  "Lesvoertuigen": "Lesson vehicles",
+  "Bekijk diensten": "View services",
+  "Route plannen": "Get directions",
+  "Makkelijk geregeld": "Easy to arrange",
+  "Vestiging aan de Hunneperkade in Deventer, ook open op zaterdag.": "Based on the Hunneperkade in Deventer, also open on Saturdays.",
+  "De lesauto's en vrachtwagens van Joop Hagen op een rij": "The lesson cars and trucks of Joop Hagen in a row",
   "Hoge slagingspercentages": "High pass rates",
   "Onze leerlingen halen bovengemiddeld vaak in één keer hun rijbewijs, dankzij gedegen voorbereiding op elk examenonderdeel.": "Our learners pass first time more often than average, thanks to thorough preparation for every part of the exam.",
   "Eén vaste instructeur": "One regular instructor",
