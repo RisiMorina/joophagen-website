@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Verkeersschool Joop Hagen</title>
+<title>Contact | Verkeersschool Joop Hagen</title>
 <meta name="description" content="Neem contact op met Verkeersschool Joop Hagen in Deventer. Hunneperkade 42, 7418 BT Deventer. Telefoon 0570 63 50 36.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="Verkeersschool Joop Hagen">
+<meta property="og:title" content="Contact | Verkeersschool Joop Hagen">
+<meta property="og:description" content="Neem contact op met Verkeersschool Joop Hagen in Deventer. Hunneperkade 42, 7418 BT Deventer. Telefoon 0570 63 50 36.">
+<!-- TODO: BASE-URL vervangen door het echte domein bij livegang -->
+<meta property="og:url" content="https://risimorina.github.io/joophagen-website/contact.html">
+<meta property="og:image" content="https://risimorina.github.io/joophagen-website/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -112,14 +123,7 @@
             <svg class="icon" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
             <div style="width:100%;">
               <strong>Openingstijden kantoor</strong>
-              <table class="hours-table">
-                <tr><td>Maandag</td><td>09:00 – 17:30</td></tr>
-                <tr><td>Dinsdag</td><td>09:00 – 17:30</td></tr>
-                <tr><td>Woensdag</td><td>09:00 – 17:30</td></tr>
-                <tr><td>Donderdag</td><td>09:00 – 17:30</td></tr>
-                <tr><td>Vrijdag</td><td>09:00 – 17:30</td></tr>
-                <tr><td>Zaterdag</td><td>11:00 – 16:00</td></tr>
-              </table>
+              <table class="hours-table" data-hours></table>
             </div>
           </div>
         </div>
@@ -334,45 +338,11 @@
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img src="images/logo.png" alt="Verkeersschool Joop Hagen" class="footer-logo-img">
-        <p style="color:rgba(255,255,255,0.6); font-size:0.9rem;">Verkeersschool in Deventer voor bijna elk rijbewijs — persoonlijk, modern en met een vaste instructeur.</p>
-      </div>
-      <div>
-        <h4>Navigatie</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="diensten.html">Diensten</a></li>
-          <li><a href="webshop.html">Webshop</a></li>
-          <li><a href="vacatures.html">Vacatures</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li>Hunneperkade 42, 7418 BT Deventer</li>
-          <li><a href="tel:+31570635036">0570 63 50 36</a></li>
-          <li><a href="mailto:info@joophagen.nl">info@joophagen.nl</a></li>
-        </ul>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/rijschooljoophagen/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" aria-hidden="true"><use href="#i-instagram"/></svg></a>
-          <a href="https://nl-nl.facebook.com/RijschoolJoopHagen" target="_blank" rel="noopener" aria-label="Facebook"><svg width="20" height="20" aria-hidden="true"><use href="#i-facebook"/></svg></a>
-        </div>
-      </div>
-    </div>
-    <div class="lane-divider on-dark" style="margin-bottom:1.4em;"></div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Verkeersschool Joop Hagen. Alle rechten voorbehouden.</span>
-      <span>Deventer, Overijssel</span>
-    </div>
-  </div>
+<footer class="site-footer" id="site-footer">
+  <noscript><div class="container"><p>Verkeersschool Joop Hagen, Hunneperkade 42, 7418 BT Deventer. <a href="tel:+31570635036">0570 63 50 36</a> · KvK 08114076 · <a href="privacy.html">Privacy</a></p></div></noscript>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="site.js"></script>
 <script src="lang/en.js"></script>
 <script src="i18n.js"></script>
 <script src="script.js"></script>
