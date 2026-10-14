@@ -820,6 +820,13 @@ section { padding: 88px 0; }
   margin-bottom: 1em;
 }
 .employer-card p { color: rgba(255,255,255,0.8); margin: 0; max-width: 60ch; }
+/* Short info blocks (lesvoertuigen, betalen); the homepage "Waarom" cards link here. */
+.diensten-info { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px 48px; margin-bottom: 3.4em; }
+.diensten-info h2 { font-size: clamp(1.4rem, 2.2vw, 1.8rem); margin-bottom: 0.4em; }
+.diensten-info p { margin: 0; }
+@media (max-width: 600px) { .diensten-info { grid-template-columns: minmax(0,1fr); gap: 28px; } }
+/* Anchor targets land below the sticky header. */
+.category-head, .diensten-info h2 { scroll-margin-top: calc(var(--hh) + 16px); }
 .employer-card .btn-outline { border-color: rgba(255,255,255,0.5); color: var(--white); flex-shrink: 0; }
 .employer-card .btn-outline:hover { background: var(--white); color: var(--ink); }
 
