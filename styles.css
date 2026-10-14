@@ -458,7 +458,7 @@ section { padding: 88px 0; }
 
 /* Each card shrinks a little while the next one slides over it. */
 @supports (animation-timeline: view()) and (timeline-scope: --a) {
-  @media (prefers-reduced-motion: no-preference) {
+  @media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
     .why-stack { timeline-scope: --why2, --why3, --why4; }
     .why-card:nth-child(2) { view-timeline: --why2 block; }
     .why-card:nth-child(3) { view-timeline: --why3 block; }
@@ -471,18 +471,61 @@ section { padding: 88px 0; }
   }
 }
 
-@media (max-width: 900px) {
-  .why-text { padding: 20px 14px 14px; }
+/* Whole-card link, only active once the cards are a grid (see why.js). */
+.why-cardlink { display: none; position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+.why-cardlink:focus-visible { outline: 3px solid var(--route); outline-offset: 4px; }
+.why.is-grid .why-cardlink { display: block; }
+.why.is-grid .why-card { cursor: pointer; transition: translate 0.25s ease, box-shadow 0.25s ease; }
+.why.is-grid .why-card:hover,
+.why.is-grid .why-card:has(.why-cardlink:focus-visible) { translate: 0 -4px; box-shadow: var(--shadow-md); }
+
+/* Desktop with motion: why.js pins the section; the stack becomes a stage
+   where the cards stack, then zoom out into a 2x2 grid. */
+.why--pin { height: calc(100vh - var(--hh)); padding: 28px 0 0; overflow: hidden; }
+.why--pin .container { height: 100%; display: flex; flex-direction: column; }
+.why--pin .section-head { margin-bottom: 20px; }
+.why--pin .why-stack { position: relative; flex: 1; display: block; }
+.why--pin .why-card { position: absolute; top: 0; left: 0; right: 0; height: min(460px, 100% - 64px); min-height: 0; grid-template-rows: minmax(0, 1fr); animation: none; will-change: transform; }
+.why--pin .why-text { padding: 20px 28px; }
+/* The cards are drawn at about half size here, so the ring is drawn twice as thick. */
+.why--pin .why-cardlink:focus-visible { outline-width: 6px; outline-offset: 8px; }
+.why-ghost { position: absolute; left: 0; right: 0; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; visibility: hidden; pointer-events: none; }
+.why-ghost > div { aspect-ratio: var(--why-ratio, 2.4); }
+
+/* Phones, tablets and reduced motion: a plain 2x2 grid of small blocks. */
+@media (max-width: 899.98px), (prefers-reduced-motion: reduce) {
+  .why-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .why-card {
+    position: relative; top: auto; animation: none;
+    display: block; min-height: 0; padding: 18px 16px 20px;
+    border-radius: 18px; box-shadow: var(--shadow-sm);
+  }
+  .why-media, .why-text p, .why-links, .why-label > span:not(.why-tile) { display: none; }
+  .why-text { padding: 0; }
+  .why-tile { width: 44px; height: 44px; border-radius: 12px; }
+  .why-tile svg { width: 24px; height: 24px; }
+  .why-text h3 { margin: 14px 0 0; font-size: clamp(1.05rem, 3.2vw, 1.35rem); line-height: 1.2; }
+  .why-cardlink { display: block; }
+  .why-card { cursor: pointer; transition: translate 0.25s ease, box-shadow 0.25s ease; }
 }
 @media (max-width: 720px) {
   .why { padding: 56px 0; }
-  .why-card { grid-template-columns: minmax(0, 1fr); min-height: 0; top: calc(var(--hh) + 12px + var(--n) * 12px); border-radius: 24px; }
-  .why-card--flip .why-media { order: 0; }
-  .why-media { aspect-ratio: 16 / 10; }
-  .why-media--tint svg { width: 28%; }
+}
+/* Reduced motion on a wide screen: the final grid, with the photo or icon panel kept. */
+@media (min-width: 900px) and (prefers-reduced-motion: reduce) {
+  .why-stack { gap: 24px; }
+  .why-card { display: grid; grid-template-columns: 45fr 55fr; gap: 12px; padding: 12px; }
+  .why-media { display: block; }
+  .why-media--tint { display: flex; }
+  .why-text { padding: 12px 16px; justify-content: center; }
+  .why-text h3 { font-size: 1.5rem; }
+}
+@media (hover: hover) and (max-width: 899.98px), (hover: hover) and (prefers-reduced-motion: reduce) {
+  .why-card:hover { translate: 0 -4px; box-shadow: var(--shadow-md); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .why-card { position: static; }
+  .why-card, .why.is-grid .why-card { transition: none; }
+  .why-card:hover, .why.is-grid .why-card:hover { translate: none; }
 }
 
 /* ---------- Icon badges (shared premium treatment) ---------- */
