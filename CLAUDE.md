@@ -16,16 +16,16 @@ Live preview: https://risimorina.github.io/joophagen-website/ (GitHub Pages, unt
 | KvK | 08114076 |
 | WhatsApp | TODO: unknown. The landline cannot be used for WhatsApp. |
 | Socials | Instagram @rijschooljoophagen, Facebook RijschoolJoopHagen. TikTok: TODO |
-| Contact person | Sabine. All open questions for her live in `vragen-voor-sabine.md` (Dutch). Keep that file current. |
+| Contact person | Sabine. All open questions for her live in `docs/vragen-voor-sabine.md` (Dutch). Keep that file current. |
 
-Owner wishes so far: none stated beyond what is in `vragen-voor-sabine.md`. Claims taken from the old site ("50 jaar", "nummer één vrachtwagen", pass rates, Google 4,3 / 193 reviews, reviewer names) are **unconfirmed**. Don't add new ones.
+Owner wishes so far: none stated beyond what is in `docs/vragen-voor-sabine.md`. Claims taken from the old site ("50 jaar", "nummer één vrachtwagen", pass rates, Google 4,3 / 193 reviews, reviewer names) are **unconfirmed**. Don't add new ones.
 
 Languages: Dutch + English (the client did not ask for English; it was added and is listed as a question for Sabine).
 
 ## What this repo contains
 
 1. **Root site** (`/*.html`): the current full site. Pages: `index`, `diensten`, `webshop`, `vacatures`, `contact`, `privacy`.
-2. **`ontwerpen/`**: three alternative designs for Sabine to choose from (`noindex`). The chooser page is `ontwerpen/index.html`. Each design reuses the root `styles.css` and JS and adds its own `design.css` on top:
+2. **`ontwerpen/`**: three alternative designs for Sabine to choose from (`noindex`). The chooser page is `ontwerpen/index.html`. Each design reuses the root `css/styles.css` and `js/` and adds its own `design.css` on top:
    - `ontwerp-1`: Compact. Short hero left, big vehicle tiles right, one screen (`tiles.js`).
    - `ontwerp-2`: App-style. The licence chooser is the hero, with a sticky action bar on phones.
    - `ontwerp-3`: Classic. Light hero with the fleet photo, split licence cards, three reasons (`panels.js`).
@@ -42,7 +42,7 @@ Languages: Dutch + English (the client did not ask for English; it was added and
   - **Overpass** (display, 400–800): based on Highway Gothic, the road-sign typeface. That is why it fits a driving school.
   - **Work Sans** (body, 400–600): plain and very readable on phones.
   - Both come from Google Fonts.
-- Palette (CSS variables in `styles.css` `:root`):
+- Palette (CSS variables in `css/styles.css` `:root`):
 
 | Variable | Hex | Use |
 |---|---|---|
@@ -58,30 +58,30 @@ Other tokens: `--hh` (header height, overridden per design), `--container` 1160p
 ## Structure and conventions
 
 ```
-*.html              root pages
-styles.css          all shared styles (one file, ~1600 lines)
-site.js             SINGLE SOURCE for business details: name, address, phone, email, KvK, socials, url, opening hours.
-                    Renders the footer (#site-footer), opening-hours tables and LocalBusiness JSON-LD.
-                    Must load BEFORE i18n.js. Change hours/details here only.
-i18n.js + lang/en.js  NL|EN switch. Dutch text lives in the HTML; lang/en.js maps Dutch string -> English.
-                    Use t('Nederlandse tekst') in JS for translatable strings. Reviews stay Dutch.
-script.js           mobile nav, general behaviour
-chooser.js          licence tabs/panels (roving tabindex, arrow keys)
-gear-scene.js       shared schakel/automaat component (GearScene.dashboard / mountPicks)
-gear.js             mounts the gear component in the Auto B panel
-contact-wizard.js   turns the contact form into 4 steps. The plain form keeps working without JS.
-reviews.js          scroll-snap reviews carousel; arrows hide when all reviews fit
-intro.js            homepage intro overlay skip (animation itself is CSS)
-why.js              "Waarom" cards. HTML/CSS default is a static 2x2 grid, each card ONE <a> (no nested links).
-                    >=900px with motion: pinned stack, then the cards FLIP into the real grid cells
-                    (measured from .why-ghost, a hidden copy) and the pin is removed for good; never re-stacks.
-                    Page loaded below the section (reload/back): grid straight away.
-images/             webp/jpg photos, logo.png, og-image.jpg (PDFs are git-ignored)
-ontwerpen/          design options; pages link ../../styles.css, ../ontwerpen.css, design.css,
-                    and ../lang-ontwerpen.js for extra EN strings
+/            *.html pages (stay in root so URLs don't change), CLAUDE.md, .gitignore
+├─ css/      styles.css
+├─ js/       all site scripts; js/lang/ holds the translation files (en.js)
+├─ images/   photos, logo, favicon.png, og-image.jpg (PDFs are git-ignored)
+├─ docs/     notes, not served as pages (vragen-voor-sabine.md)
+└─ ontwerpen/  the three design options (see above)
 ```
 
-- No frameworks. GSAP 3.12.5 + ScrollTrigger (cdnjs) only for the homepage "Waarom" cards (`why.js`). Other motion is CSS plus small IIFE scripts. Every script checks `prefers-reduced-motion`.
+- `css/`: all shared styles in one file (~1600 lines). Image paths inside it are `../images/...`.
+- `js/`: one small script per feature, loaded with `js/<name>.js`:
+  - `site.js`: SINGLE SOURCE for business details (name, address, phone, email, KvK, socials, url, opening hours). Renders the footer (#site-footer), opening-hours tables and LocalBusiness JSON-LD. Must load BEFORE i18n.js. Change hours/details here only.
+  - `i18n.js` + `lang/en.js`: NL|EN switch. Dutch text lives in the HTML; `lang/en.js` maps Dutch string -> English. Use `t('Nederlandse tekst')` in JS for translatable strings. Reviews stay Dutch.
+  - `script.js`: mobile nav, general behaviour.
+  - `chooser.js`: licence tabs/panels (roving tabindex, arrow keys).
+  - `gear-scene.js` + `gear.js`: the shared schakel/automaat component, and the script that mounts it in the Auto B panel. The contact wizard uses `gear-scene.js` too.
+  - `contact-wizard.js`: turns the contact form into 4 steps. The plain form keeps working without JS.
+  - `reviews.js`: scroll-snap reviews carousel; the arrows hide when all reviews fit.
+  - `intro.js`: homepage intro overlay skip (the animation itself is CSS).
+  - `why.js`: the "Waarom" cards. The HTML/CSS default is a static 2x2 grid, each card ONE <a> (no nested links). At >=900px with motion it pins the section and stacks the cards, then FLIPs them into the real grid cells (measured from `.why-ghost`, a hidden copy) and removes the pin for good; it never re-stacks. If the page loads below the section (reload/back), the grid shows straight away.
+- `images/`: everything pages and CSS show, including the favicon.
+- `docs/`: working notes for us and the client; never linked from the site.
+- `ontwerpen/`: design pages link `../../css/styles.css`, `../../js/...`, `../ontwerpen.css`, `design.css`, and `../lang-ontwerpen.js` for extra EN strings.
+
+- No frameworks. GSAP 3.12.5 + ScrollTrigger (cdnjs) only for the homepage "Waarom" cards (`js/why.js`). Other motion is CSS plus small IIFE scripts. Every script checks `prefers-reduced-motion`.
 - JS style: ES5 IIFEs, `var`, early `return` if the element is missing. A short comment header explains each file.
 - Comments in English. Client-facing TODOs in HTML comments are often in Dutch.
 - Contact form posts via formsubmit.co. Licence links prefill it with `contact.html?rijbewijs=AM` etc.
@@ -102,7 +102,7 @@ ontwerpen/          design options; pages link ../../styles.css, ../ontwerpen.cs
 - **Bus (D)**: there is a tab on the homepage plus a form option, but D is not on `diensten.html`. Confirm or remove.
 - **Licence content** still to fill in: motor theory, BE theory, C/CE practical exam age.
 - **Photos**: a photo of Sabine is needed in 3 spots on `index.html`. Ask whether the vehicle photos may be used and whether people may appear in photos.
-- **Claims and reviews**: confirm the claims and the reviewer names (see `vragen-voor-sabine.md` §2).
+- **Claims and reviews**: confirm the claims and the reviewer names (see `docs/vragen-voor-sabine.md` §2).
 - **Prices on `diensten.html`**: are they current, and who updates them?
 - **Webshop page**: keep it, or replace it with a link under Diensten > Theorie?
 - **Vacature Rijinstructeur**: is it still open?

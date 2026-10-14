@@ -1,4 +1,4 @@
-// Same as ../gear.js, but the intake link is written for a page two folders deep (ontwerpen/ontwerp-N/).
+// Same as ../js/gear.js, but the intake link is written for a page two folders deep (ontwerpen/ontwerp-N/).
 // Needs window.SITE_ROOT (e.g. "../../") to be set before this script runs.
 (function () {
   var gear = document.getElementById('gear');

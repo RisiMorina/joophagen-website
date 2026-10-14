@@ -1,4 +1,4 @@
-// English texts for the three homepage designs (added to the shared dictionary in ../lang/en.js).
+// English texts for the three homepage designs (added to the shared dictionary in ../js/lang/en.js).
 window.I18N_LANGS = window.I18N_LANGS || {};
 Object.assign(window.I18N_LANGS.en = window.I18N_LANGS.en || {}, {
   "Verkeersschool Joop Hagen — Rijschool in Deventer (ontwerp)": "Verkeersschool Joop Hagen — Driving school in Deventer (design)",

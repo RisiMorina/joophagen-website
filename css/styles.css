@@ -228,7 +228,7 @@ img, svg { display: block; max-width: 100%; }
 .hero-photo {
   background:
     linear-gradient(180deg, rgba(5,13,24,0.82), rgba(5,13,24,0.93) 62%, rgba(5,13,24,0.99)),
-    url('images/vloot.jpg') center 58%/cover no-repeat;
+    url('../images/vloot.jpg') center 58%/cover no-repeat;
 }
 .hero .container {
   display: grid;

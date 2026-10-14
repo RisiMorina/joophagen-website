@@ -2,11 +2,11 @@
 //
 // How it works
 // - The HTML contains the Dutch text. That is the Dutch "dictionary".
-// - Every other language is one file in /lang (lang/en.js), a plain object
+// - Every other language is one file in /js/lang (js/lang/en.js), a plain object
 //   { "Dutch sentence": "Translation" }. The Dutch sentence is the key.
 //   Anything without a translation simply stays Dutch.
-// - To add a language: copy lang/en.js to lang/xx.js, translate the values,
-//   add <script src="lang/xx.js"> next to lang/en.js on every page, and add a
+// - To add a language: copy js/lang/en.js to js/lang/xx.js, translate the values,
+//   add <script src="js/lang/xx.js"> next to js/lang/en.js on every page, and add a
 //   <button data-lang="xx"> to the two .lang-switch blocks in every header.
 // - Texts built in JavaScript (script.js) go through t("Dutch sentence").
 // - Reviews carry lang="nl" on purpose: real quotes are never translated.
