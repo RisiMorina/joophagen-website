@@ -415,7 +415,8 @@ section { padding: 88px 0; }
 .reason p { margin-bottom: 0; font-size: 0.95rem; }
 
 /* ---------- Why us ----------
-   Default (and the end state): a static 2x2 grid where each card is one link.
+   Default (and the end state): a static 2x2 grid. Each card opens a pop-up (js/why-dialog.js):
+   the headline is the <button>, and its ::after covers the whole card.
    On >= 900px with motion, why.js first pins the section and stacks the cards
    (.why--pin .why--stacked), then moves them into this grid and unpins for good. */
 .why { background: var(--paper); padding: 72px 0 88px; }
@@ -427,12 +428,24 @@ section { padding: 88px 0; }
   padding: 32px 36px 36px;
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: 28px;
-  color: inherit; text-decoration: none;
+  --why-r: 28px;
+  border-radius: var(--why-r);
   transition: translate 0.25s ease, box-shadow 0.25s ease;
 }
-.why-card:focus-visible { outline: 3px solid var(--route); outline-offset: 4px; }
-.why-media, .why-cta { display: none; }
+.why-open { font: inherit; color: inherit; letter-spacing: inherit; text-align: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.why-open::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: var(--why-r); }
+.why-open:focus-visible { outline: none; }
+.why-open:focus-visible::after { outline: 3px solid var(--route); outline-offset: 4px; }
+.why-media { display: none; }
+/* "Meer info" hint: shows on hover/focus (always on touch screens and in the stack). */
+.why-more {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+  font-weight: 600; font-size: 0.9rem; color: var(--route-dark);
+  opacity: 0; translate: 0 4px; transition: opacity 0.2s ease, translate 0.2s ease;
+}
+.why-more svg { width: 16px; height: 16px; }
+.why-card:hover .why-more, .why-card:focus-within .why-more, .why--stacked .why-more { opacity: 1; translate: none; }
+@media (hover: none) { .why-more { opacity: 1; translate: none; } }
 .why-label { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 0.95rem; color: var(--ink); }
 .why-tile {
   width: 56px; height: 56px; flex-shrink: 0;
@@ -463,7 +476,7 @@ section { padding: 88px 0; }
 }
 .why--stacked .why-media--tint svg { width: 38%; max-width: 150px; aspect-ratio: 1; fill: none; stroke: currentColor; stroke-width: 1; }
 .why--stacked .why-text { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 20px 28px; }
-.why--stacked .why-cta { display: inline-flex; margin-top: 18px; }
+.why--stacked .why-more { margin-top: 18px; }
 /* Hidden copy of the final grid; why.js measures its cells as the FLIP targets. */
 .why-ghost { position: absolute; top: 0; left: 0; right: 0; visibility: hidden; pointer-events: none; }
 
@@ -472,17 +485,51 @@ section { padding: 88px 0; }
   .why { padding: 56px 0; }
   .why .section-head { margin-bottom: 24px; }
   .why-stack { gap: 12px; }
-  .why-card { padding: 18px 16px 20px; border-radius: 18px; box-shadow: var(--shadow-sm); }
-  .why-text p, .why-label > span:not(.why-tile) { display: none; }
-  .why-tile { width: 44px; height: 44px; border-radius: 12px; }
-  .why-tile svg { width: 24px; height: 24px; }
+  .why-card { padding: 18px 16px 20px; --why-r: 18px; box-shadow: var(--shadow-sm); }
+  .why-text p, .why-card .why-label > span:not(.why-tile) { display: none; }
+  .why-card .why-tile { width: 44px; height: 44px; border-radius: 12px; }
+  .why-card .why-tile svg { width: 24px; height: 24px; }
+  .why-more { margin-top: 10px; font-size: 0.82rem; }
   .why-text h3 { margin: 14px 0 0; font-size: clamp(1.05rem, 3.2vw, 1.35rem); line-height: 1.2; }
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .why-card:hover { translate: 0 -4px; box-shadow: var(--shadow-md); }
   .why--stacked .why-stack > .why-card:hover { translate: none; box-shadow: 0 -12px 24px -14px rgba(8,27,48,0.18); }
 }
-@media (prefers-reduced-motion: reduce) { .why-card { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .why-card, .why-more { transition: none; } .why-more { translate: none; } }
+
+/* Waarom pop-ups: centred panel; a bottom sheet below 600px. Motion lives in js/why-dialog.js. */
+html:has(.why-dialog[open]) { overflow: hidden; }
+/* The <dialog> itself stays still and invisible; the panel inside is what animates (GSAP reparents
+   elements without an offsetParent to measure them, which would knock a modal dialog out of the top layer). */
+.why-dialog {
+  width: calc(100% - 32px); max-width: 640px; max-height: none;
+  padding: 0; border: 0; background: transparent; color: var(--text); overflow: visible;
+}
+.why-dialog::backdrop { background: rgba(5,13,24,0.6); opacity: 0; transition: opacity 0.3s ease; }
+.why-dialog.is-open::backdrop { opacity: 1; }
+.why-dialog-panel { position: relative; background: var(--white); border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden; }
+.why-dialog-body { max-height: min(85vh, 780px); overflow-y: auto; overscroll-behavior: contain; padding: 36px 40px 40px; }
+.why-dialog .why-label { padding-right: 52px; }
+.why-dialog h2 { margin: 20px 0 14px; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.why-dialog p { margin: 0 0 10px; max-width: none; color: var(--text-soft); }
+.why-dialog-img { display: block; width: 100%; height: auto; border-radius: 12px; margin: 4px 0 18px; }
+.why-dialog-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 24px; }
+.why-dialog-link { font-weight: 600; color: var(--ink); text-underline-offset: 4px; }
+.why-dialog-link:focus-visible { outline: 2px solid var(--route); outline-offset: 3px; border-radius: 4px; }
+.why-dialog-close {
+  position: absolute; top: 16px; right: 16px; z-index: 1;
+  width: 44px; height: 44px; display: grid; place-items: center;
+  border: 0; border-radius: 50%; background: var(--paper-dim); color: var(--ink); cursor: pointer;
+}
+.why-dialog-close svg { width: 20px; height: 20px; }
+.why-dialog-close:hover { background: var(--line); }
+.why-dialog-close:focus-visible { outline: 2px solid var(--route); outline-offset: 2px; }
+@media (max-width: 599.98px) {
+  .why-dialog { margin: auto 0 0; width: 100%; max-width: 100%; }
+  .why-dialog-panel { border-radius: 20px 20px 0 0; }
+  .why-dialog-body { max-height: 85vh; padding: 28px 22px calc(28px + env(safe-area-inset-bottom)); }
+}
 
 /* ---------- Icon badges (shared premium treatment) ---------- */
 .dienst-card .icon,
@@ -820,13 +867,6 @@ section { padding: 88px 0; }
   margin-bottom: 1em;
 }
 .employer-card p { color: rgba(255,255,255,0.8); margin: 0; max-width: 60ch; }
-/* Short info blocks (lesvoertuigen, betalen); the homepage "Waarom" cards link here. */
-.diensten-info { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px 48px; margin-bottom: 3.4em; }
-.diensten-info h2 { font-size: clamp(1.4rem, 2.2vw, 1.8rem); margin-bottom: 0.4em; }
-.diensten-info p { margin: 0; }
-@media (max-width: 600px) { .diensten-info { grid-template-columns: minmax(0,1fr); gap: 28px; } }
-/* Anchor targets land below the sticky header. */
-.category-head, .diensten-info h2 { scroll-margin-top: calc(var(--hh) + 16px); }
 .employer-card .btn-outline { border-color: rgba(255,255,255,0.5); color: var(--white); flex-shrink: 0; }
 .employer-card .btn-outline:hover { background: var(--white); color: var(--ink); }
 

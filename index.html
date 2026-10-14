@@ -383,52 +383,124 @@
       <h2>Waarom leerlingen voor Joop Hagen kiezen</h2>
     </div>
     <div class="why-stack" id="why-stack">
-      <a class="why-card" href="diensten.html#theorie" aria-labelledby="why-h-1">
+      <article class="why-card">
         <!-- TODO: foto van Sabine nodig -->
         <div class="why-media why-media--tint"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-badge"/></svg></div>
         <div class="why-text">
           <div class="why-label"><span class="why-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-badge"/></svg></span><span>Hoge slagingspercentages</span></div>
-          <h3 id="why-h-1">Goed voorbereid op je examen</h3>
+          <h3><button type="button" class="why-open" aria-haspopup="dialog" aria-controls="why-d-1">Goed voorbereid op je examen</button></h3>
           <p>Onze leerlingen halen bovengemiddeld vaak in één keer hun rijbewijs.</p>
           <p>Compacte, praktijkgerichte theoriecursussen die je goed voorbereiden op het CBR-theorie-examen.</p>
-          <span class="why-cta btn btn-outline btn-small" aria-hidden="true">Bekijk diensten</span>
+          <span class="why-more" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Meer info</span></span>
         </div>
-      </a>
-      <a class="why-card why-card--flip" href="contact.html" aria-labelledby="why-h-2">
+      </article>
+      <article class="why-card why-card--flip">
         <!-- TODO: foto van Sabine nodig -->
         <div class="why-media why-media--tint"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-user"/></svg></div>
         <div class="why-text">
           <div class="why-label"><span class="why-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-user"/></svg></span><span>Eén vaste instructeur</span></div>
-          <h3 id="why-h-2">Eén instructeur, jouw tempo</h3>
+          <h3><button type="button" class="why-open" aria-haspopup="dialog" aria-controls="why-d-2">Eén instructeur, jouw tempo</button></h3>
           <p>Je doorloopt je hele opleiding bij dezelfde instructeur, die jouw tempo en leerpunten kent.</p>
           <p>Een lichamelijke beperking, of leer je liever in een ander tempo? We kijken graag met je mee.</p>
-          <span class="why-cta btn btn-primary btn-small" aria-hidden="true">Plan een intake</span>
+          <span class="why-more" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Meer info</span></span>
         </div>
-      </a>
-      <a class="why-card" href="diensten.html#lesvoertuigen" aria-labelledby="why-h-3">
+      </article>
+      <article class="why-card">
         <div class="why-media"><img src="images/vloot.jpg" alt="De lesauto's en vrachtwagens van Joop Hagen op een rij" width="1024" height="183" loading="lazy"></div>
         <div class="why-text">
           <div class="why-label"><span class="why-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-car"/></svg></span><span>Lesvoertuigen</span></div>
-          <h3 id="why-h-3">Moderne lesvoertuigen</h3>
+          <h3><button type="button" class="why-open" aria-haspopup="dialog" aria-controls="why-d-3">Moderne lesvoertuigen</button></h3>
           <p>Je leert rijden in actuele modellen, uitgerust met de laatste veiligheidsvoorzieningen.</p>
-          <span class="why-cta btn btn-outline btn-small" aria-hidden="true">Bekijk diensten</span>
+          <span class="why-more" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Meer info</span></span>
         </div>
-      </a>
-      <a class="why-card why-card--flip" href="diensten.html#betalen" aria-labelledby="why-h-4">
+      </article>
+      <article class="why-card why-card--flip">
         <!-- TODO: foto van Sabine nodig -->
         <div class="why-media why-media--tint"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></div>
         <div class="why-text">
           <div class="why-label"><span class="why-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wallet"/></svg></span><span>Betalen in termijnen</span></div>
-          <h3 id="why-h-4">Makkelijk geregeld</h3>
+          <h3><button type="button" class="why-open" aria-haspopup="dialog" aria-controls="why-d-4">Makkelijk geregeld</button></h3>
           <p>Spreid de kosten van je rijopleiding in overleg, zonder verrassingen achteraf.</p>
           <p>Vestiging aan de Hunneperkade in Deventer, ook open op zaterdag.</p>
-          <span class="why-cta btn btn-outline btn-small" aria-hidden="true">Bekijk diensten</span>
+          <span class="why-more" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Meer info</span></span>
         </div>
-      </a>
+      </article>
     </div>
   </div>
 
 </section>
+
+<!-- Waarom pop-ups (opened by the cards above, see js/why-dialog.js) -->
+<dialog class="why-dialog" id="why-d-1" aria-labelledby="why-d-1-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="why-label"><span class="why-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-badge"/></svg></span><span>Hoge slagingspercentages</span></div>
+      <h2 id="why-d-1-h">Goed voorbereid op je examen</h2>
+      <!-- aanvullen met Sabine: klassikaal of online, en hoe lang de cursus duurt -->
+      <p>Voor bijna elke categorie hebben we een compacte theoriecursus, gericht op het CBR-theorie-examen.</p>
+      <p>Je kunt de cursus ook los volgen, naast je rijlessen.</p>
+      <p>Volg je bij ons je praktijkopleiding? Dan ben je welkom op onze theorie-avonden.</p>
+      <p>Studiemateriaal, van theorieboeken tot digitale oefenvragen, kun je bij ons huren.</p>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="contact.html">Plan een intake</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog" id="why-d-2" aria-labelledby="why-d-2-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="why-label"><span class="why-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-user"/></svg></span><span>Eén vaste instructeur</span></div>
+      <h2 id="why-d-2-h">Eén instructeur, jouw tempo</h2>
+      <!-- aanvullen met Sabine: hoe de lessen worden aangepast bij een beperking of een ander tempo -->
+      <p>Je doorloopt je hele opleiding bij dezelfde instructeur, die jouw tempo en leerpunten kent.</p>
+      <p>Heb je een lichamelijke beperking? Wij kijken graag naar de mogelijkheden en denken met je mee over een rijopleiding die bij je past.</p>
+      <p>Leer je liever in een ander tempo? Ook dan kijken we graag met je mee.</p>
+      <p>In een intakegesprek bespreken we samen wat bij jou past.</p>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="contact.html">Plan een intake</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog" id="why-d-3" aria-labelledby="why-d-3-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="why-label"><span class="why-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-car"/></svg></span><span>Lesvoertuigen</span></div>
+      <h2 id="why-d-3-h">Moderne lesvoertuigen</h2>
+      <img class="why-dialog-img" src="images/vloot.jpg" alt="De lesauto's, motoren en vrachtwagen van Verkeersschool Joop Hagen" width="1024" height="183" loading="lazy">
+      <!-- aanvullen met Sabine: welke modellen, en "laatste veiligheidsvoorzieningen" bevestigen -->
+      <p>Je leert rijden in onze eigen lesauto's, motoren en vrachtwagen.</p>
+      <p>Je leert rijden in actuele modellen, uitgerust met de laatste veiligheidsvoorzieningen.</p>
+      <p>Autorijles kan in een schakelauto en in een automaat.</p>
+      <p>Voor beroepschauffeurs hebben we ook een LZV-combinatie.</p>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="diensten.html">Bekijk diensten</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog" id="why-d-4" aria-labelledby="why-d-4-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="why-label"><span class="why-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wallet"/></svg></span><span>Betalen in termijnen</span></div>
+      <h2 id="why-d-4-h">Makkelijk geregeld</h2>
+      <!-- aanvullen met Sabine: hoe betalen in termijnen precies werkt -->
+      <p>Spreid de kosten van je rijopleiding in overleg, zonder verrassingen achteraf.</p>
+      <p>Hoe je de termijnen verdeelt, spreken we samen met je af.</p>
+      <p>Je vindt ons aan de Hunneperkade 42 in Deventer.</p>
+      <p>We zijn ook op zaterdag open.</p>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="why-dialog-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hunneperkade+42,+7418+BT+Deventer" target="_blank" rel="noopener">Route plannen</a>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <section>
   <div class="container">
@@ -491,5 +563,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/why.js"></script>
+<script src="js/why-dialog.js"></script>
 </body>
 </html>

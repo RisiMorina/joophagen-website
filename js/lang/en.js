@@ -388,5 +388,20 @@ window.I18N_LANGS.en = {
   "Rijbewijs": "Licence",
   "nog geen les": "no lessons yet",
   "een paar lessen gehad": "a few lessons so far",
-  "al examen gedaan": "already took the exam"
+  "al examen gedaan": "already took the exam",
+  // Waarom pop-ups (index.html)
+  "Meer info": "More info",
+  "Bel ons": "Call us",
+  "Voor bijna elke categorie hebben we een compacte theoriecursus, gericht op het CBR-theorie-examen.": "For almost every category we have a compact theory course, aimed at the CBR theory exam.",
+  "Je kunt de cursus ook los volgen, naast je rijlessen.": "You can also take the course on its own, alongside your driving lessons.",
+  "Volg je bij ons je praktijkopleiding? Dan ben je welkom op onze theorie-avonden.": "Doing your practical training with us? Then you are welcome at our theory evenings.",
+  "Studiemateriaal, van theorieboeken tot digitale oefenvragen, kun je bij ons huren.": "You can rent study material from us, from theory books to digital practice questions.",
+  "Leer je liever in een ander tempo? Ook dan kijken we graag met je mee.": "Would you rather learn at a different pace? We are happy to work that out with you too.",
+  "In een intakegesprek bespreken we samen wat bij jou past.": "In an intake meeting we talk through what suits you.",
+  "Je leert rijden in onze eigen lesauto's, motoren en vrachtwagen.": "You learn to drive in our own lesson cars, motorcycles and truck.",
+  "Autorijles kan in een schakelauto en in een automaat.": "Car lessons are available in a manual and in an automatic.",
+  "Voor beroepschauffeurs hebben we ook een LZV-combinatie.": "For professional drivers we also have an LZV combination.",
+  "Hoe je de termijnen verdeelt, spreken we samen met je af.": "We agree with you how the instalments are split.",
+  "Je vindt ons aan de Hunneperkade 42 in Deventer.": "You can find us at Hunneperkade 42 in Deventer.",
+  "We zijn ook op zaterdag open.": "We are open on Saturdays too.",
 };
