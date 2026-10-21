@@ -95,142 +95,82 @@
 <section>
   <div class="container">
 
-    <div class="category-head">
-      <span class="count">01</span>
-      <div><h2 style="margin-bottom:0.15em;">Persoonlijke mobiliteit</h2><p style="margin:0;">Rijbewijzen voor je eigen vervoer</p></div>
-    </div>
+    <h2 class="dienst-group">Persoonlijk vervoer</h2>
+    <ul class="dienst-tiles">
+      <li><button type="button" class="dienst-tile" id="auto" aria-haspopup="dialog" aria-controls="d-auto">
+        <svg class="dienst-tile-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-car"/></svg>
+        <span class="dienst-tile-name">Auto</span>
+        <span class="dienst-tile-label">Rijbewijs B</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="auto-aanhanger" aria-haspopup="dialog" aria-controls="d-auto-aanhanger">
+        <svg class="dienst-tile-icon" viewBox="0 0 60 32" aria-hidden="true" focusable="false"><use href="#i-car-trailer"/></svg>
+        <span class="dienst-tile-name">Auto met aanhanger</span>
+        <span class="dienst-tile-label">Rijbewijs BE</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="motor" aria-haspopup="dialog" aria-controls="d-motor">
+        <svg class="dienst-tile-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-motor"/></svg>
+        <span class="dienst-tile-name">Motor</span>
+        <span class="dienst-tile-label">A1 · A2 · A</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="scooter" aria-haspopup="dialog" aria-controls="d-scooter">
+        <svg class="dienst-tile-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-scooter"/></svg>
+        <span class="dienst-tile-name">Scooter</span>
+        <span class="dienst-tile-label">Rijbewijs AM</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="camper" aria-haspopup="dialog" aria-controls="d-camper">
+        <svg class="dienst-tile-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-camper"/></svg>
+        <span class="dienst-tile-name">Camper of kleine vrachtwagen</span>
+        <span class="dienst-tile-label">Rijbewijs B/C1</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="tractor" aria-haspopup="dialog" aria-controls="d-tractor">
+        <svg class="dienst-tile-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-tractor"/></svg>
+        <span class="dienst-tile-name">Tractor</span>
+        <span class="dienst-tile-label">Rijbewijs T</span>
+      </button></li>
+    </ul>
 
-    <div class="diensten-grid">
-      <div class="dienst-card" id="auto" data-key="auto">
-        <svg class="icon" viewBox="0 0 48 32"><use href="#i-car"/></svg>
-        <div>
-          <h3>Auto</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Vanaf 16,5 jaar mag je beginnen met autorijlessen voor rijbewijs B. Vanaf 17 jaar mag je oefenen met een begeleider (2toDrive), en zodra je 18 bent en geslaagd, mag je direct zelf de weg op.</p>
-          <span class="meta">Rijbewijs B</span>
-        </div>
-      </div>
+    <h2 class="dienst-group" id="beroepsmatig">Beroepsmatig rijden</h2>
+    <ul class="dienst-tiles">
+      <li><button type="button" class="dienst-tile" id="vrachtwagen" aria-haspopup="dialog" aria-controls="d-vrachtwagen">
+        <svg class="dienst-tile-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-truck"/></svg>
+        <span class="dienst-tile-name">Vrachtwagen</span>
+        <span class="dienst-tile-label">Rijbewijs C</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="vrachtwagen-aanhanger" aria-haspopup="dialog" aria-controls="d-vrachtwagen-aanhanger">
+        <svg class="dienst-tile-icon" viewBox="0 0 60 32" aria-hidden="true" focusable="false"><use href="#i-truck-trailer"/></svg>
+        <span class="dienst-tile-name">Vrachtwagen met aanhanger</span>
+        <span class="dienst-tile-label">Rijbewijs CE</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="lzv" aria-haspopup="dialog" aria-controls="d-lzv">
+        <svg class="dienst-tile-icon" viewBox="0 0 64 32" aria-hidden="true" focusable="false"><use href="#i-lzv"/></svg>
+        <span class="dienst-tile-name">LZV-chauffeur</span>
+        <span class="dienst-tile-label">Certificaat LZV</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="taxi" aria-haspopup="dialog" aria-controls="d-taxi">
+        <svg class="dienst-tile-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-taxi"/></svg>
+        <span class="dienst-tile-name">Taxi</span>
+        <span class="dienst-tile-label">Taxipas</span>
+      </button></li>
+      <li><button type="button" class="dienst-tile" id="nascholing" aria-haspopup="dialog" aria-controls="d-nascholing">
+        <svg class="dienst-tile-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-refresh"/></svg>
+        <span class="dienst-tile-name">Nascholing Code 95</span>
+        <span class="dienst-tile-label">Verplichte nascholing</span>
+      </button></li>
+    </ul>
 
-      <div class="dienst-card" id="auto-aanhanger" data-key="auto-aanhanger">
-        <svg class="icon" viewBox="0 0 60 32"><use href="#i-car-trailer"/></svg>
-        <div>
-          <h3>Auto met aanhanger</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Heb je rijbewijs B en ben je 18 jaar of ouder? Dan kun je bij ons ook het aanhangerrijbewijs (BE) halen — desgewenst in één dag, of verspreid over meerdere lessen.</p>
-          <span class="meta">Rijbewijs BE</span>
-        </div>
-      </div>
+    <h2 class="dienst-group">Theorie</h2>
+    <ul class="dienst-tiles">
+      <li><button type="button" class="dienst-tile" id="theorie" aria-haspopup="dialog" aria-controls="d-theorie">
+        <svg class="dienst-tile-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-book"/></svg>
+        <span class="dienst-tile-name">Theoriecursussen &amp; -lessen</span>
+        <span class="dienst-tile-label">Alle categorieën</span>
+      </button></li>
+    </ul>
 
-      <div id="motor" class="dienst-card" data-key="motor">
-        <svg class="icon" viewBox="0 0 48 32"><use href="#i-motor"/></svg>
-        <div>
-          <h3>Motor</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Motorrijbewijzen zijn onderverdeeld naar leeftijd en vermogen: A1 voor lichte motoren, A2 voor middelzware motoren en A voor zware motoren. Onze instructeurs adviseren je graag over de juiste categorie. Nog nooit op een motor gezeten? Maak een afspraak voor een "Try the Bike" en ervaar hoe dat is!</p>
-          <span class="meta">A1 · A2 · A</span>
-        </div>
-      </div>
-
-      <div id="scooter" class="dienst-card" data-key="scooter">
-        <svg class="icon" viewBox="0 0 48 32"><use href="#i-scooter"/></svg>
-        <div>
-          <h3>Scooter</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Het bromfiets- en scooterrijbewijs (AM) kun je al vanaf je 16e behalen. We geven rijlessen op de scooter en bereiden je goed voor op het praktijkexamen. Volg bij ons de eendaagse cursus en haal in één dag je scooterrijbewijs.</p>
-          <span class="meta">Rijbewijs AM</span>
-        </div>
-      </div>
-
-      <div id="camper" class="dienst-card" data-key="camper">
-        <svg class="icon" viewBox="0 0 48 32"><use href="#i-camper"/></svg>
-        <div>
-          <h3>Camper of kleine vrachtwagen</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Wil je op reis met een camper of een lichte bedrijfswagen besturen? Wij leren je veilig omgaan met het grotere formaat en gewicht.</p>
-          <span class="meta">Rijbewijs B/C1</span>
-        </div>
-      </div>
-
-      <div id="tractor" class="dienst-card" data-key="tractor">
-        <svg class="icon" viewBox="0 0 48 32"><use href="#i-tractor"/></svg>
-        <div>
-          <h3>Tractor</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Voor werk in de landbouw of groenvoorziening leiden we je op voor het trekkerrijbewijs, inclusief het manoeuvreren met aanhangers — lessen worden gegeven op onze eigen New Holland tractor.</p>
-          <span class="meta">Rijbewijs T</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="category-head" id="beroepsmatig">
-      <span class="count">02</span>
-      <div><h2 style="margin-bottom:0.15em;">Beroepsmatig rijden</h2><p style="margin:0;">Opleidingen voor chauffeurs en ondernemers</p></div>
-    </div>
-
-    <div class="diensten-grid">
-      <div id="vrachtwagen" class="dienst-card" data-key="vrachtwagen">
-        <svg class="icon" viewBox="0 0 48 32"><use href="#i-truck"/></svg>
-        <div>
-          <h3>Vrachtwagen</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Wij zijn de nummer één rijschool in de regio voor het rijbewijs vrachtwagen. Onze ervaren instructeurs leren je alles over het veilig besturen van grote voertuigen.</p>
-          <span class="meta">Rijbewijs C</span>
-        </div>
-      </div>
-
-      <div id="vrachtwagen-aanhanger" class="dienst-card" data-key="vrachtwagen-aanhanger">
-        <svg class="icon" viewBox="0 0 60 32"><use href="#i-truck-trailer"/></svg>
-        <div>
-          <h3>Vrachtwagen met aanhanger</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Naast het vrachtwagenrijbewijs kun je bij ons ook het rijbewijs voor vrachtwagen met aanhanger halen, inclusief uitgebreide manoeuvreertraining.</p>
-          <span class="meta">Rijbewijs CE</span>
-        </div>
-      </div>
-
-      <div id="lzv" class="dienst-card" data-key="lzv">
-        <svg class="icon" viewBox="0 0 64 32"><use href="#i-lzv"/></svg>
-        <div>
-          <h3>LZV-chauffeur</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Voor de Langere en Zwaardere Vrachtautocombinatie (ecocombi) is geen apart rijbewijs nodig, maar wel een certificaat. Wij leiden je hiervoor op, geldig sinds 1 maart 2015 onbeperkt.</p>
-          <span class="meta">Certificaat LZV</span>
-        </div>
-      </div>
-
-      <div id="taxi" class="dienst-card" data-key="taxi">
-        <svg class="icon" viewBox="0 0 48 32"><use href="#i-taxi"/></svg>
-        <div>
-          <h3>Taxi</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Wil je als taxichauffeur aan de slag? Wij bereiden je voor op de rij- en ondernemersvaardigheden die nodig zijn voor de taxipas.</p>
-          <span class="meta">Taxipas</span>
-        </div>
-      </div>
-
-      <div id="nascholing" class="dienst-card" data-key="nascholing">
-        <svg class="icon" viewBox="0 0 24 24"><use href="#i-refresh"/></svg>
-        <div>
-          <h3>Nascholing Code 95</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Beroepschauffeurs zijn verplicht om periodiek bij te scholen. Wij bieden de nascholingscursussen aan die nodig zijn om Code 95 op je rijbewijs geldig te houden.</p>
-          <span class="meta">Verplichte nascholing</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="category-head">
-      <span class="count">03</span>
-      <div><h2 style="margin-bottom:0.15em;">Theorie</h2><p style="margin:0;">Goed voorbereid het examen in</p></div>
-    </div>
-
-    <div class="diensten-grid" style="margin-bottom:1em;">
-      <div class="dienst-card" id="theorie" data-key="theorie">
-        <svg class="icon" viewBox="0 0 24 24"><use href="#i-book"/></svg>
-        <div>
-          <h3>Theoriecursussen &amp; -lessen</h3><span class="expand-hint">Bekijk prijzen <svg viewBox="0 0 24 24"><use href="#i-chevron"/></svg></span>
-          <p>Voor bijna elke categorie bieden we compacte theoriecursussen aan, gericht op een goede voorbereiding op het CBR-theorie-examen. Ook los te volgen naast je rijlessen.</p>
-          <span class="meta">Alle categorieën</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="category-head" id="werkgevers">
-      <span class="count">04</span>
-      <div><h2 style="margin-bottom:0.15em;">Voor werkgevers</h2><p style="margin:0;">Maatwerk voor uw beroepschauffeurs</p></div>
-    </div>
+    <h2 class="dienst-group" id="werkgevers">Voor werkgevers</h2>
 
     <div class="employer-card">
-      <p>Ook aan werkgevers en beroepschauffeurs bieden wij het nodige. Uw werknemers zijn het kapitaal van uw bedrijf — wij maken graag een passende offerte voor de rijopleiding die u uw werknemer wilt aanbieden, van een enkele nascholingsdag tot een volledige opleiding.</p>
+      <p>Ook aan werkgevers en beroepschauffeurs bieden wij het nodige. Uw werknemers zijn het kapitaal van uw bedrijf. Wij maken graag een passende offerte voor de rijopleiding die u uw werknemer wilt aanbieden, van een enkele nascholingsdag tot een volledige opleiding.</p>
       <a href="contact.html" class="btn btn-outline">Vraag een offerte aan</a>
     </div>
 
@@ -241,20 +181,383 @@
   <noscript><div class="container"><p>Verkeersschool Joop Hagen, Hunneperkade 42, 7418 BT Deventer. <a href="tel:+31570635036">0570 63 50 36</a> · KvK 08114076 · <a href="privacy.html">Privacy</a></p></div></noscript>
 </footer>
 
-<!-- Dienst popup -->
-<div class="dienst-modal" id="dienst-modal" aria-hidden="true">
-  <div class="dienst-modal-backdrop" data-close-modal></div>
-  <div class="dienst-modal-panel" role="dialog" aria-modal="true" aria-labelledby="dienst-modal-title">
-    <button class="dienst-modal-close" type="button" data-close-modal aria-label="Sluiten">
-      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-    </button>
-    <div id="dienst-modal-body" class="dienst-modal-body"></div>
+<!-- Dienst pop-ups (opened by the tiles above, see js/diensten.js) -->
+<dialog class="why-dialog dienst-dialog" id="d-auto" aria-labelledby="d-auto-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-car"/></svg><span>Rijbewijs B</span></div>
+      <h2 id="d-auto-h">Auto</h2>
+      <p>Vanaf 16,5 jaar mag je beginnen met autorijlessen voor rijbewijs B. Vanaf 17 jaar mag je oefenen met een begeleider (2toDrive), en zodra je 18 bent en geslaagd, mag je direct zelf de weg op.</p>
+      <p class="dienst-age"><span>Minimumleeftijd</span> 16,5 jaar</p>
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 juli 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen</td></tr>
+          <tr><td>Autorijles 60 minuten</td><td>€ 67,50</td></tr>
+          <tr><td>Automaatrijles 60 minuten</td><td>€ 67,50</td></tr>
+          <tr class="price-group"><td colspan="2">Pakketten rijlessen 60 minuten</td></tr>
+          <tr><td>Pakket eerste 10 rijlessen</td><td>€ 605,00</td></tr>
+          <tr><td>20 rijlessen + praktijkexamen</td><td>€ 1.597,50</td></tr>
+          <tr><td>25 rijlessen + praktijkexamen</td><td>€ 1.935,00</td></tr>
+          <tr><td>30 rijlessen + praktijkexamen</td><td>€ 2.272,50</td></tr>
+          <tr><td>35 rijlessen + praktijkexamen</td><td>€ 2.610,00</td></tr>
+          <tr><td>40 rijlessen + praktijkexamen</td><td>€ 2.947,50</td></tr>
+          <tr class="price-group"><td colspan="2">Examens</td></tr>
+          <tr><td>Praktijkexamen</td><td>€ 317,50</td></tr>
+          <tr><td>BNOR-examen</td><td>€ 337,50</td></tr>
+          <tr><td>Faalangstexamen</td><td>€ 367,50</td></tr>
+          <tr class="price-group"><td colspan="2">Theorie</td></tr>
+          <tr><td>Theoriecursus incl. theorie-examen</td><td>€ 140,00</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Auto+(B)">Stuur een bericht</a>
+      </div>
+    </div>
   </div>
-</div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-auto-aanhanger" aria-labelledby="d-auto-aanhanger-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 60 32" aria-hidden="true" focusable="false"><use href="#i-car-trailer"/></svg><span>Rijbewijs BE</span></div>
+      <h2 id="d-auto-aanhanger-h">Auto met aanhanger</h2>
+      <p>Heb je rijbewijs B en ben je 18 jaar of ouder? Dan kun je bij ons ook het aanhangerrijbewijs (BE) halen. Desgewenst in één dag, of verspreid over meerdere lessen.</p>
+      <p class="dienst-age"><span>Minimumleeftijd</span> 18 jaar</p>
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 15 april 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen (incl. BTW)</td></tr>
+          <tr><td>Intake rijles 90 minuten</td><td>€ 115,00</td></tr>
+          <tr><td>Rijles 60 minuten</td><td>€ 80,00</td></tr>
+          <tr class="price-group"><td colspan="2">Praktijkexamen (incl. BTW)</td></tr>
+          <tr><td>Praktijkexamen</td><td>€ 317,50</td></tr>
+          <tr class="price-group"><td colspan="2">Pakketten (45 min. per les, incl. praktijkexamen)</td></tr>
+          <tr><td>4 rijlessen BE</td><td>€ 547,50</td></tr>
+          <tr><td>6 rijlessen BE</td><td>€ 665,00</td></tr>
+          <tr><td>8 rijlessen BE</td><td>€ 785,00</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Auto+met+aanhanger+(BE)">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-motor" aria-labelledby="d-motor-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-motor"/></svg><span>A1 · A2 · A</span></div>
+      <h2 id="d-motor-h">Motor</h2>
+      <p>Motorrijbewijzen zijn onderverdeeld naar leeftijd en vermogen: A1 voor lichte motoren, A2 voor middelzware motoren en A voor zware motoren. Onze instructeurs adviseren je graag over de juiste categorie. Nog nooit op een motor gezeten? Maak een afspraak voor een "Try the Bike" en ervaar hoe dat is!</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 maart 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen</td></tr>
+          <tr><td>Motorrijles 90 minuten</td><td>€ 75,00</td></tr>
+          <tr class="price-group"><td colspan="2">Praktijkexamen</td></tr>
+          <tr><td>Voertuigbeheersing (AVB)</td><td>€ 142,50</td></tr>
+          <tr><td>Verkeersdeelneming (AVD)</td><td>€ 317,50</td></tr>
+          <tr class="price-group"><td colspan="2">Pakketten (60 min, incl. AVB + AVD)</td></tr>
+          <tr><td>16 rijlessen + praktijkexamens</td><td>€ 1.225,00</td></tr>
+          <tr><td>24 rijlessen + praktijkexamens</td><td>€ 1.620,00</td></tr>
+          <tr><td>32 rijlessen + praktijkexamens</td><td>€ 2.002,50</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Motor+(A1+/+A2+/+A)">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-scooter" aria-labelledby="d-scooter-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-scooter"/></svg><span>Rijbewijs AM</span></div>
+      <h2 id="d-scooter-h">Scooter</h2>
+      <p>Het bromfiets- en scooterrijbewijs (AM) kun je al vanaf je 16e behalen. We geven rijlessen op de scooter en bereiden je goed voor op het praktijkexamen. Volg bij ons de eendaagse cursus en haal in één dag je scooterrijbewijs.</p>
+      <p class="dienst-age"><span>Minimumleeftijd</span> 16 jaar</p>
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 mei 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen</td></tr>
+          <tr><td>Losse scooterrijles 60 minuten</td><td>€ 40,00</td></tr>
+          <tr><td>Individuele scooterrijles 60 minuten</td><td>€ 65,00</td></tr>
+          <tr class="price-group"><td colspan="2">Praktijkexamen</td></tr>
+          <tr><td>Praktijkexamen</td><td>€ 222,50</td></tr>
+          <tr class="price-group"><td colspan="2">Pakketten (5,5 rijlessen 60 min. + praktijkexamen)</td></tr>
+          <tr><td>Zorgeloos pakket, online theoriecursus</td><td>€ 505,00</td></tr>
+          <tr><td>Zorgeloos pakket, klassikale theoriecursus</td><td>€ 575,00</td></tr>
+          <tr><td>Alleen rijlessen (zonder theorie)</td><td>€ 442,50</td></tr>
+          <tr class="price-group"><td colspan="2">Theorie-examen</td></tr>
+          <tr><td>Theoriecursus incl. theorie-examen</td><td>€ 140,00</td></tr>
+          <tr><td>Theoriecursus, zelf examen plannen</td><td>€ 100,00</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Scooter+(AM)">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-camper" aria-labelledby="d-camper-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-camper"/></svg><span>Rijbewijs B/C1</span></div>
+      <h2 id="d-camper-h">Camper of kleine vrachtwagen</h2>
+      <p>Wil je op reis met een camper of een lichte bedrijfswagen besturen? Wij leren je veilig omgaan met het grotere formaat en gewicht.</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 maart 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen (incl. BTW)</td></tr>
+          <tr><td>Praktijkles 60 minuten</td><td>€ 99,83</td></tr>
+          <tr class="price-group"><td colspan="2">Praktijkexamen (incl. BTW)</td></tr>
+          <tr><td>Praktijkexamen</td><td>€ 450,00</td></tr>
+          <tr class="price-group"><td colspan="2">Theorie</td></tr>
+          <tr><td>Theoriecursus Vakbekwaamheid (RVM1-C), incl. examen</td><td>€ 584,54</td></tr>
+          <tr class="price-group"><td colspan="2">Zelfstudiepakket</td></tr>
+          <tr><td>Lesboek + 12,5 uur online examentraining</td><td>€ 94,20</td></tr>
+          <tr><td>Lesboek + 12,5 uur uitgebreide e-learning</td><td>€ 143,45</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Camper+of+kleine+vrachtwagen">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-tractor" aria-labelledby="d-tractor-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-tractor"/></svg><span>Rijbewijs T</span></div>
+      <h2 id="d-tractor-h">Tractor</h2>
+      <p>Voor werk in de landbouw of groenvoorziening leiden we je op voor het trekkerrijbewijs, inclusief het manoeuvreren met aanhangers. Lessen worden gegeven op onze eigen New Holland tractor.</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 maart 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen</td></tr>
+          <tr><td>Tractorrijles 60 minuten</td><td>€ 95,00</td></tr>
+          <tr class="price-group"><td colspan="2">Praktijkexamen</td></tr>
+          <tr><td>Praktijkexamen</td><td>€ 470,00</td></tr>
+          <tr class="price-group"><td colspan="2">Theorie</td></tr>
+          <tr><td>Praktijkboek en speedtheorie</td><td>€ 69,75</td></tr>
+          <tr><td>Theoriecursus incl. theorie-examen</td><td>€ 140,00</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Tractor+(T)">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-vrachtwagen" aria-labelledby="d-vrachtwagen-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-truck"/></svg><span>Rijbewijs C</span></div>
+      <h2 id="d-vrachtwagen-h">Vrachtwagen</h2>
+      <p>Wij zijn de nummer één rijschool in de regio voor het rijbewijs vrachtwagen. Onze ervaren instructeurs leren je alles over het veilig besturen van grote voertuigen.</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 april 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen (incl. BTW)</td></tr>
+          <tr><td>Praktijkles C 60 minuten</td><td>€ 97,50</td></tr>
+          <tr class="price-group"><td colspan="2">Praktijkexamen (incl. BTW)</td></tr>
+          <tr><td>Praktijkexamen C</td><td>€ 450,00</td></tr>
+          <tr class="price-group"><td colspan="2">Toetsen (excl. afmeldkosten, incl. BTW)</td></tr>
+          <tr><td>Vakbekwaamheid praktische toets C (VPTC, code 95)</td><td>€ 484,00</td></tr>
+          <tr><td>Vakbekwaamheid toets besloten terrein (VPBC, code 95)</td><td>€ 423,50</td></tr>
+          <tr class="price-group"><td colspan="2">Theorie (incl. BTW)</td></tr>
+          <tr><td>Vakbekwaamheid RVM1-C, lessen + boeken + examen</td><td>€ 584,54</td></tr>
+          <tr><td>Vakbekwaamheid VM2-C, lessen + boeken + examen</td><td>€ 341,96</td></tr>
+          <tr><td>Vakbekwaamheid VM3-C, lessen + boeken + examen</td><td>€ 341,96</td></tr>
+          <tr class="price-group"><td colspan="2">Zelfstudiepakketten</td></tr>
+          <tr><td>Vrachtwagen (incl. code 95)</td><td>€ 253,30</td></tr>
+          <tr><td>Vrachtwagen excellent (incl. code 95)</td><td>€ 337,65</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Vrachtwagen+(C)">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-vrachtwagen-aanhanger" aria-labelledby="d-vrachtwagen-aanhanger-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 60 32" aria-hidden="true" focusable="false"><use href="#i-truck-trailer"/></svg><span>Rijbewijs CE</span></div>
+      <h2 id="d-vrachtwagen-aanhanger-h">Vrachtwagen met aanhanger</h2>
+      <p>Naast het vrachtwagenrijbewijs kun je bij ons ook het rijbewijs voor vrachtwagen met aanhanger halen, inclusief uitgebreide manoeuvreertraining.</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 april 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen (incl. BTW)</td></tr>
+          <tr><td>Praktijkles CE 60 minuten</td><td>€ 110,00</td></tr>
+          <tr class="price-group"><td colspan="2">Praktijkexamen (incl. BTW)</td></tr>
+          <tr><td>Praktijkexamen CE</td><td>€ 489,57</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Vrachtwagen+met+aanhanger+(CE)">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-lzv" aria-labelledby="d-lzv-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 64 32" aria-hidden="true" focusable="false"><use href="#i-lzv"/></svg><span>Certificaat LZV</span></div>
+      <h2 id="d-lzv-h">LZV-chauffeur</h2>
+      <p>Voor de Langere en Zwaardere Vrachtautocombinatie (ecocombi) is geen apart rijbewijs nodig, maar wel een certificaat. Wij leiden je hiervoor op, geldig sinds 1 maart 2015 onbeperkt.</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 maart 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Opleiding</td></tr>
+          <tr><td>Chauffeur LZV (W06)</td><td>€ 1.425,00</td></tr>
+        </table>
+        <p class="price-note">Prijs exclusief BTW en afmeldkosten CCV/CBR.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=LZV-chauffeur">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-taxi" aria-labelledby="d-taxi-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-taxi"/></svg><span>Taxipas</span></div>
+      <h2 id="d-taxi-h">Taxi</h2>
+      <p>Wil je als taxichauffeur aan de slag? Wij bereiden je voor op de rij- en ondernemersvaardigheden die nodig zijn voor de taxipas.</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 maart 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Losse rijlessen (incl. BTW)</td></tr>
+          <tr><td>Praktijkles 60 minuten</td><td>€ 75,00</td></tr>
+          <tr class="price-group"><td colspan="2">Praktijkexamen (incl. BTW)</td></tr>
+          <tr><td>Praktijkexamen</td><td>€ 450,00</td></tr>
+          <tr class="price-group"><td colspan="2">Pakket</td></tr>
+          <tr><td>3 lessen (90 min.) incl. praktijkexamen, minimaal af te nemen</td><td>€ 787,50</td></tr>
+          <tr class="price-group"><td colspan="2">Theorie (incl. BTW)</td></tr>
+          <tr><td>Lesboek en examentraining</td><td>€ 71,20</td></tr>
+          <tr><td>Theorie-examen</td><td>€ 75,00</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Taxi">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-nascholing" aria-labelledby="d-nascholing-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-refresh"/></svg><span>Verplichte nascholing</span></div>
+      <h2 id="d-nascholing-h">Nascholing Code 95</h2>
+      <p>Beroepschauffeurs zijn verplicht om periodiek bij te scholen. Wij bieden de nascholingscursussen aan die nodig zijn om Code 95 op je rijbewijs geldig te houden.</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 1 maart 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Modules (excl. BTW en afmeldkosten CCV/CBR)</td></tr>
+          <tr><td>U03 STL Lading zekeren</td><td>€ 150,00</td></tr>
+          <tr><td>U19 Leefstijl</td><td>€ 150,00</td></tr>
+          <tr><td>U23 Digitale tachograaf</td><td>€ 150,00</td></tr>
+          <tr><td>U24 Chauffeursdag</td><td>€ 150,00</td></tr>
+          <tr><td>U25-1 Rijoptimalisatie (klassikaal)</td><td>€ 150,00</td></tr>
+          <tr><td>U39 Techniek en veiligheid</td><td>€ 150,00</td></tr>
+          <tr><td>U45 Actualisering kennis vakbekwaamheid</td><td>€ 150,00</td></tr>
+          <tr><td>W01 Rijvaardigheid incl. HNR (e-learning)</td><td>€ 275,00</td></tr>
+          <tr><td>W01 Rijvaardigheid incl. HNR</td><td>€ 349,00</td></tr>
+          <tr><td>W02 Rijoptimalisatie (e-learning)</td><td>€ 275,00</td></tr>
+          <tr><td>W02 Rijoptimalisatie</td><td>€ 349,00</td></tr>
+        </table>
+        <p class="price-note">Prijswijzigingen voorbehouden. Vraag naar de actuele prijzen bij het maken van een afspraak.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Nascholing+Code+95">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog class="why-dialog dienst-dialog" id="d-theorie" aria-labelledby="d-theorie-h">
+  <div class="why-dialog-panel">
+    <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="why-dialog-body">
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-book"/></svg><span>Alle categorieën</span></div>
+      <h2 id="d-theorie-h">Theoriecursussen &amp; -lessen</h2>
+      <p>Voor bijna elke categorie bieden we compacte theoriecursussen aan, gericht op een goede voorbereiding op het CBR-theorie-examen. Ook los te volgen naast je rijlessen.</p>
+      <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
+      <details class="dienst-prices">
+        <summary>Prijzen bekijken</summary>
+        <p class="dienst-prices-date">Prijspeil 2026</p>
+        <table class="price-table">
+          <tr class="price-group"><td colspan="2">Theorie</td></tr>
+          <tr><td>Theoriecursus incl. theorie-examen</td><td>€ 140,00</td></tr>
+          <tr><td>Huur studiemateriaal per product</td><td>€ 10,00</td></tr>
+        </table>
+        <p class="price-note">Exacte prijs kan iets afwijken per rijbewijscategorie.</p>
+      </details>
+      <div class="why-dialog-actions">
+        <a class="btn btn-primary" href="tel:+31570635036">Bel ons</a>
+        <a class="btn btn-outline" href="contact.html?dienst=Theorie">Stuur een bericht</a>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <script src="js/site.js"></script>
 <script src="js/lang/en.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="js/diensten.js"></script>
 </body>
 </html>
