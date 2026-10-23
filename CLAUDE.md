@@ -24,14 +24,11 @@ Languages: Dutch + English (the client did not ask for English; it was added and
 
 ## What this repo contains
 
-1. **Root site** (`/*.html`): the current full site. Pages: `index`, `diensten`, `webshop`, `vacatures`, `contact`, `privacy`.
-2. **`ontwerpen/`**: three alternative designs for Sabine to choose from (`noindex`). The chooser page is `ontwerpen/index.html`. Each design reuses the root `css/styles.css` and `js/` and adds its own `design.css` on top:
-   - `ontwerp-1`: Compact. Short hero left, big vehicle tiles right, one screen (`tiles.js`).
-   - `ontwerp-2`: App-style. The licence chooser is the hero, with a sticky action bar on phones.
-   - `ontwerp-3`: Classic. Light hero with the fleet photo, split licence cards, three reasons (`panels.js`).
-   - Screenshots for the chooser are in `ontwerpen/screens/`.
+The site (`/*.html`) is the current full site. Pages: `index`, `diensten`, `webshop`, `vacatures`, `contact`, `privacy`.
 
-**Chosen variation: not chosen yet.** Once Sabine picks one, merge it into the root and remove `ontwerpen/`.
+**Design options:** the three alternative designs (`ontwerpen/`) were removed before showing the site to Sabine. They are still in git history (commit 88321cc and earlier) if one is ever needed again.
+
+**Hosting:** `netlify.toml` publishes the repo root (no build step) and sends `X-Robots-Tag: noindex` while it is a client preview. Remove that header block at launch.
 
 ## Design
 
@@ -62,8 +59,7 @@ Other tokens: `--hh` (header height, overridden per design), `--container` 1160p
 ├─ css/      styles.css
 ├─ js/       all site scripts; js/lang/ holds the translation files (en.js)
 ├─ images/   photos, logo, favicon.png, og-image.jpg (PDFs are git-ignored)
-├─ docs/     notes, not served as pages (vragen-voor-sabine.md)
-└─ ontwerpen/  the three design options (see above)
+└─ docs/     notes, not served as pages (vragen-voor-sabine.md)
 ```
 
 - `css/`: all shared styles in one file (~1600 lines). Image paths inside it are `../images/...`.
@@ -81,7 +77,6 @@ Other tokens: `--hh` (header height, overridden per design), `--container` 1160p
   - `why-dialog.js`: the Waarom pop-ups (native `<dialog>` per card, right after the section in `index.html`). Desktop: the panel grows out of the clicked card; below 600px: a bottom sheet; reduced motion: a fade. GSAP animates only `.why-dialog-panel`, never the `<dialog>` itself, because GSAP moves an element without an offsetParent into <html> to measure it, and that takes a modal dialog out of the top layer. Pop-up texts use only facts from this site or deventer.joophagen.nl; gaps are marked "aanvullen met Sabine".
 - `images/`: everything pages and CSS show, including the favicon.
 - `docs/`: working notes for us and the client; never linked from the site.
-- `ontwerpen/`: design pages link `../../css/styles.css`, `../../js/...`, `../ontwerpen.css`, `design.css`, and `../lang-ontwerpen.js` for extra EN strings.
 
 - No frameworks. GSAP 3.12.5 + ScrollTrigger (cdnjs) only for the homepage "Waarom" cards (`js/why.js`). Other motion is CSS plus small IIFE scripts. Every script checks `prefers-reduced-motion`.
 - JS style: ES5 IIFEs, `var`, early `return` if the element is missing. A short comment header explains each file.
@@ -92,15 +87,12 @@ Other tokens: `--hh` (header height, overridden per design), `--container` 1160p
 
 ## In progress
 
-- Uncommitted: ontwerp 1 and 2 now have their own inner pages (`diensten`, `contact`, `vacatures`, `webshop`) with local nav links and `.inner` styles in `design.css`, like ontwerp 3. Needs a check at 375px and desktop, then a commit.
-- Waiting for Sabine to choose a design.
+- Waiting for Sabine's feedback on the site (preview on Netlify).
 
 ## Open TODOs (before launch)
 
 - **Contact form** still sends to the web builder's address (`formsubmit.co/risimorina11@gmail.com` in `contact.html`). It must change to the school's address.
 - **Domain**: replace the preview URL in `site.js` and the BASE-URL TODOs in the `<head>` of `index`, `diensten` and `contact` (og/canonical).
-- **ontwerpen footers**: the footers in ontwerp 1/2/3 have "KvK + privacylink toevoegen" TODOs. The KvK number is known now (see above) and `privacy.html` exists, so fill both in for the chosen design.
-- **WhatsApp**: ontwerp 2 has a placeholder for a WhatsApp number. It needs a real mobile number, or the placeholder goes.
 - **Bus (D)**: there is a tab on the homepage plus a form option, but D is not on `diensten.html`. Confirm or remove.
 - **Licence content** still to fill in: motor theory, BE theory, C/CE practical exam age.
 - **Photos**: a photo of Sabine is needed in 3 spots on `index.html`. Ask whether the vehicle photos may be used and whether people may appear in photos.

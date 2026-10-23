@@ -1,0 +1,10 @@
+# Static site: no build step, publish the repo root.
+[build]
+  publish = "."
+
+# Preview for the client only: keep search engines out until the real domain is live.
+# TODO: remove this block at launch.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
