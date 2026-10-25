@@ -1707,3 +1707,53 @@ html.i18n-pending body { opacity: 0; animation: i18n-show 0s linear 0.8s forward
 @media (prefers-reduced-motion: reduce) {
   .gear-pick, .gear-pick .gs-gatelines { transition: none; }
 }
+
+/* ---------- Licence reading pages (rijbewijs-auto.html, rijbewijs-scooter.html) ----------
+   Calm reading page: one text column (max ~68ch) with a sticky side block on desktop.
+   Mobile order: head, photo, side block, text. */
+.lp { padding: clamp(20px, 3.5vw, 44px) 0 clamp(48px, 7vw, 96px); }
+.lp-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px;
+  grid-template-areas: "head" "photo" "aside" "body";
+}
+.lp-head { grid-area: head; }
+.lp-photo { grid-area: photo; margin: 0; }
+.lp-photo img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: var(--pos, 50% 50%); border-radius: var(--radius-sm); }
+.lp-photo--strip img { aspect-ratio: 1800 / 320; }
+@media (max-width: 699.98px) { .lp-photo--strip img { aspect-ratio: 2 / 1; } }
+.lp-aside { grid-area: aside; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 16px 0 20px; }
+.lp-body { grid-area: body; max-width: 68ch; }
+.lp-back { display: inline-block; margin-bottom: 18px; font-size: 0.9rem; color: var(--text-soft); }
+.lp-back::before { content: "\2190\00a0"; }
+.lp-back:hover { color: var(--ink); }
+.lp-head .dienst-dialog-label { padding-right: 0; }
+.lp-head h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0.35em 0 0.2em; }
+.lp-intro { font-size: 1.2rem; color: var(--ink); max-width: 40ch; margin: 0; }
+.lp-body p { max-width: none; font-size: 1.05rem; line-height: 1.7; color: var(--text); }
+.lp-body h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin: 2em 0 0.5em; }
+.lp-body > p:first-child { margin-top: 0; }
+.lp-body a { color: var(--orange-dark); text-underline-offset: 3px; }
+.lp-body a:hover { color: var(--ink); }
+.lp-body a:focus-visible, .lp-back:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; border-radius: 3px; }
+.lp-todo { font-style: italic; color: var(--text-soft); }
+.lp-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.lp-actions .btn { justify-content: center; }
+.lp-actions--end { margin-top: 28px; }
+.lp-aside .lp-actions { flex-direction: column; align-items: stretch; }
+.lp-aside .dienst-age { margin: 0 0 4px; }
+.lp-aside .dienst-prices { border-top: 0; margin-top: 6px; }
+@media (max-width: 599.98px) { .lp-actions { flex-direction: column; align-items: stretch; } }
+@media (min-width: 1000px) {
+  .lp-grid {
+    grid-template-columns: minmax(0, 68ch) minmax(260px, 340px); justify-content: space-between; column-gap: 48px; row-gap: 28px;
+    grid-template-areas: "head head" "photo photo" "body aside";
+  }
+  .lp-aside { position: sticky; top: calc(var(--hh) + 24px); align-self: start; border: 0; border-left: 1px solid var(--line); padding: 4px 0 4px 28px; }
+  .lp-photo:not(.lp-photo--strip) img { aspect-ratio: 21 / 8; }
+}
+
+/* text link above the pop-up buttons that leads to the full licence page */
+.dienst-more { margin: 18px 0 0; }
+.dienst-more a { color: var(--orange-dark); font-weight: 600; text-underline-offset: 3px; }
+.dienst-more a:hover { color: var(--ink); }
+.dienst-more + .why-dialog-actions { margin-top: 14px; }

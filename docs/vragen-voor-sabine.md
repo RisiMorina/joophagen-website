@@ -36,6 +36,19 @@ We hebben deze zinnen overgenomen van de oude site. Kloppen ze, en kunnen jullie
 
 - Zijn alle prijzen in de pop-ups op diensten.html nog actueel? De prijspeildata lopen uiteen (15 april, 1 mei, 1 juli 2026 e.d.).
 - Wie past ze aan als ze veranderen?
+- Prijs scootertheorie, welke is goed? In jouw tekst voor de scooterpagina staat dat de theoriecursus 140 euro kost, exclusief de verplichte boeken (50 euro, waarvan je er 30 terugkrijgt als je ze inlevert). In de pop-up op diensten.html staat "Theoriecursus incl. theorie-examen € 140,00". Is de cursus 140 euro zonder examen, of is het examen daar al in verwerkt?
+
+## 3b. Pagina's Auto en Scooter
+
+De pagina's rijbewijs-auto.html en rijbewijs-scooter.html gebruiken jouw teksten. In de tekst stond een paar keer "Klik hier". Dat is nu een link met een duidelijke naam, maar we weten nog niet waar die naartoe moet. Wat is de link voor:
+
+- Auto: "Meer over machtigen" (bij Voorbereiden op het examen)
+- Auto: "Zo gaat de tussentijdse toets"
+- Auto: "Zo gaat het praktijkexamen"
+- Auto: "de website van 2toDrive"
+- Scooter: "Bekijk voorbeeldvragen" (bij Het theorie examen)
+- Scooter: "Zo gaat het praktijkexamen"
+- Scooter: wat zijn de tijden van de theoriecursus? Nu staat er "Cursustijden volgen."
 
 ## 4. Contact en praktisch
 

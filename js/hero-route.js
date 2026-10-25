@@ -21,10 +21,10 @@
   function t(s) { return window.I18N ? window.I18N.t(s) : s; }
 
   var CARDS = {
-    auto:        { name: 'Auto',        licence: 'Rijbewijs B',          fact: 'Vanaf 16,5 jaar, met schakel of automaat.', plan: 'B',           more: 'auto' },
-    scooter:     { name: 'Scooter',     licence: 'Rijbewijs AM',         fact: 'Vanaf 16 jaar.',                            plan: 'AM',          more: 'scooter' },
-    motor:       { name: 'Motor',       licence: 'Rijbewijs A1, A2 en A', fact: '',                                         plan: 'motor',       more: 'motor' },
-    vrachtwagen: { name: 'Vrachtwagen', licence: 'Rijbewijs C',          fact: '',                                          plan: 'vrachtwagen', more: 'vrachtwagen' }
+    auto:        { name: 'Auto',        licence: 'Rijbewijs B',          fact: 'Vanaf 16,5 jaar, met schakel of automaat.', plan: 'B',           more: 'rijbewijs-auto.html' },
+    scooter:     { name: 'Scooter',     licence: 'Rijbewijs AM',         fact: 'Vanaf 16 jaar.',                            plan: 'AM',          more: 'rijbewijs-scooter.html' },
+    motor:       { name: 'Motor',       licence: 'Rijbewijs A1, A2 en A', fact: '',                                         plan: 'motor',       more: 'diensten.html#motor' },
+    vrachtwagen: { name: 'Vrachtwagen', licence: 'Rijbewijs C',          fact: '',                                          plan: 'vrachtwagen', more: 'diensten.html#vrachtwagen' }
   };
 
   var buttons = Array.prototype.slice.call(route.querySelectorAll('.stop-btn'));
@@ -61,7 +61,7 @@
     licenceEl.textContent = t(c.licence);
     factEl.textContent = c.fact ? t(c.fact) : '';
     planEl.setAttribute('href', 'contact.html?rijbewijs=' + c.plan);
-    moreEl.setAttribute('href', 'diensten.html#' + c.more);
+    moreEl.setAttribute('href', c.more);
   }
 
   function showCard(key) {
