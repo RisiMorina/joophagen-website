@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
 <script>try{var l=localStorage.getItem('lang');if(l&&l!=='nl'){document.documentElement.lang=l;document.documentElement.classList.add('i18n-pending')}}catch(e){}</script>
 <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -50,10 +51,6 @@
   <symbol id="ch-truck" viewBox="0 0 120 64"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="48.5" r="7.5"/><circle cx="22" cy="48.5" r="1.8" fill="currentColor" stroke="none"/><circle cx="38" cy="48.5" r="7.5"/><circle cx="38" cy="48.5" r="1.8" fill="currentColor" stroke="none"/><circle cx="88" cy="48.5" r="7.5"/><circle cx="88" cy="48.5" r="1.8" fill="currentColor" stroke="none"/><circle cx="104" cy="48.5" r="7.5"/><circle cx="104" cy="48.5" r="1.8" fill="currentColor" stroke="none"/>
 <path d="M12.5 43H4V10H70V43H47.5"/><path d="M70 36H74"/>
 <path d="M78.5 43H74V20H98L112 34V43H113.5"/><path d="M80 24H96L106 34H80Z"/></g></symbol>
-  <symbol id="ch-bus" viewBox="0 0 120 64"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="46" r="9"/><circle cx="30" cy="46" r="1.8" fill="currentColor" stroke="none"/><circle cx="92" cy="46" r="9"/><circle cx="92" cy="46" r="1.8" fill="currentColor" stroke="none"/>
-<path d="M21 46H6V16Q6 10 12 10H100Q114 10 114 24V46H101"/><path d="M39 46H83"/>
-<path d="M12 17H90V31H12Z"/><path d="M31 17V31M50 17V31M69 17V31"/>
-<path d="M96 17H106Q108 17 109 20L110 31H96Z"/><path d="M90 31V46"/></g></symbol>
   <symbol id="ch-taxi" viewBox="0 0 120 64"><use href="#ch-auto" width="120" height="64"/>
 <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="48" y="4" width="24" height="10" rx="2.5"/><path d="M12 40H104" stroke-width="2.5" stroke-dasharray="5 5"/></g></symbol>
 </svg>
@@ -61,7 +58,7 @@
 <header class="site-header">
   <div class="container">
     <a href="index.html" class="logo">
-      <img src="images/logo.png" alt="Verkeersschool Joop Hagen" class="logo-img">
+      <img src="images/logo-joop-hagen-dun.svg" alt="Verkeersschool Joop Hagen" class="logo-img" width="293" height="58">
     </a>
     <nav class="main-nav" id="main-nav">
       <ul>
@@ -85,12 +82,16 @@
     <div>
       <span class="hero-eyebrow">We helpen je graag verder</span>
       <h1>Neem contact op</h1>
-      <p>Heb je een vraag, wil je algemene informatie of juist persoonlijk advies? Vul het formulier in of neem telefonisch contact op — we zetten graag een kopje koffie voor je klaar op de vestiging.</p>
+      <p>Heb je een vraag, wil je algemene informatie of juist persoonlijk advies? Vul het formulier in of neem telefonisch contact op. We zetten graag een kopje koffie voor je klaar op de vestiging.</p>
     </div>
   </div>
 </section>
 
-<div class="lane-divider"></div>
+<div class="photo-strip">
+  <div class="container">
+    <img src="images/fotos/pand-vloot.webp" srcset="images/fotos/pand-vloot-800.webp 800w, images/fotos/pand-vloot.webp 1800w" sizes="(min-width: 1208px) 1160px, 100vw" width="1800" height="320" alt="De lesauto's, motoren en vrachtwagens van Joop Hagen voor het pand in Deventer" loading="lazy" decoding="async">
+  </div>
+</div>
 
 <section>
   <div class="container">
@@ -151,22 +152,22 @@
           <div class="form-error" id="form-error"></div>
 
           <!--
-            ACTIVATE THE FORM — 1 step:
+            ACTIVATE THE FORM: 1 step:
             Replace test@voorbeeld.nl below (in the "action"
-            attribute) with the real destination inbox. That's it — no
+            attribute) with the real destination inbox. That's it, no
             account, no signup, no dashboard, nothing to create.
 
             The first submission ever sent to a given email address
-            triggers a one-time confirmation email from FormSubmit — click
+            triggers a one-time confirmation email from FormSubmit: click
             the link in it once, and every submission after that (from
             anyone) arrives directly, automatically.
 
             Handing this site over to someone else later? There's no
-            account to transfer — just change the email address in the
+            account to transfer, just change the email address in the
             action attribute to theirs.
 
             (FormSubmit shows a Google reCAPTCHA by default as spam
-            protection — that's expected and recommended, not a bug.)
+            protection, that's expected and recommended, not a bug.)
           -->
           <form id="contact-form" name="contact" method="POST" action="https://formsubmit.co/risimorina11@gmail.com">
             <input type="hidden" name="_subject" value="Nieuw bericht via website Joop Hagen">
@@ -200,10 +201,6 @@
             <button type="button" class="wiz-choice wiz-vehicle" data-vehicle="vrachtwagen" aria-pressed="false">
               <svg viewBox="0 0 120 64" aria-hidden="true" focusable="false"><use href="#ch-truck"/></svg>
               <span class="wiz-name">Vrachtwagen</span><span class="wiz-code">C · CE</span>
-            </button>
-            <button type="button" class="wiz-choice wiz-vehicle" data-vehicle="bus" aria-pressed="false">
-              <svg viewBox="0 0 120 64" aria-hidden="true" focusable="false"><use href="#ch-bus"/></svg>
-              <span class="wiz-name">Bus</span><span class="wiz-code">D</span>
             </button>
             <button type="button" class="wiz-choice wiz-vehicle" data-vehicle="taxi" aria-pressed="false">
               <svg viewBox="0 0 120 64" aria-hidden="true" focusable="false"><use href="#ch-taxi"/></svg>
@@ -310,7 +307,6 @@
                 <option value="Vrachtwagen (C)">Vrachtwagen (C)</option>
                 <option value="Vrachtwagen met aanhanger (CE)">Vrachtwagen met aanhanger (CE)</option>
                 <option value="LZV-chauffeur">LZV-chauffeur</option>
-                <option value="Bus (D)">Bus (D)</option>
                 <option value="Taxi">Taxi</option>
                 <option value="Nascholing Code 95">Nascholing Code 95</option>
                 <option value="Theorie">Theorie</option>

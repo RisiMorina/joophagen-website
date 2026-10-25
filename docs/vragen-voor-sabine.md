@@ -5,10 +5,7 @@ Open punten voor de website van Verkeersschool Joop Hagen. Alles wat hier staat,
 ## 1. Rijbewijzen die op de homepage staan
 
 **Bus (rijbewijs D)**
-- Bieden jullie busrijbewijzen aan? Op diensten.html staat het niet. Op de homepage staat nu alleen de minimumleeftijd (van cbr.nl).
-- Zo ja: wat mag je ermee besturen (D, D1, DE?), welke theorie, wat zit er in de opleiding, en wat kost het?
-- Zo nee: dan halen we het tabblad Bus weg.
-- Het contactformulier heeft ook geen keuze "Bus". Moet die erbij?
+Vervallen: Sabine zei dat de bus niet meer wordt aangeboden. Is van de site gehaald.
 
 **Motor (A1, A2, A): theorie**
 - Bieden jullie een eigen theoriecursus voor motor? Op diensten.html staat alleen dat er theoriecursussen zijn "voor bijna elke categorie".

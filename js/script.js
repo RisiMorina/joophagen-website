@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
   // Contact form. Backends auto-detected from the form's own action/
-  // attributes — no need to edit this file either way:
+  // attributes, no need to edit this file either way:
   //   - Netlify Forms (form has data-netlify="true"): posts to the current
   //     page as Netlify expects, so it captures the submission.
   //   - FormSubmit.co or self-hosted PHP (action contains "formsubmit.co"
-  //     or ends in ".php"): a real, non-JS form submission — both redirect
+  //     or ends in ".php"): a real, non-JS form submission, both redirect
   //     back with ?verzonden=1 or ?fout=1, which this script checks for on
   //     page load.
   //   - Formspree or similar (any other real "action" URL): posts there
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // FormSubmit.co / self-hosted PHP land back here with a query string
-  // after a real page reload (no fetch involved) — check on every load.
+  // after a real page reload (no fetch involved), check on every load.
   if (form && isNativeSubmitBackend(form.getAttribute('action') || '')) {
     var params = new URLSearchParams(window.location.search);
     if (params.get('verzonden') === '1') showSuccess();
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
           return;
         }
         // FormSubmit's "_next" (and the self-hosted PHP script's redirect)
-        // need a full, absolute URL back to THIS site — not a relative
+        // need a full, absolute URL back to THIS site, not a relative
         // path, which would resolve against formsubmit.co's own domain
         // instead. Fill it in right before the real submit happens, so it
         // always matches wherever this site actually ends up hosted.
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (nextField) {
           nextField.value = window.location.origin + window.location.pathname + '?verzonden=1';
         }
-        return; // otherwise do not preventDefault — real submit continues
+        return; // otherwise do not preventDefault, real submit continues
       }
 
       e.preventDefault();

@@ -58,7 +58,7 @@
       '<div class="container">' +
         '<div class="footer-grid">' +
           '<div>' +
-            '<img src="images/logo.png" alt="' + SITE.name + '" class="footer-logo-img">' +
+            '<img src="images/logo-joop-hagen-dun.svg" alt="' + SITE.name + '" class="footer-logo-img" width="284" height="56">' +
             '<p class="footer-blurb">Verkeersschool in Deventer voor bijna elk rijbewijs. Persoonlijk, modern en met een vaste instructeur.</p>' +
           '</div>' +
           '<div>' +

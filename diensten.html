@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
 <script>try{var l=localStorage.getItem('lang');if(l&&l!=='nl'){document.documentElement.lang=l;document.documentElement.classList.add('i18n-pending')}}catch(e){}</script>
 <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -57,7 +58,7 @@
 <header class="site-header">
   <div class="container">
     <a href="index.html" class="logo">
-      <img src="images/logo.png" alt="Verkeersschool Joop Hagen" class="logo-img">
+      <img src="images/logo-joop-hagen-dun.svg" alt="Verkeersschool Joop Hagen" class="logo-img" width="293" height="58">
     </a>
     <nav class="main-nav" id="main-nav">
       <ul>
@@ -82,10 +83,6 @@
       <span class="hero-eyebrow">Ons complete aanbod</span>
       <h1>Diensten &amp; rijopleidingen</h1>
       <p>Van je eerste rijles tot een beroepsopleiding chauffeur: hieronder vind je alle rijbewijzen en cursussen die je bij Joop Hagen kunt halen.</p>
-      <div class="callout">
-        <svg class="icon" viewBox="0 0 24 24"><use href="#i-user"/></svg>
-        <p>Heb je een lichamelijke beperking? Wij kijken graag naar de mogelijkheden en denken met je mee over een rijopleiding die bij je past.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -95,7 +92,7 @@
 <section>
   <div class="container">
 
-    <h2 class="dienst-group">Persoonlijk vervoer</h2>
+    <h2 class="dienst-group">Rijbewijzen</h2>
     <ul class="dienst-tiles">
       <li><button type="button" class="dienst-tile" id="auto" aria-haspopup="dialog" aria-controls="d-auto">
         <svg class="dienst-tile-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-car"/></svg>
@@ -163,7 +160,7 @@
       <li><button type="button" class="dienst-tile" id="theorie" aria-haspopup="dialog" aria-controls="d-theorie">
         <svg class="dienst-tile-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-book"/></svg>
         <span class="dienst-tile-name">Theoriecursussen &amp; -lessen</span>
-        <span class="dienst-tile-label">Alle categorieën</span>
+        <span class="dienst-tile-label">Auto · Bromfiets · Vrachtwagen</span>
       </button></li>
     </ul>
 
@@ -188,6 +185,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-car"/></svg><span>Rijbewijs B</span></div>
       <h2 id="d-auto-h">Auto</h2>
+      <img class="why-dialog-img" src="images/fotos/vloot-ijssel.webp" srcset="images/fotos/vloot-ijssel-800.webp 800w, images/fotos/vloot-ijssel.webp 1800w" sizes="(min-width: 700px) 560px, 92vw" width="1800" height="320" alt="Vijf witte lesauto's van Joop Hagen op een rij aan de IJssel, met Deventer op de achtergrond" loading="lazy" decoding="async">
       <p>Vanaf 16,5 jaar mag je beginnen met autorijlessen voor rijbewijs B. Vanaf 17 jaar mag je oefenen met een begeleider (2toDrive), en zodra je 18 bent en geslaagd, mag je direct zelf de weg op.</p>
       <p class="dienst-age"><span>Minimumleeftijd</span> 16,5 jaar</p>
       <details class="dienst-prices">
@@ -226,6 +224,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 60 32" aria-hidden="true" focusable="false"><use href="#i-car-trailer"/></svg><span>Rijbewijs BE</span></div>
       <h2 id="d-auto-aanhanger-h">Auto met aanhanger</h2>
+      <!-- TODO: foto nodig (nog geen foto van Sabine) -->
       <p>Heb je rijbewijs B en ben je 18 jaar of ouder? Dan kun je bij ons ook het aanhangerrijbewijs (BE) halen. Desgewenst in één dag, of verspreid over meerdere lessen.</p>
       <p class="dienst-age"><span>Minimumleeftijd</span> 18 jaar</p>
       <details class="dienst-prices">
@@ -257,7 +256,13 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-motor"/></svg><span>A1 · A2 · A</span></div>
       <h2 id="d-motor-h">Motor</h2>
-      <p>Motorrijbewijzen zijn onderverdeeld naar leeftijd en vermogen: A1 voor lichte motoren, A2 voor middelzware motoren en A voor zware motoren. Onze instructeurs adviseren je graag over de juiste categorie. Nog nooit op een motor gezeten? Maak een afspraak voor een "Try the Bike" en ervaar hoe dat is!</p>
+      <img class="why-dialog-img" src="images/fotos/motoren-rij.webp" srcset="images/fotos/motoren-rij-800.webp 800w, images/fotos/motoren-rij.webp 1200w" sizes="(min-width: 700px) 560px, 92vw" width="1200" height="320" alt="Een rij lesmotoren voor het pand van Joop Hagen" loading="lazy" decoding="async">
+      <div class="dienst-intro">
+        <div>
+        <p>Motorrijbewijzen zijn onderverdeeld naar leeftijd en vermogen: A1 voor lichte motoren, A2 voor middelzware motoren en A voor zware motoren. Onze instructeurs adviseren je graag over de juiste categorie. Nog nooit op een motor gezeten? Maak een afspraak voor een "Try the Bike" en ervaar hoe dat is!</p>
+        </div>
+        <img class="dienst-intro-img" src="images/fotos/motor-closeup.webp" srcset="images/fotos/motor-closeup-800.webp 800w, images/fotos/motor-closeup.webp 1200w" sizes="190px" width="1200" height="1916" alt="Dichtbij: lesmotoren in de stalling van Joop Hagen" loading="lazy" decoding="async">
+      </div>
       <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
       <details class="dienst-prices">
         <summary>Prijzen bekijken</summary>
@@ -288,6 +293,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-scooter"/></svg><span>Rijbewijs AM</span></div>
       <h2 id="d-scooter-h">Scooter</h2>
+      <div class="dienst-photo" style="--pos:50% 75%"><img src="images/fotos/scooters.webp" srcset="images/fotos/scooters-800.webp 800w, images/fotos/scooters.webp 2000w" sizes="(min-width: 700px) 560px, 92vw" width="2000" height="1333" alt="Lesscooters op een rij voor het pand van Joop Hagen" loading="lazy" decoding="async"></div>
       <p>Het bromfiets- en scooterrijbewijs (AM) kun je al vanaf je 16e behalen. We geven rijlessen op de scooter en bereiden je goed voor op het praktijkexamen. Volg bij ons de eendaagse cursus en haal in één dag je scooterrijbewijs.</p>
       <p class="dienst-age"><span>Minimumleeftijd</span> 16 jaar</p>
       <details class="dienst-prices">
@@ -322,6 +328,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-camper"/></svg><span>Rijbewijs B/C1</span></div>
       <h2 id="d-camper-h">Camper of kleine vrachtwagen</h2>
+      <!-- TODO: foto nodig (nog geen foto van Sabine) -->
       <p>Wil je op reis met een camper of een lichte bedrijfswagen besturen? Wij leren je veilig omgaan met het grotere formaat en gewicht.</p>
       <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
       <details class="dienst-prices">
@@ -353,6 +360,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-tractor"/></svg><span>Rijbewijs T</span></div>
       <h2 id="d-tractor-h">Tractor</h2>
+      <!-- TODO: foto nodig (nog geen foto van Sabine) -->
       <p>Voor werk in de landbouw of groenvoorziening leiden we je op voor het trekkerrijbewijs, inclusief het manoeuvreren met aanhangers. Lessen worden gegeven op onze eigen New Holland tractor.</p>
       <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
       <details class="dienst-prices">
@@ -382,6 +390,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-truck"/></svg><span>Rijbewijs C</span></div>
       <h2 id="d-vrachtwagen-h">Vrachtwagen</h2>
+      <div class="dienst-photo" style="--pos:50% 66%"><img src="images/fotos/vrachtwagen-lebuinus.webp" srcset="images/fotos/vrachtwagen-lebuinus-800.webp 800w, images/fotos/vrachtwagen-lebuinus.webp 1200w" sizes="(min-width: 700px) 560px, 92vw" width="1200" height="1600" alt="De lesvrachtwagen van Joop Hagen op een plein in Deventer" loading="lazy" decoding="async"></div>
       <p>Wij zijn de nummer één rijschool in de regio voor het rijbewijs vrachtwagen. Onze ervaren instructeurs leren je alles over het veilig besturen van grote voertuigen.</p>
       <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
       <details class="dienst-prices">
@@ -418,6 +427,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 60 32" aria-hidden="true" focusable="false"><use href="#i-truck-trailer"/></svg><span>Rijbewijs CE</span></div>
       <h2 id="d-vrachtwagen-aanhanger-h">Vrachtwagen met aanhanger</h2>
+      <!-- TODO: foto nodig (nog geen foto van Sabine) -->
       <p>Naast het vrachtwagenrijbewijs kun je bij ons ook het rijbewijs voor vrachtwagen met aanhanger halen, inclusief uitgebreide manoeuvreertraining.</p>
       <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
       <details class="dienst-prices">
@@ -468,6 +478,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 48 32" aria-hidden="true" focusable="false"><use href="#i-taxi"/></svg><span>Taxipas</span></div>
       <h2 id="d-taxi-h">Taxi</h2>
+      <!-- TODO: foto nodig (nog geen foto van Sabine) -->
       <p>Wil je als taxichauffeur aan de slag? Wij bereiden je voor op de rij- en ondernemersvaardigheden die nodig zijn voor de taxipas.</p>
       <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
       <details class="dienst-prices">
@@ -499,6 +510,7 @@
     <div class="why-dialog-body">
       <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-refresh"/></svg><span>Verplichte nascholing</span></div>
       <h2 id="d-nascholing-h">Nascholing Code 95</h2>
+      <div class="dienst-photo" style="--pos:50% 66%"><img src="images/fotos/vrachtwagen-bomen.webp" srcset="images/fotos/vrachtwagen-bomen-800.webp 800w, images/fotos/vrachtwagen-bomen.webp 1200w" sizes="(min-width: 700px) 560px, 92vw" width="1200" height="1600" alt="De lesvrachtwagen van Joop Hagen op een plein tussen de bomen" loading="lazy" decoding="async"></div>
       <p>Beroepschauffeurs zijn verplicht om periodiek bij te scholen. Wij bieden de nascholingscursussen aan die nodig zijn om Code 95 op je rijbewijs geldig te houden.</p>
       <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
       <details class="dienst-prices">
@@ -531,9 +543,10 @@
   <div class="why-dialog-panel">
     <button type="button" class="why-dialog-close" aria-label="Sluiten" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
     <div class="why-dialog-body">
-      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-book"/></svg><span>Alle categorieën</span></div>
+      <div class="dienst-dialog-label"><svg class="dienst-dialog-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-book"/></svg><span>Auto · Bromfiets · Vrachtwagen</span></div>
       <h2 id="d-theorie-h">Theoriecursussen &amp; -lessen</h2>
-      <p>Voor bijna elke categorie bieden we compacte theoriecursussen aan, gericht op een goede voorbereiding op het CBR-theorie-examen. Ook los te volgen naast je rijlessen.</p>
+      <div class="dienst-photo" style="--pos:50% 55%"><img src="images/fotos/theorielokaal.webp" srcset="images/fotos/theorielokaal-800.webp 800w, images/fotos/theorielokaal.webp 2000w" sizes="(min-width: 700px) 560px, 92vw" width="2000" height="1334" alt="Het theorielokaal van Joop Hagen met tafels en stoelen" loading="lazy" decoding="async"></div>
+      <p>Voor auto, bromfiets en vrachtwagen bieden we compacte theoriecursussen aan, gericht op een goede voorbereiding op het CBR-theorie-examen. Ook los te volgen naast je rijlessen.</p>
       <!-- TODO: minimumleeftijd aanvullen met Sabine (staat niet op de oude site) -->
       <details class="dienst-prices">
         <summary>Prijzen bekijken</summary>

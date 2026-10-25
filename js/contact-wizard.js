@@ -19,7 +19,6 @@
     motor:       { name: 'Motor',              code: 'A1 / A2 / A', select: 'Motor (A1 / A2 / A)' },
     aanhanger:   { name: 'Auto met aanhanger', code: 'BE',        select: 'Auto met aanhanger (BE)' },
     vrachtwagen: { name: 'Vrachtwagen',        code: 'C / CE',    select: 'Vrachtwagen (C)' },
-    bus:         { name: 'Bus',                code: 'D',         select: 'Bus (D)' },
     taxi:        { name: 'Taxi',               code: '',          select: 'Taxi' }
   };
   var LESSONS = {
@@ -31,7 +30,7 @@
 
   // ---------- links from the homepage (rijbewijs=...) and from the price pop-ups (dienst=...)
   var FROM_CODE = {
-    AM: ['scooter'], B: ['auto'], BE: ['aanhanger'], D: ['bus'], taxi: ['taxi'],
+    AM: ['scooter'], B: ['auto'], BE: ['aanhanger'], taxi: ['taxi'],
     A1: ['motor', 'A1'], A2: ['motor', 'A2'], A: ['motor', 'A'], motor: ['motor'],
     C: ['vrachtwagen', 'C'], CE: ['vrachtwagen', 'CE'], vrachtwagen: ['vrachtwagen']
   };
@@ -39,7 +38,7 @@
     'Auto (B)': ['auto'], 'Auto (B), schakel': ['auto', 'schakel'], 'Auto (B), automaat': ['auto', 'automaat'],
     'Auto met aanhanger (BE)': ['aanhanger'], 'Motor (A1 / A2 / A)': ['motor'], 'Scooter (AM)': ['scooter'],
     'Vrachtwagen (C)': ['vrachtwagen', 'C'], 'Vrachtwagen met aanhanger (CE)': ['vrachtwagen', 'CE'],
-    'Bus (D)': ['bus'], 'Taxi': ['taxi']
+    'Taxi': ['taxi']
   };
 
   var state = { vehicle: null, variant: null, lessons: null };
